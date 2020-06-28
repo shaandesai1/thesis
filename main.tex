@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{DPhil: Thesis}
+\author{Shaan Desai }
+\date{November 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The Euler-Lagrange formulation equates to:
+
+$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = \frac{\partial L}{\partial q} $$
+
+where:
+$$ L = T - U $$
+
+In the example of a pendulum:
+
+$$ T = 1/2 mv^2 = 1/2 m (l\dot{\theta})^2 = 1/2 m l^2 \dot{\theta}^2 $$
+
+$$ U = mgh = mgl(1- \cos \theta) $$
+
+$$ L = 1/2 m l^2 \dot{\theta}^2 - mgl(1-\cos\theta) $$
+
+Placing the above into the euler-lagrange form gives us:
+
+LHS:
+
+$$ \frac{\partial L}{\partial \dot{q}} = ml^2 \dot{\theta}$$
+
+$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = ml^2 \ddot{\theta} $$
+
+RHS:
+
+$$ \frac{\partial L}{\partial q} = -mgl\sin\theta$$
+
+Therefore:
+
+$$ \ddot{\theta} = \frac{g}{l} \sin \theta $$
+
+
+Now, to transition to the Hamiltonian version:
+
+We can write the hamiltonian as the sum of the energies:
+
+$$ H = T + U $$
+
+$$ H = p^2/2m + U $$
+
+$$ H = -L + 2K $$
+
+$$ H = -L + mv^2$$
+
+$$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
+
+$$ p = \frac{\partial L}{\partial \dot{q}} $$
+
+\section{Literature Review}
+
+A brief look at residual nets illustrates that these iterative methods look like euler discretization steps. Adding more layers and taking smaller steps can result in a parametrization of a continuous dynamics:
+
+$$ \frac{dh}{dt} = f(h(t),t,\theta) $$
+
+Essentially the neural network hidden layers contain the components of the differential equation. The input layer h(0) gives us an IVP which we can evolve to time T. But this is a 'continuous-depth' network and we need a way to backprop. The method to backprop is \textit{adjoint sensitivity method}  which computes gradients by solving a second, augmented ODE back in time. 
+
+
+
+
+Neural networks have shown remarkable success at solving an array of problems in vision, robotics and healthcare. However, these networks still struggle to learn the basic laws of physics. 
+\cite{greydanus_hamiltonian_2019} show that we can take a physical system (i.e. position and momentum values or images of a moving pendulum) and map it to a latent space which can encode the dynamics of the system. One way to learn these dynamics is to train the network to learn a latent space which is equivalent to the rate of change of momentum/position. However, \cite{greydanus_hamiltonian_2019} show that using this simple approach is not enough in being able to accurately predict energy conserving phase space trajectories. Instead, they show that if we treat the latent space as a vector field (symplectic gradient) or as a parametric function for the hamiltonian then we can differentiate it with respect to the input (p and q) and obtain energy conservation laws. In this way, the neural network is parametrized to encode the hamiltonian of the system.
+
+An alternative approach to this method is that of variational integrator networks proposed by \cite{saemundsson_variational_2019}. Inspired by neural-ODE's, they propose a neural net whose architecture matches the discrete equation of motion governing the dynamical system. Essentially, the embedding learned by teh network is a dynamical system itself. They use a variational integration discretization - this method only introduces 3rd order errors w.r.t energy and closely resembles the continuous time dynamics. The approach follows the neural ODE approach with two changes, the ODE we model is the Euler-Lagrange from free-form dynamical system. In addition the discretization is a VI. 
+
+
+
+\end{document}
