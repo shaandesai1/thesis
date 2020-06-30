@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Introduction}{1}% 
+\contentsline {section}{\numberline {2}Literature Review}{2}% 
+\contentsline {subsection}{\numberline {2.1}Artificial Intelligence}{2}% 
+\contentsline {subsection}{\numberline {2.2}Inductive Biases}{3}% 
+\contentsline {subsection}{\numberline {2.3}Graph Neural Networks}{3}% 

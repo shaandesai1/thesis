@@ -1,13 +1,24 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-
+\usepackage{graphicx}
 \title{DPhil: Thesis}
 \author{Shaan Desai }
-\date{November 2019}
+
 
 \begin{document}
 
+% Title page is created here
 \maketitle
+
+
+%%%%% DEDICATION -- If you'd like one, un-comment the following.
+%\begin{dedication}
+%This thesis is dedicated to\\
+%someone\\
+%for some special reason\\
+%\end{dedication}
+
+\tableofcontents
 
 \section{Introduction}
 
@@ -60,6 +71,54 @@ $$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
 $$ p = \frac{\partial L}{\partial \dot{q}} $$
 
 \section{Literature Review}
+
+\subsection{Artificial Intelligence}
+
+- Humans have long tried to understand how the mind works
+- from a biological perspective it is clear that connectomics paves a pathway to understanding how we think
+- With the advent of computers and 'large' processing power, many researchers began to ask whether the human mind can be replicated using a computer.
+- Early work by walter and warren was the first to point out a means to build neural network logic.
+- Followed by Hebbian
+- Then an AI winter
+- Geof Hinton backprop
+- slew of advents in neural processing, convnets, rnns, graphs, tensor nets, deep RL, 
+- all seeking to solve more tasks/increase generalizability.
+- to date, there has been no general purpose solution (AGI) for a vast array of tasks e.g. a human can learn to create art, sit math exams, play sports, yet a robot so far can only do one of these tasks well.
+- Numerous limitations in terms of processing power and memory access still exist
+
+- Despite these limitations, neural networks have brought about significant advancements to society in robotics, self driving cars, cancer detection.
+
+- In what follows, we outline some of the major advances, those which have been fundamental pillars to research conducted during this phd. We follow no particular order.
+
+\subsection{Inductive Biases}
+
+An inductive bias in machine learning is prior information used to guide model building. In simple linear regression, for example, we assume the distribution of the noise in our data follows a Gaussian. This is a natural inductive bias because prior to seeing any data, we have assumed our noise model follows this form. In neural networks, architectures with variable depth, form and activations for example, serve as inductive biases. In essence, we encode initial assumptions about the complexity of data via inductive biases. 
+
+A feedforward deep neural network naturally encodes 'nonlinearity' as a prior and arguably makes the least assumptions about the underlying data. Convolutional Neural Networks assume spatial representations can be captured. Recurrent Neural Networks assume temporal data as inputs. 
+
+In what follows, we highlight some of the recent advances in inductive biases, particularly as they relate to solving problems in physics.
+
+\subsection{Graph Neural Networks}
+
+Graph Neural Networks are neural networks which use graphs as inputs. As such, they can be used to understand and learn the relationships which exist between the nodes of a graph. More formally, a graph is a tuple (Vertices,Edges,Globals). These are attributes of the graph where the nodes contain information, edges contain relationship weights and globals consist of macro variables general to all graphs. 
+
+interaction-physics based problems naturally benefit from graphs. We see that HOGNs and OGNs achieve great results in rolling out trajectories of N body systems. 
+
+Although they account for a new set of relational inductive biases, graphs still involve complex message passing schemes that involve significant fine-tuning. In addition, they assume data streams are already structured. However, graphs have shown significant promise in physics e.g. in explaining the phase transition of glassy materials. Their use in physics opens up a tried-and-tested pathway to solve more complex problems particularly in accounting for material interactions. 
+
+They're even shown to model complex fluid like systems from visual data. 
+
+Most systems to date have looked at graphs for classical physics but literature from 2004 suggests graphs, inherent in their relational structure, can also capture Ising-like hamiltonian structure.
+
+
+\subsection{Symplectic Biases}
+
+Symplecticity refers to the concept of volume-preservation. 
+
+
+
+
+
 
 A brief look at residual nets illustrates that these iterative methods look like euler discretization steps. Adding more layers and taking smaller steps can result in a parametrization of a continuous dynamics:
 
