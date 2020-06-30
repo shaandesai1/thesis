@@ -3,3 +3,6 @@
 \contentsline {subsection}{\numberline {2.1}Artificial Intelligence}{2}% 
 \contentsline {subsection}{\numberline {2.2}Inductive Biases}{3}% 
 \contentsline {subsection}{\numberline {2.3}Graph Neural Networks}{3}% 
+\contentsline {subsection}{\numberline {2.4}Symplectic Biases}{4}% 
+\contentsline {subsection}{\numberline {2.5}Integrative Biases}{4}% 
+\contentsline {subsection}{\numberline {2.6}Physics priors}{4}% 
