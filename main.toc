@@ -6,3 +6,7 @@
 \contentsline {subsection}{\numberline {2.4}Symplectic Biases}{4}% 
 \contentsline {subsection}{\numberline {2.5}Integrative Biases}{4}% 
 \contentsline {subsection}{\numberline {2.6}Physics priors}{4}% 
+\contentsline {section}{\numberline {3}related work reviews}{5}% 
+\contentsline {section}{\numberline {4}Physics Priors}{5}% 
+\contentsline {subsection}{\numberline {4.1}gradient learning}{5}% 
+\contentsline {subsection}{\numberline {4.2}Hamiltonian Neural Networks}{5}% 
