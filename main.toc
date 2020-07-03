@@ -1,12 +1,13 @@
-\contentsline {section}{\numberline {1}Introduction}{1}% 
-\contentsline {section}{\numberline {2}Literature Review}{2}% 
-\contentsline {subsection}{\numberline {2.1}Artificial Intelligence}{2}% 
-\contentsline {subsection}{\numberline {2.2}Inductive Biases}{3}% 
-\contentsline {subsection}{\numberline {2.3}Graph Neural Networks}{3}% 
-\contentsline {subsection}{\numberline {2.4}Symplectic Biases}{4}% 
-\contentsline {subsection}{\numberline {2.5}Integrative Biases}{4}% 
-\contentsline {subsection}{\numberline {2.6}Physics priors}{4}% 
-\contentsline {section}{\numberline {3}related work reviews}{5}% 
-\contentsline {section}{\numberline {4}Physics Priors}{5}% 
-\contentsline {subsection}{\numberline {4.1}gradient learning}{5}% 
-\contentsline {subsection}{\numberline {4.2}Hamiltonian Neural Networks}{5}% 
+\contentsline {section}{\numberline {1}Literature Review (WIP)}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Artificial Intelligence}{1}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Inductive Biases}{2}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Graph Neural Networks}{2}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Symplectic Biases}{3}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Integrative Biases}{3}{subsection.1.5}% 
+\contentsline {subsection}{\numberline {1.6}Physics priors}{3}{subsection.1.6}% 
+\contentsline {subsubsection}{\numberline {1.6.1}gradient learning}{3}{subsubsection.1.6.1}% 
+\contentsline {subsubsection}{\numberline {1.6.2}Hamiltonian Neural Networks}{3}{subsubsection.1.6.2}% 
+\contentsline {section}{\numberline {2}Notes}{4}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}GANs for Physics (Oct '19 - Jan '20)}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Lagrangian Dynamics (WIP)}{8}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Running Ideas}{9}{section.3}% 

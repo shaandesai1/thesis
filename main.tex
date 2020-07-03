@@ -1,6 +1,11 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subcaption}
+%\usepackage{amsmath}
+%\usepackage{multirow}
+%\usepackage{multicol}
 \title{DPhil: Thesis}
 \author{Shaan Desai }
 
@@ -20,57 +25,8 @@
 
 \tableofcontents
 
-\section{Introduction}
 
-The Euler-Lagrange formulation equates to:
-
-$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = \frac{\partial L}{\partial q} $$
-
-where:
-$$ L = T - U $$
-
-In the example of a pendulum:
-
-$$ T = 1/2 mv^2 = 1/2 m (l\dot{\theta})^2 = 1/2 m l^2 \dot{\theta}^2 $$
-
-$$ U = mgh = mgl(1- \cos \theta) $$
-
-$$ L = 1/2 m l^2 \dot{\theta}^2 - mgl(1-\cos\theta) $$
-
-Placing the above into the euler-lagrange form gives us:
-
-LHS:
-
-$$ \frac{\partial L}{\partial \dot{q}} = ml^2 \dot{\theta}$$
-
-$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = ml^2 \ddot{\theta} $$
-
-RHS:
-
-$$ \frac{\partial L}{\partial q} = -mgl\sin\theta$$
-
-Therefore:
-
-$$ \ddot{\theta} = \frac{g}{l} \sin \theta $$
-
-
-Now, to transition to the Hamiltonian version:
-
-We can write the hamiltonian as the sum of the energies:
-
-$$ H = T + U $$
-
-$$ H = p^2/2m + U $$
-
-$$ H = -L + 2K $$
-
-$$ H = -L + mv^2$$
-
-$$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
-
-$$ p = \frac{\partial L}{\partial \dot{q}} $$
-
-\section{Literature Review}
+\section{Literature Review (WIP)}
 
 \subsection{Artificial Intelligence}
 
@@ -121,42 +77,13 @@ Core to our beliefs in physical systems is the notion of energy conservation, in
 - new paper by tegmark
 
 \subsection{Physics priors}
-- tegmark paper
-- ai feynman
-- models trying to learn diffeqs
-- 
 
-
-
-
-
-
-
-
-A brief look at residual nets illustrates that these iterative methods look like euler discretization steps. Adding more layers and taking smaller steps can result in a parametrization of a continuous dynamics:
-
-$$ \frac{dh}{dt} = f(h(t),t,\theta) $$
-
-Essentially the neural network hidden layers contain the components of the differential equation. The input layer h(0) gives us an IVP which we can evolve to time T. But this is a 'continuous-depth' network and we need a way to backprop. The method to backprop is \textit{adjoint sensitivity method}  which computes gradients by solving a second, augmented ODE back in time. 
-
-
-
-
-Neural networks have shown remarkable success at solving an array of problems in vision, robotics and healthcare. However, these networks still struggle to learn the basic laws of physics. 
-\cite{greydanus_hamiltonian_2019} show that we can take a physical system (i.e. position and momentum values or images of a moving pendulum) and map it to a latent space which can encode the dynamics of the system. One way to learn these dynamics is to train the network to learn a latent space which is equivalent to the rate of change of momentum/position. However, \cite{greydanus_hamiltonian_2019} show that using this simple approach is not enough in being able to accurately predict energy conserving phase space trajectories. Instead, they show that if we treat the latent space as a vector field (symplectic gradient) or as a parametric function for the hamiltonian then we can differentiate it with respect to the input (p and q) and obtain energy conservation laws. In this way, the neural network is parametrized to encode the hamiltonian of the system.
-
-An alternative approach to this method is that of variational integrator networks proposed by \cite{saemundsson_variational_2019}. Inspired by neural-ODE's, they propose a neural net whose architecture matches the discrete equation of motion governing the dynamical system. Essentially, the embedding learned by teh network is a dynamical system itself. They use a variational integration discretization - this method only introduces 3rd order errors w.r.t energy and closely resembles the continuous time dynamics. The approach follows the neural ODE approach with two changes, the ODE we model is the Euler-Lagrange from free-form dynamical system. In addition the discretization is a VI. 
-
-
-\section{related work reviews}
-
-\section{Physics Priors}
 
 Broadly, the intersection of physics and AI falls into one of two domains, physics for AI or AI for physics. The former uses techniques from physics to develop and improve learning algorithms in general, for example xx. The latter uses existing learning approaches (with adaptations) to predict physics, for example ML for materials. In this review, we focus our attention on the latter.
 
 Physicists have long been interested in using learning tools to predict physics based systems. Some of these include predicting magnetic properties of 2-D materials, predicting the time evolution of N-body systems and even using AI to understand phase transitions. However, numerous challenges still remain in terms of data-efficient learning, reducing computational cost, improving predictive accuracy and learning better representations of the underlying physical process. Researchers have identified methods to address these challenges, but arguably the most promising hinges on physics-informed priors embedded in learning. It has been shown that models enriched with physically-informed priors i.e. models which consist of some knowledge about the physical system apriori, significantly outperform traditional methods in terms of data-efficiency and predictive accuracy. This has sparked a sharp interest in building both task-specific and general physics priors to improve learning. In this section, we summarize some of the core developments over time in physics informed inductive biases. 
 
-\subsection{gradient learning}
+\subsubsection{gradient learning}
 
 
 The notion of embedding physically-informed inductive biases in neural networks can be found in numerous early work aimed at modelling materials \cite{witkoskie_neural_2005, pukrittayakamee_simultaneous_2009, smith_ani-1_2017, rupp_fast_2012, yao_tensormol-01_2018}. For example, early efforts by Witkoskie and Doren \cite{witkoskie_neural_2005} demonstrate that in contrast to directly learning a potential energy surface, the inclusion of gradient learning can drive a network to accurately model the forces. This addition means that we supplement the learning process with additional information and hence improve the learnt potential surface. 
@@ -164,7 +91,7 @@ The notion of embedding physically-informed inductive biases in neural networks 
 
 
 
-\subsection{Hamiltonian Neural Networks}
+\subsubsection{Hamiltonian Neural Networks}
 
 ing neural networks to accurately learn classical dynamics from data  problems has been Hamiltonian Neural Networks \cite{greydanus_hamiltonian_2019}. In  demonstrated that dynamic predictions through time can be improved using Hamiltonian Neural Networks (HNNs) which endow models with a Hamiltonian constraint. The Hamiltonian is an important representation of a dynamical system because it is one of two approaches that generalizes classical mechanics. The Hamiltonian $\mathcal{H}$ is a scalar function of position $\mathbf{q} = (q_1,q_2,....,q_M)$ and momentum $\mathbf{p} = (p_1,p_2,....,p_M)$. In representing physical systems with a Hamiltonian, one can simply extract the time derivatives of the inputs by differentiating the Hamiltonian with respect to its inputs (see Eqn. \ref{eqn.hamiltonian}.)
 \begin{equation}
@@ -182,9 +109,187 @@ It can be shown that the Hamiltonian in many systems also represents the total e
 
 
 
+\section{Notes}
+
+A section to document some of my learnings over time.
+
+\subsection{GANs for Physics (Oct '19 - Jan '20)}
+
+\subsubsection*{Preliminary Ideas}
+
+Can generative networks capture the laws of physics?
+
+\begin{enumerate}
+\item Generative networks are able to learn complex mappings from data to latent spaces
+\item Often, these latent spaces are able to perfectly generate the original data which might indicate that the fundamental laws of physics are being captured by the network
+\item This leads us to the question - can we use a generative network to learn dynamics of a particle e.g. in the 2 body problem, and observe whether the generator learns the underlying equations of motion.
+\end{enumerate}
+Key point: if i can generate the data, I must understand something about the laws of physics.
+
+Inspired by greydanus, we wondered if a GAN-like approach can be taken to model and understand the phase-space.
+
+\subsubsection*{GAN Theory}
+
+What is a Generative Adversarial Network?
+
+Intuition is that there is an art forger (G) and art critique (D) who are tasked with making and evaluating art respectively. 
+
+\begin{enumerate}
+\item $\hat{x} = G(z) $ where z is noise and $\hat{x}$ has to match the distribution of $p(x)$.
+
+\item $D(x)$ is a mapping into a probability. Discriminates between real and fake art.
+\end{enumerate}
+
+They are adversaries, as such, they have different cost functions to optimize. This induces Nash equilibria:
+
+It is a game between 2 players in which the equlibria is a local minima for each loss. This means the generator draws samples perfectly from $p(x)$ and the discriminator cannot discriminate so predicts 1/2 for all samples.
+
+The discriminator loss follows that of a log bernoulli distribution or the cross entropy loss function.
+
+$$ H(p,q) = -\sum_i p_i \log q_i$$
+
+For binary classification we get:
+
+$$ H((x_1,y_1),D) = -y_1 \log D(x_1) - (1-y_1) \log (1-D(x_1)) $$
+
+If we sum over each value in the dataset, we then obtain:
+
+$$ H((x_i,y_i)_i^N,D) = -\sum_{i=1}^N y_i \log D(x_i) - (1-y_i) \log (1-D(x_i)) $$
+
+
+Now ideally, we like to take this and make some changes.
+
+\begin{enumerate}
+\item we want data to be split evenly, so if the total dataset size is N. We set N/2 of the samples to be class 1 and N/2 to be class 0. This automatically reduces the above y variables to 1/2's. 
+\item The x values come from 2 sources. The legitimate source and the sampled source. We want this to be probabalistic so sums become expectations.
+\end{enumerate}
+
+%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{\hat{x}  \sim p_{model}} [log(1-D(\hat{x}))] $$ 
+%
+%
+%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{z} [log(1-D(G(z)))] $$ 
+
+The discriminator needs to minimze the above loss. It is the same as the cross-ent loss for a NN doing binary classification with sigmoid output.
+
+If we optimize this loss holding G constant, we get:
+
+$$ D(x) = \frac{p_{data}}{p_{model} + p_{data}} $$
+
+This is nash equilbrium.
+
+Zero-sum game means any loss is conserved between entities. 
+
+The zero sum game solution is minimax where we want to minimize the maximum loss. The discriminator wants a higher payoff so tries to maximize while the generator wants a lower loss so minimizes. To optimize this, an interative approach is used.
+
+
+The sources used to understand these concepts come from \href{https://seas.ucla.edu/~kao/nndl/lectures/gans.pdf}{ucla tutorial} and \href{https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/}{Takeshi github link}.
 
 
 
+\subsubsection*{Training GANs}
+
+To start we  train a GAN using MNIST (Adam optimizers and saw convergence). We attempted GAN with pendulum motion and saw multiple convergence issues. We notice some challenges with training GANs - generator usually diverges while discriminator rapidly converges. Many tips online i.e. make target values 0.9 instead of 1 to reduce certainty.Using ‘hacks’ only can see marginal improvement. Larger issue of GANs being unstable.
+
+Furthermore, do we actually want to use GANs for the application? Seems that the only way to constrain the noise input is to encode it which essentially gives us an autoencoder.
+
+VIN network is a good idea though we have no code base/architecture used.
+
+Attempted to use AE-GAN to encode physics and also build a discriminator: challenge at the moment is discriminator loss is increasing (rare) and predicted output images look nothing like the ground truth. 
+
+Some ideas:
+
+\begin{enumerate}
+
+\item Changed optimizers
+\item Changed network architecture
+\item Removed discriminator and still noticed issues
+\item Even when architecture is consistent with HNN
+\item Perhaps the only difference is torch.randperm and torch shuffle
+They use shuffling of data with replacement and don’t use epochs but steps
+\item Takens theorem \href{https://en.wikipedia.org/wiki/Takens%27s_theorem}{here}
+\end{enumerate}
+
+
+Not necessarily evident what the benefits are of having the AE-GAN from the simple autoencoder network/ perhaps better images but this might not improve the latent space we learn.
+
+An alternative approach is to sample the latent space in a way which is consistent with the laws of physics (i.e. sample p and q) sequentially, as we sample the ground truth images - then we can see how p,q can ‘map’ into a 2D image (might be potential to learn from the hidden layers) but this is fully supervised and we are not learning anything immediately useful.
+
+Some experimental results
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.7\textwidth}
+\includegraphics[width=\textwidth]{figures/gan_phase_1stack.png}
+\end{subfigure}
+\begin{subfigure}{0.7\textwidth}
+\includegraphics[width=\textwidth]{figures/gan_phase_2stack.png}
+\end{subfigure}
+\begin{subfigure}{0.7\textwidth}
+\includegraphics[width=\textwidth]{figures/gan_phase_3stack.png}
+\end{subfigure}
+\end{figure}
+
+We carried out an extensive study between batch size and epoch. However, we find no consistency in the generated phase space.
+
+\subsubsection*{key takeaways}
+
+Preliminary results show that GANs are difficult to work with (this could be an interesting topic to cover on its own). I believe gradient clipping is one way to solve this issue. 
+More importantly, Variational Integrator Networks proves that the learnt phase space from an AE will not, in general, represent the true phase space. In order to do this, one needs to encode the Lie group dynamics.
+Constrained GANs have already been looked at for generating consistent results.
+
+We still have yet to establish why a potential Lie group constrained GAN can help the world. i.e. why is it useful to be able to generate random samples of a pendulum swinging?
+
+
+\subsection{Lagrangian Dynamics (WIP)}
+The Euler-Lagrange formulation equates to:
+
+$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = \frac{\partial L}{\partial q} $$
+
+where:
+$$ L = T - U $$
+
+In the example of a pendulum:
+
+$$ T = 1/2 mv^2 = 1/2 m (l\dot{\theta})^2 = 1/2 m l^2 \dot{\theta}^2 $$
+
+$$ U = mgh = mgl(1- \cos \theta) $$
+
+$$ L = 1/2 m l^2 \dot{\theta}^2 - mgl(1-\cos\theta) $$
+
+Placing the above into the euler-lagrange form gives us:
+
+LHS:
+
+$$ \frac{\partial L}{\partial \dot{q}} = ml^2 \dot{\theta}$$
+
+$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = ml^2 \ddot{\theta} $$
+
+RHS:
+
+$$ \frac{\partial L}{\partial q} = -mgl\sin\theta$$
+
+Therefore:
+
+$$ \ddot{\theta} = \frac{g}{l} \sin \theta $$
+
+
+Now, to transition to the Hamiltonian version:
+
+We can write the hamiltonian as the sum of the energies:
+
+$$ H = T + U $$
+
+$$ H = p^2/2m + U $$
+
+$$ H = -L + 2K $$
+
+$$ H = -L + mv^2$$
+
+$$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
+
+$$ p = \frac{\partial L}{\partial \dot{q}} $$
+
+
+\section{Running Ideas}
 
 
 
