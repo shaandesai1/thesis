@@ -239,6 +239,11 @@ Constrained GANs have already been looked at for generating consistent results.
 We still have yet to establish why a potential Lie group constrained GAN can help the world. i.e. why is it useful to be able to generate random samples of a pendulum swinging?
 
 
+\subsection{VIGN}
+
+Need to fill this section out in detail.
+
+
 \subsection{Lagrangian Dynamics (WIP)}
 The Euler-Lagrange formulation equates to:
 
@@ -290,6 +295,38 @@ $$ p = \frac{\partial L}{\partial \dot{q}} $$
 
 
 \section{Running Ideas}
+
+\subsection{VIGN extension}
+
+- non conserved energy domain
+is there a link between the port-hamiltonian view and lagrangians with generalized force
+for a damped system we have:
+
+$$ \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q}} - \frac{\partial \mathcal{L}}{\partial q} = \mathbf{F}^{ext} \frac{\partial \mathbf{r}}{\partial q}$$
+
+see \href{http://www.physics.hmc.edu/~saeta/courses/p111/uploads/Y2013/lec131023-DSHO.pdf}{here} for details on how this equation was built. 
+
+- distributional assumptions for practical purposes
+
+Assume $ H = E_c $ for a trajectory of an initial condition, then:
+
+$$ H = K + U $$
+
+$$U = H - K $$
+
+$$ L = K - U $$
+
+$$ L = 2K -H $$
+
+Now, for L to be constant, K needs to be constant. In most cases, $ K = p^2/2m $. For this to be constant p should be constant. For p to be constant, $\dot{p} = 0$. This would imply, for most settings, that:
+
+$$ \frac{dp}{dt} = \frac{dU}{dq} = 0 $$
+
+This means that U is zero, which is not true.
+
+We have proven that as long as energy is conserved in a system exhibiting $K = p^2/2m$ the Lagrangian will never be constant unless the system has 0 potential. 
+
+As such, the Lagrangian depends on the distribution of the kinetic energy/potential energy. In the large N limit, these distributions tend toward a Gaussian.
 
 
 

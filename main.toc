@@ -9,5 +9,7 @@
 \contentsline {subsubsection}{\numberline {1.6.2}Hamiltonian Neural Networks}{3}{subsubsection.1.6.2}% 
 \contentsline {section}{\numberline {2}Notes}{4}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}GANs for Physics (Oct '19 - Jan '20)}{4}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Lagrangian Dynamics (WIP)}{8}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.2}VIGN}{8}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Lagrangian Dynamics (WIP)}{8}{subsection.2.3}% 
 \contentsline {section}{\numberline {3}Running Ideas}{9}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}VIGN extension}{9}{subsection.3.1}% 
