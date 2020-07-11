@@ -328,6 +328,32 @@ We have proven that as long as energy is conserved in a system exhibiting $K = p
 
 As such, the Lagrangian depends on the distribution of the kinetic energy/potential energy. In the large N limit, these distributions tend toward a Gaussian.
 
+Is it beneficial to have a target variable distributed more broadly like a gaussian vs a delta?
+
+
+\subsection{Covid}
+
+
+SEIR model is differentiable and has some hamiltonian/energy conserving property. how might we build a neural network on this?
+
+We start out using SEIR to model china and it works well.
+
+We have issues modeling beijing which is seeing a second spike, we could reshape R naught (t) as an exponential sine function.
+$$ R_0(t) = Ae^{-(t-t_0)}|sin(B(t-t_0))| $$
+
+This is too specific. How can we encode the SEIR model into a graph neural network. Note, graph networks and graph neural networks are different frameworks encompassing the same core operations. In graph networks, however, the intermediate functional representations (hidden layers) are computed first, before an aggregation scheme is used. In graph neural networks, e.g. GCN, the operations involve computing a hidden layer first using neighbouring nodes, before feeding these hidden layers into the graph neural network.
+
+This reversal means one needs to be careful in how they define graph neural network architectures between DGL and deepmind graph nets library.
+
+We use graph convolutions to train on simulated data, we find hypersensitivity to initial conditions. More importantly, because of the time dependent nature of the system we are unsure of how many lag-variables are necessary to evolve the system.
+
+\subsection{Inductive  biases for RL}
+
+MDPs with policies which are deterministic or stochastic. Model free which involves sampling at random. Model based which involves sampling the learnt environment.
+
+
+
+
 
 
 \end{document}
