@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{subcaption}
-%\usepackage{amsmath}
+\usepackage{amsmath}
 %\usepackage{multirow}
 %\usepackage{multicol}
 \title{DPhil: Thesis}
@@ -83,10 +83,47 @@ Broadly, the intersection of physics and AI falls into one of two domains, physi
 
 Physicists have long been interested in using learning tools to predict physics based systems. Some of these include predicting magnetic properties of 2-D materials, predicting the time evolution of N-body systems and even using AI to understand phase transitions. However, numerous challenges still remain in terms of data-efficient learning, reducing computational cost, improving predictive accuracy and learning better representations of the underlying physical process. Researchers have identified methods to address these challenges, but arguably the most promising hinges on physics-informed priors embedded in learning. It has been shown that models enriched with physically-informed priors i.e. models which consist of some knowledge about the physical system apriori, significantly outperform traditional methods in terms of data-efficiency and predictive accuracy. This has sparked a sharp interest in building both task-specific and general physics priors to improve learning. In this section, we summarize some of the core developments over time in physics informed inductive biases. 
 
+\subsection{Gradient and Hamiltonian Dynamics}
+
+Although most modern methods cite gradient learning(next section) by Witkoskie as one of the earliest efforts designed to improve learning of physics in neural networks, we actually find that more sophisticated approaches were developed prior to this effort.
+
+In 1996 James Howse/NIPS presented a paper which highlights a few things on identifying dynamical systems:
+
+\begin{itemize}
+\item define ML as model selection and parameter estimation
+\item paper introduces a model inspired by defining a generalized functional form for dynamical systems
+\item using a potential V(x) we can partition an n-dimensional phase space
+\item first space is normal to some level surface $V(x)=k$, second is tangent to $V(x)=k$.
+\item systems which always move downhill are gradient like systems: $ \dot{x} = - P(x)\nabla_{x} V(x) $
+\item systems which remain at constant potential are hamiltonian like: $\dot{x} = Q(x)\nabla_x V(x)$
+\item can combine these two to get total dynamics.
+\item define a loss function inspired by this model
+\item use the learnt parameters to then evolve a system
+\end{itemize}
+
+The entire framework is a parameter fitting one because we have a sense for the prior functional form of the dynamics.
+
 \subsubsection{gradient learning}
 
 
-The notion of embedding physically-informed inductive biases in neural networks can be found in numerous early work aimed at modelling materials \cite{witkoskie_neural_2005, pukrittayakamee_simultaneous_2009, smith_ani-1_2017, rupp_fast_2012, yao_tensormol-01_2018}. For example, early efforts by Witkoskie and Doren \cite{witkoskie_neural_2005} demonstrate that in contrast to directly learning a potential energy surface, the inclusion of gradient learning can drive a network to accurately model the forces. This addition means that we supplement the learning process with additional information and hence improve the learnt potential surface. 
+The notion of embedding physically-informed inductive biases in neural networks can be found in numerous early work aimed at modelling materials \cite{witkoskie_neural_2005, pukrittayakamee_simultaneous_2009, smith_ani-1_2017, rupp_fast_2012, yao_tensormol-01_2018}. For example, early efforts by Witkoskie and Doren \cite{witkoskie_neural_2005} demonstrate that in contrast to directly learning a potential energy surface, the inclusion of gradient learning can drive a network to accurately model the forces. 
+
+Therefore, the loss function takes the form:
+$$
+\Bigg\|
+\begin{bmatrix}
+\hat{y} \\
+\hat{\dot{y}}
+\end{bmatrix}
+-
+\begin{bmatrix}
+y \\
+\dot{y}
+\end{bmatrix}
+\Bigg\|_2^2
+$$
+
+This addition means that we can supplement the learning process with additional information and hence improve the learnt potential surface. The fundamental idea being that if we have access to supplemental data such as the gradients, but fewer data points, we might actually learn a surface with higher accuracy than if we had many data points with no gradient information. 
 
 
 

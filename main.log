@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.17)  6 JUL 2020 09:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.17)  11 JUL 2020 11:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -186,7 +186,64 @@ Package caption Info: hyperref package is loaded.
 \c@subfigure=\count100
 \c@subtable=\count101
 )
-(./main.aux)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen116
+))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen117
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen118
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip11
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks18
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks19
+\eqnshift@=\dimen119
+\alignsep@=\dimen120
+\tagshift@=\dimen121
+\tagwidth@=\dimen122
+\totwidth@=\dimen123
+\lineht@=\dimen124
+\@envbody=\toks20
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -203,20 +260,19 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen116
-\scratchbox=\box27
-\nofMPsegments=\count103
-\nofMParguments=\count104
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen117
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
-\everyMPtoPDFconversion=\toks18
+\scratchcounter=\count114
+\scratchdimen=\dimen125
+\scratchbox=\box29
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen126
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -234,7 +290,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box28
+\AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring OFF on input line 13.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -243,7 +299,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count108
+\c@section@level=\count120
 )
 LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
@@ -255,100 +311,109 @@ LaTeX Info: Redefining \nameref on input line 13.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
- (./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
-)
+ (./main.toc)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
  [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (4.47293pt too wide) in paragraph at lines 88--89
+\OT1/cmr/m/n/10 Although most mod-ern meth-ods cite gra-di-ent learn-ing(next s
+ec-tion) by Witkoskie
+ []
 
-LaTeX Warning: Citation `witkoskie_neural_2005' on page 3 undefined on input li
-ne 89.
-
-
-LaTeX Warning: Citation `pukrittayakamee_simultaneous_2009' on page 3 undefined
- on input line 89.
-
-
-LaTeX Warning: Citation `smith_ani-1_2017' on page 3 undefined on input line 89
-.
-
-
-LaTeX Warning: Citation `rupp_fast_2012' on page 3 undefined on input line 89.
-
-
-LaTeX Warning: Citation `yao_tensormol-01_2018' on page 3 undefined on input li
-ne 89.
-
-
-LaTeX Warning: Citation `witkoskie_neural_2005' on page 3 undefined on input li
-ne 89.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
+ [3]
+Overfull \hbox (32.65666pt too wide) in paragraph at lines 97--98
+[]\OT1/cmr/m/n/10 systems which al-ways move down-hill are gra-di-ent like sys-
+tems: $[] = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 x\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 r[]\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ 
+ []
 
 
-LaTeX Warning: Citation `greydanus_hamiltonian_2019' on page 3 undefined on inp
-ut line 96.
+LaTeX Warning: Citation `witkoskie_neural_2005' on page 4 undefined on input li
+ne 109.
 
-[3]
+
+LaTeX Warning: Citation `pukrittayakamee_simultaneous_2009' on page 4 undefined
+ on input line 109.
+
+
+LaTeX Warning: Citation `smith_ani-1_2017' on page 4 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `rupp_fast_2012' on page 4 undefined on input line 109.
+
+
+
+LaTeX Warning: Citation `yao_tensormol-01_2018' on page 4 undefined on input li
+ne 109.
+
+
+LaTeX Warning: Citation `witkoskie_neural_2005' on page 4 undefined on input li
+ne 109.
+
 
 LaTeX Warning: Citation `greydanus_hamiltonian_2019' on page 4 undefined on inp
-ut line 102.
+ut line 133.
 
-[4] [5] [6]
-<figures/gan_phase_1stack.png, id=151, 258.7266pt x 179.2296pt>
+[4]
+
+LaTeX Warning: Citation `greydanus_hamiltonian_2019' on page 5 undefined on inp
+ut line 139.
+
+[5] [6]
+<figures/gan_phase_1stack.png, id=148, 258.7266pt x 179.2296pt>
 File: figures/gan_phase_1stack.png Graphic file (type png)
 <use figures/gan_phase_1stack.png>
-Package pdftex.def Info: figures/gan_phase_1stack.png  used on input line 221.
+Package pdftex.def Info: figures/gan_phase_1stack.png  used on input line 258.
 (pdftex.def)             Requested size: 241.49895pt x 167.29985pt.
-<figures/gan_phase_2stack.png, id=153, 186.4566pt x 124.3044pt>
+<figures/gan_phase_2stack.png, id=150, 186.4566pt x 124.3044pt>
 File: figures/gan_phase_2stack.png Graphic file (type png)
 <use figures/gan_phase_2stack.png>
-Package pdftex.def Info: figures/gan_phase_2stack.png  used on input line 224.
+Package pdftex.def Info: figures/gan_phase_2stack.png  used on input line 261.
 (pdftex.def)             Requested size: 241.49895pt x 161.00009pt.
-<figures/gan_phase_3stack.png, id=154, 267.8808pt x 174.4116pt>
+<figures/gan_phase_3stack.png, id=151, 267.8808pt x 174.4116pt>
 File: figures/gan_phase_3stack.png Graphic file (type png)
 <use figures/gan_phase_3stack.png>
-Package pdftex.def Info: figures/gan_phase_3stack.png  used on input line 227.
+Package pdftex.def Info: figures/gan_phase_3stack.png  used on input line 264.
 (pdftex.def)             Requested size: 241.49895pt x 157.23778pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7] [8 <./figures/gan_phase_1stack.png> <./figures/gan_phase_2stack.png> <./fig
-ures/gan_phase_3stack.png>] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 359.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 359.
+ures/gan_phase_3stack.png>] [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 396.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 396.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 359.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 359.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 396.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F6CA97A840AFF1AEE101F511257EFD94;1126.
+(rerunfilecheck)             Checksum: 4813A96E4A30C286C2A9A47DD3033E8A;1209.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 359.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 396.
  ) 
 Here is how much of TeX's memory you used:
- 6224 strings out of 492616
- 96417 string characters out of 6129481
- 188347 words of memory out of 5000000
- 10065 multiletter control sequences out of 15000+600000
- 8514 words of font info for 30 fonts, out of 8000000 for 9000
+ 6833 strings out of 492616
+ 103521 string characters out of 6129481
+ 199802 words of memory out of 5000000
+ 10651 multiletter control sequences out of 15000+600000
+ 9642 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,1108b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,40p,1108b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
@@ -362,10 +427,10 @@ texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (10 pages, 332891 bytes).
+Output written on main.pdf (11 pages, 336811 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 160 words of extra memory for PDF output out of 10000 (max. 10000000)
 
