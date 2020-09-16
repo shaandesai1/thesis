@@ -118,6 +118,23 @@ $$
 
 This addition means that we can supplement the learning process with additional information and hence improve the learnt potential surface. The fundamental idea being that if we have access to supplemental data such as the gradients, but fewer data points, we might actually learn a surface with higher accuracy than if we had many data points with no gradient information. 
 
+\subsubsection*{Deep Lagrangian Network}
+
+$$ L = T - V$$
+
+$$ \frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = \tau $$
+
+where $\tau$ represents generalized forces.
+
+If we are dealing with a rigid body then: $ T = \dot{q}^T M(q) \dot{q} $ where M is the inertia matrix. Replacing this equation in euler-lagrange results in:
+
+$$ \frac{d}{dt} (M(q)\dot{q}) - \frac{\partial V}{\partial q} = 0 $$
+
+$$ M(q)\ddot{q} = \dot{M(q)} \dot{q} + \frac{\partial V}{\partial q} $$
+
+To get $\ddot{q}$ all we need is M and its time derivative. 
+
+$$ p = M(q) \dot{q} $$
 
 
 
