@@ -1,0 +1,165 @@
+\begin{thebibliography}{10}
+
+\bibitem{bapst_unveiling_2020}
+V.~Bapst, T.~Keck, A.~Grabska-Barwińska, C.~Donner, E.~D. Cubuk, S.~S.
+  Schoenholz, A.~Obika, A.~W.~R. Nelson, T.~Back, D.~Hassabis, and P.~Kohli.
+\newblock Unveiling the predictive power of static structure in glassy systems.
+\newblock {\em Nature Physics}, 16(4):448--454, Apr. 2020.
+\newblock Number: 4 Publisher: Nature Publishing Group.
+
+\bibitem{battaglia_relational_2018}
+P.~W. Battaglia, J.~B. Hamrick, V.~Bapst, A.~Sanchez-Gonzalez, V.~Zambaldi,
+  M.~Malinowski, A.~Tacchetti, D.~Raposo, A.~Santoro, R.~Faulkner, C.~Gulcehre,
+  F.~Song, A.~Ballard, J.~Gilmer, G.~Dahl, A.~Vaswani, K.~Allen, C.~Nash,
+  V.~Langston, C.~Dyer, N.~Heess, D.~Wierstra, P.~Kohli, M.~Botvinick,
+  O.~Vinyals, Y.~Li, and R.~Pascanu.
+\newblock Relational inductive biases, deep learning, and graph networks.
+\newblock {\em arXiv:1806.01261 [cs, stat]}, Oct. 2018.
+\newblock arXiv: 1806.01261.
+
+\bibitem{battaglia_interaction_2016}
+P.~W. Battaglia, R.~Pascanu, M.~Lai, D.~Rezende, and K.~Kavukcuoglu.
+\newblock Interaction {Networks} for {Learning} about {Objects}, {Relations}
+  and {Physics}.
+\newblock {\em arXiv:1612.00222 [cs]}, Dec. 2016.
+\newblock arXiv: 1612.00222.
+
+\bibitem{chen_neural_2018}
+R.~T.~Q. Chen, Y.~Rubanova, J.~Bettencourt, and D.~K. Duvenaud.
+\newblock Neural {Ordinary} {Differential} {Equations}.
+\newblock In S.~Bengio, H.~Wallach, H.~Larochelle, K.~Grauman, N.~Cesa-Bianchi,
+  and R.~Garnett, editors, {\em Advances in {Neural} {Information} {Processing}
+  {Systems} 31}, pages 6571--6583. Curran Associates, Inc., 2018.
+
+\bibitem{cranmer_lagrangian_2020}
+M.~Cranmer, S.~Greydanus, S.~Hoyer, P.~Battaglia, D.~Spergel, and S.~Ho.
+\newblock Lagrangian {Neural} {Networks}.
+\newblock {\em arXiv:2003.04630 [physics, stat]}, Mar. 2020.
+\newblock arXiv: 2003.04630.
+
+\bibitem{cranmer_learning_2019}
+M.~D. Cranmer, R.~Xu, P.~Battaglia, and S.~Ho.
+\newblock Learning {Symbolic} {Physics} with {Graph} {Networks}.
+\newblock {\em arXiv:1909.05862 [astro-ph, physics:physics, stat]}, Nov. 2019.
+\newblock arXiv: 1909.05862.
+
+\bibitem{greydanus_hamiltonian_2019}
+S.~Greydanus, M.~Dzamba, and J.~Yosinski.
+\newblock Hamiltonian {Neural} {Networks}.
+\newblock In H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d. Alché-Buc,
+  E.~Fox, and R.~Garnett, editors, {\em Advances in {Neural} {Information}
+  {Processing} {Systems} 32}, pages 15379--15389. Curran Associates, Inc.,
+  2019.
+
+\bibitem{lamb_graph_2020}
+L.~Lamb, A.~Garcez, M.~Gori, M.~Prates, P.~Avelar, and M.~Vardi.
+\newblock Graph {Neural} {Networks} {Meet} {Neural}-{Symbolic} {Computing}: {A}
+  {Survey} and {Perspective}.
+\newblock {\em arXiv:2003.00330 [cs]}, Mar. 2020.
+\newblock arXiv: 2003.00330.
+
+\bibitem{lew_overview_nodate}
+A.~Lew, J.~E. Marsden, M.~Ortiz, and M.~West.
+\newblock {AN} {OVERVIEW} {OF} {VARIATIONAL} {INTEGRATORS}.
+\newblock {\em Finite Element Methods}, page~18.
+
+\bibitem{marsden_discrete_2001}
+J.~E. Marsden and M.~West.
+\newblock Discrete mechanics and variational integrators.
+\newblock {\em Acta Numerica}, 10:357--514, May 2001.
+
+\bibitem{pukrittayakamee_simultaneous_2009}
+A.~Pukrittayakamee, M.~Malshe, M.~Hagan, L.~M. Raff, R.~Narulkar,
+  S.~Bukkapatnum, and R.~Komanduri.
+\newblock Simultaneous fitting of a potential-energy surface and its
+  corresponding force fields using feedforward neural networks.
+\newblock {\em The Journal of Chemical Physics}, 130(13):134101, Apr. 2009.
+
+\bibitem{rupp_fast_2012}
+M.~Rupp, A.~Tkatchenko, K.-R. Müller, and O.~A. von Lilienfeld.
+\newblock Fast and {Accurate} {Modeling} of {Molecular} {Atomization}
+  {Energies} with {Machine} {Learning}.
+\newblock {\em Physical Review Letters}, 108(5):058301, Jan. 2012.
+\newblock Publisher: American Physical Society.
+
+\bibitem{saemundsson_variational_2019}
+S.~Saemundsson, A.~Terenin, K.~Hofmann, and M.~P. Deisenroth.
+\newblock Variational {Integrator} {Networks} for {Physically} {Meaningful}
+  {Embeddings}.
+\newblock {\em arXiv:1910.09349 [cs, stat]}, Oct. 2019.
+\newblock arXiv: 1910.09349.
+
+\bibitem{sanchez-gonzalez_hamiltonian_2019}
+A.~Sanchez-Gonzalez, V.~Bapst, K.~Cranmer, and P.~Battaglia.
+\newblock Hamiltonian {Graph} {Networks} with {ODE} {Integrators}.
+\newblock {\em arXiv:1909.12790 [physics]}, Sept. 2019.
+\newblock arXiv: 1909.12790.
+
+\bibitem{sanchez-gonzalez_learning_2020}
+A.~Sanchez-Gonzalez, J.~Godwin, T.~Pfaff, R.~Ying, J.~Leskovec, and P.~W.
+  Battaglia.
+\newblock Learning to {Simulate} {Complex} {Physics} with {Graph} {Networks}.
+\newblock {\em arXiv:2002.09405 [physics, stat]}, Feb. 2020.
+\newblock arXiv: 2002.09405.
+
+\bibitem{sanchez-gonzalez_graph_2018}
+A.~Sanchez-Gonzalez, N.~Heess, J.~T. Springenberg, J.~Merel, M.~Riedmiller,
+  R.~Hadsell, and P.~Battaglia.
+\newblock Graph networks as learnable physics engines for inference and
+  control.
+\newblock {\em arXiv:1806.01242 [cs, stat]}, June 2018.
+\newblock arXiv: 1806.01242.
+
+\bibitem{seo_differentiable_2019}
+S.~Seo and Y.~Liu.
+\newblock Differentiable {Physics}-informed {Graph} {Networks}.
+\newblock {\em arXiv:1902.02950 [cs, stat]}, Feb. 2019.
+\newblock arXiv: 1902.02950.
+
+\bibitem{seo_physics-aware_2020}
+S.~Seo, C.~Meng, and Y.~Liu.
+\newblock {PHYSICS}-{AWARE} {DIFFERENCE} {GRAPH} {NETWORKS} {FOR}
+  {SPARSELY}-{OBSERVED} {DYNAMICS}.
+\newblock page~15, 2020.
+
+\bibitem{smith_ani-1_2017}
+J.~S. Smith, O.~Isayev, and A.~E. Roitberg.
+\newblock {ANI}-1: an extensible neural network potential with {DFT} accuracy
+  at force field computational cost.
+\newblock {\em Chemical Science}, 8(4):3192--3203, 2017.
+
+\bibitem{udrescu_symbolic_2020}
+S.-M. Udrescu and M.~Tegmark.
+\newblock Symbolic {Pregression}: {Discovering} {Physical} {Laws} from {Raw}
+  {Distorted} {Video}.
+\newblock {\em arXiv:2005.11212 [physics, stat]}, May 2020.
+\newblock arXiv: 2005.11212.
+
+\bibitem{witkoskie_neural_2005}
+J.~B. Witkoskie and D.~J. Doren.
+\newblock Neural {Network} {Models} of {Potential} {Energy} {Surfaces}:
+  {Prototypical} {Examples}.
+\newblock {\em Journal of Chemical Theory and Computation}, 1(1):14--23, Jan.
+  2005.
+
+\bibitem{yao_tensormol-01_2018}
+K.~Yao, J.~E. Herr, D.~Toth, R.~Mckintyre, and J.~Parkhill.
+\newblock The {TensorMol}-0.1 model chemistry: a neural network augmented with
+  long-range physics.
+\newblock {\em Chemical Science}, 9(8):2261--2269, 2018.
+
+\bibitem{zhong_symplectic_2019}
+Y.~D. Zhong, B.~Dey, and A.~Chakraborty.
+\newblock Symplectic {ODE}-{Net}: {Learning} {Hamiltonian} {Dynamics} with
+  {Control}.
+\newblock {\em arXiv:1909.12077 [physics, stat]}, Sept. 2019.
+\newblock arXiv: 1909.12077.
+
+\bibitem{zhong_unsupervised_2020}
+Y.~D. Zhong and N.~E. Leonard.
+\newblock Unsupervised {Learning} of {Lagrangian} {Dynamics} from {Images} for
+  {Prediction} and {Control}.
+\newblock {\em arXiv:2007.01926 [cs, eess, stat]}, July 2020.
+\newblock arXiv: 2007.01926.
+
+\end{thebibliography}
