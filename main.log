@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.17)  19 SEP 2020 12:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.9.17)  19 SEP 2020 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,7 +243,15 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
-) (./main.aux)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count114
+))
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -260,18 +268,19 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
+
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
+\scratchcounter=\count115
 \scratchdimen=\dimen125
 \scratchbox=\box29
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count117
+\MPscratchCnt=\count118
 \MPscratchDim=\dimen126
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -299,7 +308,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count120
+\c@section@level=\count121
 )
 LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
@@ -311,84 +320,79 @@ LaTeX Info: Redefining \nameref on input line 13.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (./main.toc)
+ (./main.toc [1
+
+{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [1
-
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 56.
+ [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 57.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
- [2] [3] [4]
-[5] [6] [7] [8]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
+ [3] [4] [5]
+[6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (5.80495pt too wide) in paragraph at lines 394--395
+[]\OT1/cmr/m/n/10 VIN net-work is a good idea though we have no code base/archi
+tecture used. 
+ []
 
-LaTeX Warning: Citation `zhu_deep_2020' on page 9 undefined on input line 275.
-
-[9] [10] [11]
-<figures/gan_phase_1stack.png, id=237, 258.7266pt x 179.2296pt>
+[13]
+<figures/gan_phase_1stack.png, id=326, 258.7266pt x 179.2296pt>
 File: figures/gan_phase_1stack.png Graphic file (type png)
 <use figures/gan_phase_1stack.png>
-Package pdftex.def Info: figures/gan_phase_1stack.png  used on input line 388.
+Package pdftex.def Info: figures/gan_phase_1stack.png  used on input line 420.
 (pdftex.def)             Requested size: 241.49895pt x 167.29985pt.
-<figures/gan_phase_2stack.png, id=239, 186.4566pt x 124.3044pt>
+<figures/gan_phase_2stack.png, id=328, 186.4566pt x 124.3044pt>
 File: figures/gan_phase_2stack.png Graphic file (type png)
 <use figures/gan_phase_2stack.png>
-Package pdftex.def Info: figures/gan_phase_2stack.png  used on input line 391.
+Package pdftex.def Info: figures/gan_phase_2stack.png  used on input line 423.
 (pdftex.def)             Requested size: 241.49895pt x 161.00009pt.
-<figures/gan_phase_3stack.png, id=240, 267.8808pt x 174.4116pt>
+<figures/gan_phase_3stack.png, id=329, 267.8808pt x 174.4116pt>
 File: figures/gan_phase_3stack.png Graphic file (type png)
 <use figures/gan_phase_3stack.png>
-Package pdftex.def Info: figures/gan_phase_3stack.png  used on input line 394.
+Package pdftex.def Info: figures/gan_phase_3stack.png  used on input line 426.
 (pdftex.def)             Requested size: 241.49895pt x 157.23778pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13 <./figures/gan_phase_1stack.png> <./figures/gan_phase_2stack.png> <./f
-igures/gan_phase_3stack.png>] [14] [15] (./main.bbl [16]
-Underfull \hbox (badness 1371) in paragraph at lines 92--97
+[14] [15 <./figures/gan_phase_1stack.png> <./figures/gan_phase_2stack.png> <./f
+igures/gan_phase_3stack.png>] [16] [17]
+Overfull \hbox (10.66736pt too wide) in paragraph at lines 528--529
+[]\OT1/cmr/m/n/10 As such, the La-grangian de-pends on the dis-tri-bu-tion of t
+he ki-netic en-ergy/potential
+ []
+
+(./main.bbl [18] [19]
+Underfull \hbox (badness 1371) in paragraph at lines 106--111
 []\OT1/cmr/m/n/10 S. Sae-mu-nds-son, A. Terenin, K. Hof-mann, and M. P. Deisen-
 roth.
  []
 
-[17])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 526.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 526.
+[20])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 558.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 558.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 526.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 526.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: A652FE3AEECCA35A2F1C358FA52F7FDA;895
-(rerunfilecheck)             After:  E5863EABE9580CE3B46C91AB50A212CC;1070.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 526.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 558.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 558.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 159E96C5A8971AF080F284E725D20D4F;2482.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 558.
  ) 
 Here is how much of TeX's memory you used:
- 6914 strings out of 492616
- 105092 string characters out of 6129481
- 201152 words of memory out of 5000000
- 10680 multiletter control sequences out of 15000+600000
+ 7272 strings out of 492616
+ 109848 string characters out of 6129481
+ 209740 words of memory out of 5000000
+ 11020 multiletter control sequences out of 15000+600000
  9988 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,40p,1260b,435s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,40p,1260b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
@@ -403,10 +407,10 @@ live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (18 pages, 383521 bytes).
+Output written on main.pdf (21 pages, 393821 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
- 99 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 403 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

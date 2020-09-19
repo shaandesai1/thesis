@@ -49,6 +49,13 @@ M.~D. Cranmer, R.~Xu, P.~Battaglia, and S.~Ho.
 \newblock {\em arXiv:1909.05862 [astro-ph, physics:physics, stat]}, Nov. 2019.
 \newblock arXiv: 1909.05862.
 
+\bibitem{geist_learning_2020}
+A.~R. Geist and S.~Trimpe.
+\newblock Learning {Constrained} {Dynamics} with {Gauss} {Principle} adhering
+  {Gaussian} {Processes}.
+\newblock {\em arXiv:2004.11238 [cs, eess, stat]}, Apr. 2020.
+\newblock arXiv: 2004.11238.
+
 \bibitem{greydanus_hamiltonian_2019}
 S.~Greydanus, M.~Dzamba, and J.~Yosinski.
 \newblock Hamiltonian {Neural} {Networks}.
@@ -80,6 +87,13 @@ A.~Pukrittayakamee, M.~Malshe, M.~Hagan, L.~M. Raff, R.~Narulkar,
 \newblock Simultaneous fitting of a potential-energy surface and its
   corresponding force fields using feedforward neural networks.
 \newblock {\em The Journal of Chemical Physics}, 130(13):134101, Apr. 2009.
+
+\bibitem{roehrl_modeling_2020}
+M.~A. Roehrl, T.~A. Runkler, V.~Brandtstetter, M.~Tokic, and S.~Obermayer.
+\newblock Modeling {System} {Dynamics} with {Physics}-{Informed} {Neural}
+  {Networks} {Based} on {Lagrangian} {Mechanics}.
+\newblock {\em arXiv:2005.14617 [cs, stat]}, May 2020.
+\newblock arXiv: 2005.14617.
 
 \bibitem{rupp_fast_2012}
 M.~Rupp, A.~Tkatchenko, K.-R. Müller, and O.~A. von Lilienfeld.
@@ -167,5 +181,11 @@ Y.~D. Zhong and N.~E. Leonard.
   {Prediction} and {Control}.
 \newblock {\em arXiv:2007.01926 [cs, eess, stat]}, July 2020.
 \newblock arXiv: 2007.01926.
+
+\bibitem{zhu_deep_2020}
+A.~Zhu, P.~Jin, and Y.~Tang.
+\newblock Deep {Hamiltonian} networks based on symplectic integrators.
+\newblock {\em arXiv:2004.13830 [cs, math]}, Apr. 2020.
+\newblock arXiv: 2004.13830.
 
 \end{thebibliography}
