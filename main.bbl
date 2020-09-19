@@ -31,6 +31,12 @@ R.~T.~Q. Chen, Y.~Rubanova, J.~Bettencourt, and D.~K. Duvenaud.
   and R.~Garnett, editors, {\em Advances in {Neural} {Information} {Processing}
   {Systems} 31}, pages 6571--6583. Curran Associates, Inc., 2018.
 
+\bibitem{chen_symplectic_2020}
+Z.~Chen, J.~Zhang, M.~Arjovsky, and L.~Bottou.
+\newblock Symplectic {Recurrent} {Neural} {Networks}.
+\newblock {\em arXiv:1909.13334 [cs, stat]}, Apr. 2020.
+\newblock arXiv: 1909.13334.
+
 \bibitem{cranmer_lagrangian_2020}
 M.~Cranmer, S.~Greydanus, S.~Hoyer, P.~Battaglia, D.~Spergel, and S.~Ho.
 \newblock Lagrangian {Neural} {Networks}.

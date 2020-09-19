@@ -113,6 +113,26 @@ This addition means that we can supplement the learning process with additional 
 
 This result inspires us to look more closely at combining inductive biases. Namely, by adding well known priors together, we may make learning data-efficient and more accurate.
 
+\subsection*{Physics Informed Neural Networks}
+
+PINNs is one of the first methods to use the backpropagation technique from neural networks to actually compute the gradients of a function with respect to the inputs of that given function. For example, given t and x, PINNs compute $u(t,x)$ through which they can compute gradients of u w.r.t. t and x. A concrete example is this differential equation:
+
+
+$$ u_t + N[u] = 0$$
+
+where N is a nonlinear differential operator and $u(t,x)$ denotes the latent hidden solution.
+
+Using the equation we can define:
+
+$$ f = u_t +N[u] $$
+
+then we can, for any set (t,x), compute u(t,x) with a neural network. Using backpropagation, we can then compute partial derivatives w.r.t the input variables. The final results can thus be stored in f. A simple L2 loss to minimize the predicted u vs the ground truth u (for initial and boundary conditions) coupled with a penalization of the function f (since it should be zero) at specific collocation points results in PINNs.
+
+PINNs are used for both data-drive solution and data-driven discovery. In other words, PINNs can be used to identify a systems governing equations or given a set of equations, be used to continuously solve the system given an initial condition and points of evaluation.
+
+
+
+
 
 \subsubsection*{Deep Lagrangian Network}
 
@@ -138,7 +158,7 @@ $$ p = M(q) \dot{q} $$
 As a result of this framing, DeLAN net uses multiple network heads to compute individual components of the equation before combining them. 
 
 \subsubsection*{Hamiltonian Neural Networks}
-
+\label{HNN}
 ing neural networks to accurately learn classical dynamics from data  problems has been Hamiltonian Neural Networks \cite{greydanus_hamiltonian_2019}. In  demonstrated that dynamic predictions through time can be improved using Hamiltonian Neural Networks (HNNs) which endow models with a Hamiltonian constraint. The Hamiltonian is an important representation of a dynamical system because it is one of two approaches that generalizes classical mechanics. The Hamiltonian $\mathcal{H}$ is a scalar function of position $\mathbf{q} = (q_1,q_2,....,q_M)$ and momentum $\mathbf{p} = (p_1,p_2,....,p_M)$. In representing physical systems with a Hamiltonian, one can simply extract the time derivatives of the inputs by differentiating the Hamiltonian with respect to its inputs (see Eqn. \ref{eqn.hamiltonian}.)
 \begin{equation}
 \frac{\mathrm{d}\mathbf{q}}{\mathrm{d}t} = \frac{\partial \mathcal{H}}{\partial \mathbf{p}}, ~~~
@@ -196,6 +216,12 @@ If rank(g(q)) is rank(q) the system is fully actuated. For such systems, a contr
 
 If the hamiltonian is a newtonian then - $$ \beta(q) = g^T (gg^T)^{-1} (\partial V/\partial q - \partial V_d/\partial q) $$
 
+
+\subsection*{Symplectic Recurrent Neural Network}
+
+Symplectic RNN \cite{chen_symplectic_2020} makes two major contributions to the physics neural network space. Firstly, they take \nameref{HNN} and convert the integration scheme from euler to a leapfrog. Secondly, they adopt a NeuralODE style integrator to integrate across multiple timesteps from an initial condition.
+
+
 \subsubsection*{Symbolic Pregression}
 
 Fundamental early work aimed at devising unique ways to find regression coefficients using a supervised learning framework. Symbolic pregression combines this approach with that of the hamiltonian neural net to build an unsupervised framework for discovery of differential equations \cite{udrescu_symbolic_2020}.
@@ -203,7 +229,9 @@ Fundamental early work aimed at devising unique ways to find regression coeffici
 \subsubsection*{Deep Energy Network}
 
 A new method is introduced to tackle the challenge of learning energy conserving physics more broadly. The method claims to be more general as it can learn from PDEs as well as ODEs, and it avoids discretisation errors that arise from using RK integrators. The method does this by a) introducing a general formalism which highlights how the rate of change of states can be cast into a matrix G times the gradient of a Hamiltonian and b) by discretising the gradient of the hamiltonian with a frechet derivative. 
-$$ \dot{u} = G\nabla H $$
+\begin{equation}
+ \dot{u} = G\nabla H
+\end{equation}
  
 The main benefit is that it can solve a broader class of problems compared to current solutions in the field by modelling an additional G matrix e.g.
 Friction systems (ODE and PDE)
@@ -217,6 +245,34 @@ Can extend research to identify discrete PDEs
 
 In \cite{zhong_unsupervised_2020}, the authors show that the full Lagrangian dynamics can be learned from visual data. The paper introduces a co-ordinate aware VAE to encode the latent space and then computes the derivatives of the state. The introduction of co-ordinate awareness is to ensure a bijective function. The paper shows that the motion of a pendulum can be learnt from visual data. More importantly, via energy shaping, the pendulum can be constrained into a configuration $q*$ of choice.
 
+\subsection*{Lagrangian Neural Networks}
+
+The main premise of LNNs \cite{cranmer_lagrangian_2020} is to tackle the problem of dealing with coordinate spaces. Many datasets do not usually consist of  canonical position and momentum, rather they use generalized coordinates. As such, LNNs aim to tackle learning from generalized coordinates. In addition, they provide a more general framework than DeLaNs which were designed to work well with continuous control applications. The unique trick that LNNs introduce over other methods is that they do not assume any form for the lagrangian. 
+
+In vectorized form, euler lagrange is:
+
+\begin{equation}
+\frac{d}{dt} \nabla_{\dot{q}} \mathcal{L} = \nabla_q \mathcal{L}
+\label{eqn.lnn1}
+\end{equation}
+
+Using chain rule to expand the time derivative e.g. allow $\nabla_{\dot{q}}\mathcal{L}$ to be a function of $q$ and $\dot{q}$ then:
+
+\begin{equation}
+(\nabla_{\dot{q}}\nabla_{\dot{q}}^T \mathcal{L}) \ddot{q} + (\nabla_q \nabla_{\dot{q}}^T \mathcal{L})\dot{q} = \nabla_q \mathcal{L}
+\end{equation}
+
+Then, with matrix inversion, one can obtain $\ddot{q}$. 
+
+Using this term, one can minimize the loss on the state vector $[q,\dot{q},\ddot{q}]$. The paper shows promising results on the double pendulum, relativistic particle in a uniform potential and on the wave equation. Upon inspection of the training scheme for the highly sensitive double pendulum, we do find that training times and data points are quite large, creating a space to find a more optimal learning scheme.
+
+\subsection{SympNets}
+
+A brand new class of methods is proposed . It avoids the need for a separable Hamiltonian and more importantly, is designed to eliminate the need for backpropagating the Hamiltonian with respect to the input. In this framework, a sequence of symplectic maps are used to transform the input into the output. The symplectic map can be split into an upper triangular matrix and lower triangular matrix with diagonals set to 1. Non-diagonal terms are parametrized by a NN and by stacking a range of symplectic maps together, one can learn dynamics better. In fact, the results show that by doing this, the learned trajectory is significantly more accurate than HNNs with symplectic integrators!
+
+\subsubsection{Deep Hamiltonian Networks based on symplectic integrators}
+
+This paper \cite{zhu_deep_2020} reviews the integrator of choice for hamiltonian neural networks. One of its primary objectives is to establish the difference in performance between using a symplectic vs non-symplectic integrator from a theoretical perspective. Quite evidently, using a symplectic integrator allows us to conserve the phase-space volume of the system - a crucial component in preserving energy. Their results reiterate the need for symplectic integrators when dealing with hamiltonian-like systems.
 
 
 
