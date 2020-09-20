@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}% 
 \contentsline {section}{\numberline {2}Artificial Intelligence}{2}{section.2}% 
-\contentsline {section}{\numberline {3}Inductive Biases}{3}{section.3}% 
+\contentsline {section}{\numberline {3}Inductive Biases}{2}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Graph Neural Networks}{3}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Integrative Biases}{4}{subsection.3.2}% 
 \contentsline {subsection}{\numberline {3.3}Physics priors}{4}{subsection.3.3}% 
@@ -8,25 +8,18 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Physics Informed Neural Networks}{6}{subsubsection.3.3.2}% 
 \contentsline {subsubsection}{\numberline {3.3.3}Deep Lagrangian Network}{6}{subsubsection.3.3.3}% 
 \contentsline {subsubsection}{\numberline {3.3.4}Hamiltonian Neural Networks}{7}{subsubsection.3.3.4}% 
-\contentsline {subsubsection}{\numberline {3.3.5}Variational Integrator Networks}{8}{subsubsection.3.3.5}% 
+\contentsline {subsubsection}{\numberline {3.3.5}Variational Integrator Networks}{7}{subsubsection.3.3.5}% 
 \contentsline {subsubsection}{\numberline {3.3.6}Symplectic ODE Net}{8}{subsubsection.3.3.6}% 
 \contentsline {subsubsection}{\numberline {3.3.7}Symplectic Recurrent Neural Network}{9}{subsubsection.3.3.7}% 
 \contentsline {subsubsection}{\numberline {3.3.8}Symbolic Pregression}{9}{subsubsection.3.3.8}% 
 \contentsline {subsubsection}{\numberline {3.3.9}Deep Energy Network}{9}{subsubsection.3.3.9}% 
 \contentsline {subsubsection}{\numberline {3.3.10}Unsupervised Learning of Lagrangian Dynamics}{9}{subsubsection.3.3.10}% 
-\contentsline {subsubsection}{\numberline {3.3.11}Lagrangian Neural Networks}{10}{subsubsection.3.3.11}% 
+\contentsline {subsubsection}{\numberline {3.3.11}Lagrangian Neural Networks}{9}{subsubsection.3.3.11}% 
 \contentsline {subsubsection}{\numberline {3.3.12}Modeling System Dynamics with PINNs on Lagrangian Mechanics}{10}{subsubsection.3.3.12}% 
-\contentsline {subsubsection}{\numberline {3.3.13}Thermal}{11}{subsubsection.3.3.13}% 
-\contentsline {subsubsection}{\numberline {3.3.14}Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}{11}{subsubsection.3.3.14}% 
-\contentsline {subsubsection}{\numberline {3.3.15}Quantum based NNs}{11}{subsubsection.3.3.15}% 
-\contentsline {subsubsection}{\numberline {3.3.16}Holonomic constraint}{11}{subsubsection.3.3.16}% 
-\contentsline {subsubsection}{\numberline {3.3.17}SympNets}{11}{subsubsection.3.3.17}% 
-\contentsline {subsubsection}{\numberline {3.3.18}Deep Hamiltonian Networks based on symplectic integrators}{11}{subsubsection.3.3.18}% 
-\contentsline {section}{\numberline {4}Notes}{11}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}GANs for Physics (Oct '19 - Jan '20)}{12}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}VIGN}{14}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Lagrangian Dynamics (WIP)}{15}{subsection.4.3}% 
-\contentsline {section}{\numberline {5}Running Ideas}{17}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}VIGN extension}{17}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Covid}{18}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Inductive biases for RL}{18}{subsection.5.3}% 
+\contentsline {subsubsection}{\numberline {3.3.13}Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}{11}{subsubsection.3.3.13}% 
+\contentsline {subsubsection}{\numberline {3.3.14}Bayesian Hidden Physics Models}{11}{subsubsection.3.3.14}% 
+\contentsline {subsubsection}{\numberline {3.3.15}SympNets}{11}{subsubsection.3.3.15}% 
+\contentsline {subsubsection}{\numberline {3.3.16}Deep Hamiltonian Networks based on symplectic integrators}{12}{subsubsection.3.3.16}% 
+\contentsline {subsubsection}{\numberline {3.3.17}Thermal}{12}{subsubsection.3.3.17}% 
+\contentsline {subsubsection}{\numberline {3.3.18}Quantum based NNs}{12}{subsubsection.3.3.18}% 
+\contentsline {subsubsection}{\numberline {3.3.19}Holonomic constraint}{12}{subsubsection.3.3.19}% 

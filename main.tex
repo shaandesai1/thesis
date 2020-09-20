@@ -24,21 +24,7 @@ The past decade has seen an immense dedication to research in Artificial Intelli
 
 \section{Artificial Intelligence}
 
-- Humans have long tried to understand how the mind works
-- from a biological perspective it is clear that connectomics paves a pathway to understanding how we think
-- With the advent of computers and 'large' processing power, many researchers began to ask whether the human mind can be replicated using a computer.
-- Early work by walter and warren was the first to point out a means to build neural network logic.
-- Followed by Hebbian
-- Then an AI winter
-- Geof Hinton backprop
-- slew of advents in neural processing, convnets, rnns, graphs, tensor nets, deep RL, 
-- all seeking to solve more tasks/increase generalizability.
-- to date, there has been no general purpose solution (AGI) for a vast array of tasks e.g. a human can learn to create art, sit math exams, play sports, yet a robot so far can only do one of these tasks well.
-- Numerous limitations in terms of processing power and memory access still exist
-
-- Despite these limitations, neural networks have brought about significant advancements to society in robotics, self driving cars, cancer detection.
-
-- In what follows, we outline some of the major advances, those which have been fundamental pillars to research conducted during this phd. We follow no particular order.
+Humans have long tried to understand how the mind works. From a biological perspective it is clear that connectomics paves a pathway to understanding how we think. With the advent of computers and 'large' processing power, many researchers began to ask whether the human mind can be replicated using a computer. Early work by walter and warren was the first to point out a means to build neural network logic. There has been a slew of advents in neural processing, convnets, rnns, graphs, tensor nets, deep RL. All seeking to solve more tasks/increase generalizability. To date, there has been no general purpose solution for a vast array of tasks e.g. a human can learn to create art, sit math exams, play sports, yet a robot so far can only do one of these tasks well. Numerous limitations in terms of processing power and memory access still exist. Despite these limitations, neural networks have brought about significant advancements to society. In what follows, we outline some of the major advances, those which have been fundamental pillars to research conducted during this phd. We follow no particular order.
 
 \section{Inductive Biases}
 
@@ -278,7 +264,6 @@ The approach taken by this paper is to feed in the respective components e.g. q,
 
 The approach is tethered to a more traditional way of using NNs for predictions and is one of the reasons why model performance is not as good as it can be if backpropagation was used to compute the second derivative of q. In addition, the wrong choice of integrator is a bottleneck for long range predictions in this setting.
 
-\subsubsection{Thermal}
 
 
 \subsubsection{Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}
@@ -287,16 +272,21 @@ The paper \cite{geist_learning_2020} introduces GP model that utilises mechanica
 
 Using UKE, the acceleration of a particle can be disentangled into unconstrained acceleration, ideal part of constraint and non-ideal part of constraint.  Using this knowledge, one can feed this structural form into the mean of a GPR. The process can be used to set priors on unknown parameters. The learned model appears to capture dynamics much better than standards GPs without the underlying equation needed to be satisfied in the mean of the GP.
 
+\subsubsection{Bayesian Hidden Physics Models}
 
+In \cite{atkinson_bayesian_2020}, the author presents a novel approach to tackle learning from noisy data. The paper is arguably the first method to combine gaussian processes with physics informed neural networks in a unified manner.
 
+Simply put, the learning takes place in 3 stages. The first is, given inputs x and t, compute $u(x,t)$ using a neural network. The log likelihood is defined as:
 
+$$ L_i^u = log p(D_i^u|\theta_i^u) = \sum_{j=1}^{n_{st}} log p(\hat{u}_j^{i} | u(x_j,t_j;\theta_i) $$
 
-\subsubsection{Quantum based NNs}
+Then, using the computed u, define a prior over the derivatives of u. The purpose of doing this is for data-driven discovery. In other words, rather than computing k partial derivatives of u w.r.t the input x, we place a gaussian process prior on the k partial derivatives. 
 
+$$ L^f = p(\hat{u_t}|V) = \mathcal{N} (\hat{u}_t|\mu(V),K_f +\sigma_f^2 I) $$
 
-\subsubsection{Holonomic constraint}
+As such, one can obtain the posterior using variational inference since we do not know the distribution of $L^f$.
 
-
+The main breakthrough of using this approach is uncertainty quantification of the learned operators as well as the convergence in v-space the method illustrates. 
 
 \subsubsection{SympNets}
 
@@ -306,249 +296,261 @@ A brand new class of methods is proposed . It avoids the need for a separable Ha
 
 This paper \cite{zhu_deep_2020} reviews the integrator of choice for hamiltonian neural networks. One of its primary objectives is to establish the difference in performance between using a symplectic vs non-symplectic integrator from a theoretical perspective. Quite evidently, using a symplectic integrator allows us to conserve the phase-space volume of the system - a crucial component in preserving energy. Their results reiterate the need for symplectic integrators when dealing with hamiltonian-like systems.
 
+\subsubsection{Thermal}
 
 
-\section{Notes}
-
-A section to document some of my learnings over time.
-
-\subsection{GANs for Physics (Oct '19 - Jan '20)}
-
-\subsubsection*{Preliminary Ideas}
-
-Can generative networks capture the laws of physics?
-
-\begin{enumerate}
-\item Generative networks are able to learn complex mappings from data to latent spaces
-\item Often, these latent spaces are able to perfectly generate the original data which might indicate that the fundamental laws of physics are being captured by the network
-\item This leads us to the question - can we use a generative network to learn dynamics of a particle e.g. in the 2 body problem, and observe whether the generator learns the underlying equations of motion.
-\end{enumerate}
-Key point: if i can generate the data, I must understand something about the laws of physics.
-
-Inspired by greydanus, we wondered if a GAN-like approach can be taken to model and understand the phase-space.
-
-\subsubsection*{GAN Theory}
-
-What is a Generative Adversarial Network?
-
-Intuition is that there is an art forger (G) and art critique (D) who are tasked with making and evaluating art respectively. 
-
-\begin{enumerate}
-\item $\hat{x} = G(z) $ where z is noise and $\hat{x}$ has to match the distribution of $p(x)$.
-
-\item $D(x)$ is a mapping into a probability. Discriminates between real and fake art.
-\end{enumerate}
-
-They are adversaries, as such, they have different cost functions to optimize. This induces Nash equilibria:
-
-It is a game between 2 players in which the equlibria is a local minima for each loss. This means the generator draws samples perfectly from $p(x)$ and the discriminator cannot discriminate so predicts 1/2 for all samples.
-
-The discriminator loss follows that of a log bernoulli distribution or the cross entropy loss function.
-
-$$ H(p,q) = -\sum_i p_i \log q_i$$
-
-For binary classification we get:
-
-$$ H((x_1,y_1),D) = -y_1 \log D(x_1) - (1-y_1) \log (1-D(x_1)) $$
-
-If we sum over each value in the dataset, we then obtain:
-
-$$ H((x_i,y_i)_i^N,D) = -\sum_{i=1}^N y_i \log D(x_i) - (1-y_i) \log (1-D(x_i)) $$
+\subsubsection{Quantum based NNs}
 
 
-Now ideally, we like to take this and make some changes.
+\subsubsection{Holonomic constraint}
 
-\begin{enumerate}
-\item we want data to be split evenly, so if the total dataset size is N. We set N/2 of the samples to be class 1 and N/2 to be class 0. This automatically reduces the above y variables to 1/2's. 
-\item The x values come from 2 sources. The legitimate source and the sampled source. We want this to be probabalistic so sums become expectations.
-\end{enumerate}
+\subsection{Causality}
 
-%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{\hat{x}  \sim p_{model}} [log(1-D(\hat{x}))] $$ 
+
+
+
+
+%\section{Notes}
+%
+%A section to document some of my learnings over time.
+%
+%\subsection{GANs for Physics (Oct '19 - Jan '20)}
+%
+%\subsubsection*{Preliminary Ideas}
+%
+%Can generative networks capture the laws of physics?
+%
+%\begin{enumerate}
+%\item Generative networks are able to learn complex mappings from data to latent spaces
+%\item Often, these latent spaces are able to perfectly generate the original data which might indicate that the fundamental laws of physics are being captured by the network
+%\item This leads us to the question - can we use a generative network to learn dynamics of a particle e.g. in the 2 body problem, and observe whether the generator learns the underlying equations of motion.
+%\end{enumerate}
+%Key point: if i can generate the data, I must understand something about the laws of physics.
+%
+%Inspired by greydanus, we wondered if a GAN-like approach can be taken to model and understand the phase-space.
+%
+%\subsubsection*{GAN Theory}
+%
+%What is a Generative Adversarial Network?
+%
+%Intuition is that there is an art forger (G) and art critique (D) who are tasked with making and evaluating art respectively. 
+%
+%\begin{enumerate}
+%\item $\hat{x} = G(z) $ where z is noise and $\hat{x}$ has to match the distribution of $p(x)$.
+%
+%\item $D(x)$ is a mapping into a probability. Discriminates between real and fake art.
+%\end{enumerate}
+%
+%They are adversaries, as such, they have different cost functions to optimize. This induces Nash equilibria:
+%
+%It is a game between 2 players in which the equlibria is a local minima for each loss. This means the generator draws samples perfectly from $p(x)$ and the discriminator cannot discriminate so predicts 1/2 for all samples.
+%
+%The discriminator loss follows that of a log bernoulli distribution or the cross entropy loss function.
+%
+%$$ H(p,q) = -\sum_i p_i \log q_i$$
+%
+%For binary classification we get:
+%
+%$$ H((x_1,y_1),D) = -y_1 \log D(x_1) - (1-y_1) \log (1-D(x_1)) $$
+%
+%If we sum over each value in the dataset, we then obtain:
+%
+%$$ H((x_i,y_i)_i^N,D) = -\sum_{i=1}^N y_i \log D(x_i) - (1-y_i) \log (1-D(x_i)) $$
 %
 %
-%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{z} [log(1-D(G(z)))] $$ 
-
-The discriminator needs to minimze the above loss. It is the same as the cross-ent loss for a NN doing binary classification with sigmoid output.
-
-If we optimize this loss holding G constant, we get:
-
-$$ D(x) = \frac{p_{data}}{p_{model} + p_{data}} $$
-
-This is nash equilbrium.
-
-Zero-sum game means any loss is conserved between entities. 
-
-The zero sum game solution is minimax where we want to minimize the maximum loss. The discriminator wants a higher payoff so tries to maximize while the generator wants a lower loss so minimizes. To optimize this, an interative approach is used.
-
-
-The sources used to understand these concepts come from \href{https://seas.ucla.edu/~kao/nndl/lectures/gans.pdf}{ucla tutorial} and \href{https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/}{Takeshi github link}.
-
-
-
-\subsubsection*{Training GANs}
-
-To start we  train a GAN using MNIST (Adam optimizers and saw convergence). We attempted GAN with pendulum motion and saw multiple convergence issues. We notice some challenges with training GANs - generator usually diverges while discriminator rapidly converges. Many tips online i.e. make target values 0.9 instead of 1 to reduce certainty.Using ‘hacks’ only can see marginal improvement. Larger issue of GANs being unstable.
-
-Furthermore, do we actually want to use GANs for the application? Seems that the only way to constrain the noise input is to encode it which essentially gives us an autoencoder.
-
-VIN network is a good idea though we have no code base/architecture used.
-
-Attempted to use AE-GAN to encode physics and also build a discriminator: challenge at the moment is discriminator loss is increasing (rare) and predicted output images look nothing like the ground truth. 
-
-Some ideas:
-
-\begin{enumerate}
-
-\item Changed optimizers
-\item Changed network architecture
-\item Removed discriminator and still noticed issues
-\item Even when architecture is consistent with HNN
-\item Perhaps the only difference is torch.randperm and torch shuffle
-They use shuffling of data with replacement and don’t use epochs but steps
-\item Takens theorem \href{https://en.wikipedia.org/wiki/Takens%27s_theorem}{here}
-\end{enumerate}
-
-
-Not necessarily evident what the benefits are of having the AE-GAN from the simple autoencoder network/ perhaps better images but this might not improve the latent space we learn.
-
-An alternative approach is to sample the latent space in a way which is consistent with the laws of physics (i.e. sample p and q) sequentially, as we sample the ground truth images - then we can see how p,q can ‘map’ into a 2D image (might be potential to learn from the hidden layers) but this is fully supervised and we are not learning anything immediately useful.
-
-Some experimental results
-\begin{figure}[h!]
-\centering
-\begin{subfigure}{0.7\textwidth}
-\includegraphics[width=\textwidth]{figures/gan_phase_1stack.png}
-\end{subfigure}
-\begin{subfigure}{0.7\textwidth}
-\includegraphics[width=\textwidth]{figures/gan_phase_2stack.png}
-\end{subfigure}
-\begin{subfigure}{0.7\textwidth}
-\includegraphics[width=\textwidth]{figures/gan_phase_3stack.png}
-\end{subfigure}
-\end{figure}
-
-We carried out an extensive study between batch size and epoch. However, we find no consistency in the generated phase space.
-
-\subsubsection*{key takeaways}
-
-Preliminary results show that GANs are difficult to work with (this could be an interesting topic to cover on its own). I believe gradient clipping is one way to solve this issue. 
-More importantly, Variational Integrator Networks proves that the learnt phase space from an AE will not, in general, represent the true phase space. In order to do this, one needs to encode the Lie group dynamics.
-Constrained GANs have already been looked at for generating consistent results.
-
-We still have yet to establish why a potential Lie group constrained GAN can help the world. i.e. why is it useful to be able to generate random samples of a pendulum swinging?
-
-
-\subsection{VIGN}
-
-Need to fill this section out in detail.
-
-
-\subsection{Lagrangian Dynamics (WIP)}
-The Euler-Lagrange formulation equates to:
-
-$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = \frac{\partial L}{\partial q} $$
-
-where:
-$$ L = T - U $$
-
-In the example of a pendulum:
-
-$$ T = 1/2 mv^2 = 1/2 m (l\dot{\theta})^2 = 1/2 m l^2 \dot{\theta}^2 $$
-
-$$ U = mgh = mgl(1- \cos \theta) $$
-
-$$ L = 1/2 m l^2 \dot{\theta}^2 - mgl(1-\cos\theta) $$
-
-Placing the above into the euler-lagrange form gives us:
-
-LHS:
-
-$$ \frac{\partial L}{\partial \dot{q}} = ml^2 \dot{\theta}$$
-
-$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = ml^2 \ddot{\theta} $$
-
-RHS:
-
-$$ \frac{\partial L}{\partial q} = -mgl\sin\theta$$
-
-Therefore:
-
-$$ \ddot{\theta} = \frac{g}{l} \sin \theta $$
-
-
-Now, to transition to the Hamiltonian version:
-
-We can write the hamiltonian as the sum of the energies:
-
-$$ H = T + U $$
-
-$$ H = p^2/2m + U $$
-
-$$ H = -L + 2K $$
-
-$$ H = -L + mv^2$$
-
-$$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
-
-$$ p = \frac{\partial L}{\partial \dot{q}} $$
-
-
-\section{Running Ideas}
-
-\subsection{VIGN extension}
-
-- non conserved energy domain
-is there a link between the port-hamiltonian view and lagrangians with generalized force
-for a damped system we have:
-
-$$ \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q}} - \frac{\partial \mathcal{L}}{\partial q} = \mathbf{F}^{ext} \frac{\partial \mathbf{r}}{\partial q}$$
-
-see \href{http://www.physics.hmc.edu/~saeta/courses/p111/uploads/Y2013/lec131023-DSHO.pdf}{here} for details on how this equation was built. 
-
-- distributional assumptions for practical purposes
-
-Assume $ H = E_c $ for a trajectory of an initial condition, then:
-
-$$ H = K + U $$
-
-$$U = H - K $$
-
-$$ L = K - U $$
-
-$$ L = 2K -H $$
-
-Now, for L to be constant, K needs to be constant. In most cases, $ K = p^2/2m $. For this to be constant p should be constant. For p to be constant, $\dot{p} = 0$. This would imply, for most settings, that:
-
-$$ \frac{dp}{dt} = \frac{dU}{dq} = 0 $$
-
-This means that U is zero, which is not true.
-
-We have proven that as long as energy is conserved in a system exhibiting $K = p^2/2m$ the Lagrangian will never be constant unless the system has 0 potential. 
-
-As such, the Lagrangian depends on the distribution of the kinetic energy/potential energy. In the large N limit, these distributions tend toward a Gaussian.
-
-Is it beneficial to have a target variable distributed more broadly like a gaussian vs a delta?
-
-
-\subsection{Covid}
-
-
-SEIR model is differentiable and has some hamiltonian/energy conserving property. how might we build a neural network on this?
-
-We start out using SEIR to model china and it works well.
-
-We have issues modeling beijing which is seeing a second spike, we could reshape R naught (t) as an exponential sine function.
-$$ R_0(t) = Ae^{-(t-t_0)}|sin(B(t-t_0))| $$
-
-This is too specific. How can we encode the SEIR model into a graph neural network. Note, graph networks and graph neural networks are different frameworks encompassing the same core operations. In graph networks, however, the intermediate functional representations (hidden layers) are computed first, before an aggregation scheme is used. In graph neural networks, e.g. GCN, the operations involve computing a hidden layer first using neighbouring nodes, before feeding these hidden layers into the graph neural network.
-
-This reversal means one needs to be careful in how they define graph neural network architectures between DGL and deepmind graph nets library.
-
-We use graph convolutions to train on simulated data, we find hypersensitivity to initial conditions. More importantly, because of the time dependent nature of the system we are unsure of how many lag-variables are necessary to evolve the system.
-
-\subsection{Inductive  biases for RL}
-
-MDPs with policies which are deterministic or stochastic. Model free which involves sampling at random. Model based which involves sampling the learnt environment.
+%Now ideally, we like to take this and make some changes.
+%
+%\begin{enumerate}
+%\item we want data to be split evenly, so if the total dataset size is N. We set N/2 of the samples to be class 1 and N/2 to be class 0. This automatically reduces the above y variables to 1/2's. 
+%\item The x values come from 2 sources. The legitimate source and the sampled source. We want this to be probabalistic so sums become expectations.
+%\end{enumerate}
+%
+%%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{\hat{x}  \sim p_{model}} [log(1-D(\hat{x}))] $$ 
+%%
+%%
+%%$$ H = -\frac{1}{2} \mathbb{E}_{x \sim p_{data}} [log D(x)] - \frac{1}{2} \mathbb{E}_{z} [log(1-D(G(z)))] $$ 
+%
+%The discriminator needs to minimze the above loss. It is the same as the cross-ent loss for a NN doing binary classification with sigmoid output.
+%
+%If we optimize this loss holding G constant, we get:
+%
+%$$ D(x) = \frac{p_{data}}{p_{model} + p_{data}} $$
+%
+%This is nash equilbrium.
+%
+%Zero-sum game means any loss is conserved between entities. 
+%
+%The zero sum game solution is minimax where we want to minimize the maximum loss. The discriminator wants a higher payoff so tries to maximize while the generator wants a lower loss so minimizes. To optimize this, an interative approach is used.
+%
+%
+%The sources used to understand these concepts come from \href{https://seas.ucla.edu/~kao/nndl/lectures/gans.pdf}{ucla tutorial} and \href{https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/}{Takeshi github link}.
+%
+%
+%
+%\subsubsection*{Training GANs}
+%
+%To start we  train a GAN using MNIST (Adam optimizers and saw convergence). We attempted GAN with pendulum motion and saw multiple convergence issues. We notice some challenges with training GANs - generator usually diverges while discriminator rapidly converges. Many tips online i.e. make target values 0.9 instead of 1 to reduce certainty.Using ‘hacks’ only can see marginal improvement. Larger issue of GANs being unstable.
+%
+%Furthermore, do we actually want to use GANs for the application? Seems that the only way to constrain the noise input is to encode it which essentially gives us an autoencoder.
+%
+%VIN network is a good idea though we have no code base/architecture used.
+%
+%Attempted to use AE-GAN to encode physics and also build a discriminator: challenge at the moment is discriminator loss is increasing (rare) and predicted output images look nothing like the ground truth. 
+%
+%Some ideas:
+%
+%\begin{enumerate}
+%
+%\item Changed optimizers
+%\item Changed network architecture
+%\item Removed discriminator and still noticed issues
+%\item Even when architecture is consistent with HNN
+%\item Perhaps the only difference is torch.randperm and torch shuffle
+%They use shuffling of data with replacement and don’t use epochs but steps
+%\item Takens theorem \href{https://en.wikipedia.org/wiki/Takens%27s_theorem}{here}
+%\end{enumerate}
+%
+%
+%Not necessarily evident what the benefits are of having the AE-GAN from the simple autoencoder network/ perhaps better images but this might not improve the latent space we learn.
+%
+%An alternative approach is to sample the latent space in a way which is consistent with the laws of physics (i.e. sample p and q) sequentially, as we sample the ground truth images - then we can see how p,q can ‘map’ into a 2D image (might be potential to learn from the hidden layers) but this is fully supervised and we are not learning anything immediately useful.
+%
+%Some experimental results
+%\begin{figure}[h!]
+%\centering
+%\begin{subfigure}{0.7\textwidth}
+%\includegraphics[width=\textwidth]{figures/gan_phase_1stack.png}
+%\end{subfigure}
+%\begin{subfigure}{0.7\textwidth}
+%\includegraphics[width=\textwidth]{figures/gan_phase_2stack.png}
+%\end{subfigure}
+%\begin{subfigure}{0.7\textwidth}
+%\includegraphics[width=\textwidth]{figures/gan_phase_3stack.png}
+%\end{subfigure}
+%\end{figure}
+%
+%We carried out an extensive study between batch size and epoch. However, we find no consistency in the generated phase space.
+%
+%\subsubsection*{key takeaways}
+%
+%Preliminary results show that GANs are difficult to work with (this could be an interesting topic to cover on its own). I believe gradient clipping is one way to solve this issue. 
+%More importantly, Variational Integrator Networks proves that the learnt phase space from an AE will not, in general, represent the true phase space. In order to do this, one needs to encode the Lie group dynamics.
+%Constrained GANs have already been looked at for generating consistent results.
+%
+%We still have yet to establish why a potential Lie group constrained GAN can help the world. i.e. why is it useful to be able to generate random samples of a pendulum swinging?
+%
+%
+%\subsection{VIGN}
+%
+%Need to fill this section out in detail.
+%
+%
+%\subsection{Lagrangian Dynamics (WIP)}
+%The Euler-Lagrange formulation equates to:
+%
+%$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = \frac{\partial L}{\partial q} $$
+%
+%where:
+%$$ L = T - U $$
+%
+%In the example of a pendulum:
+%
+%$$ T = 1/2 mv^2 = 1/2 m (l\dot{\theta})^2 = 1/2 m l^2 \dot{\theta}^2 $$
+%
+%$$ U = mgh = mgl(1- \cos \theta) $$
+%
+%$$ L = 1/2 m l^2 \dot{\theta}^2 - mgl(1-\cos\theta) $$
+%
+%Placing the above into the euler-lagrange form gives us:
+%
+%LHS:
+%
+%$$ \frac{\partial L}{\partial \dot{q}} = ml^2 \dot{\theta}$$
+%
+%$$ \frac{\partial}{\partial t} (\frac{\partial L}{\partial \dot{q}}) = ml^2 \ddot{\theta} $$
+%
+%RHS:
+%
+%$$ \frac{\partial L}{\partial q} = -mgl\sin\theta$$
+%
+%Therefore:
+%
+%$$ \ddot{\theta} = \frac{g}{l} \sin \theta $$
+%
+%
+%Now, to transition to the Hamiltonian version:
+%
+%We can write the hamiltonian as the sum of the energies:
+%
+%$$ H = T + U $$
+%
+%$$ H = p^2/2m + U $$
+%
+%$$ H = -L + 2K $$
+%
+%$$ H = -L + mv^2$$
+%
+%$$ H = -L + p^2/m = -L + p* (m\dot{q})/m = -L + p\dot{q}$$
+%
+%$$ p = \frac{\partial L}{\partial \dot{q}} $$
+%
+%
+%\section{Running Ideas}
+%
+%\subsection{VIGN extension}
+%
+%- non conserved energy domain
+%is there a link between the port-hamiltonian view and lagrangians with generalized force
+%for a damped system we have:
+%
+%$$ \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q}} - \frac{\partial \mathcal{L}}{\partial q} = \mathbf{F}^{ext} \frac{\partial \mathbf{r}}{\partial q}$$
+%
+%see \href{http://www.physics.hmc.edu/~saeta/courses/p111/uploads/Y2013/lec131023-DSHO.pdf}{here} for details on how this equation was built. 
+%
+%- distributional assumptions for practical purposes
+%
+%Assume $ H = E_c $ for a trajectory of an initial condition, then:
+%
+%$$ H = K + U $$
+%
+%$$U = H - K $$
+%
+%$$ L = K - U $$
+%
+%$$ L = 2K -H $$
+%
+%Now, for L to be constant, K needs to be constant. In most cases, $ K = p^2/2m $. For this to be constant p should be constant. For p to be constant, $\dot{p} = 0$. This would imply, for most settings, that:
+%
+%$$ \frac{dp}{dt} = \frac{dU}{dq} = 0 $$
+%
+%This means that U is zero, which is not true.
+%
+%We have proven that as long as energy is conserved in a system exhibiting $K = p^2/2m$ the Lagrangian will never be constant unless the system has 0 potential. 
+%
+%As such, the Lagrangian depends on the distribution of the kinetic energy/potential energy. In the large N limit, these distributions tend toward a Gaussian.
+%
+%Is it beneficial to have a target variable distributed more broadly like a gaussian vs a delta?
+%
+%
+%\subsection{Covid}
+%
+%
+%SEIR model is differentiable and has some hamiltonian/energy conserving property. how might we build a neural network on this?
+%
+%We start out using SEIR to model china and it works well.
+%
+%We have issues modeling beijing which is seeing a second spike, we could reshape R naught (t) as an exponential sine function.
+%$$ R_0(t) = Ae^{-(t-t_0)}|sin(B(t-t_0))| $$
+%
+%This is too specific. How can we encode the SEIR model into a graph neural network. Note, graph networks and graph neural networks are different frameworks encompassing the same core operations. In graph networks, however, the intermediate functional representations (hidden layers) are computed first, before an aggregation scheme is used. In graph neural networks, e.g. GCN, the operations involve computing a hidden layer first using neighbouring nodes, before feeding these hidden layers into the graph neural network.
+%
+%This reversal means one needs to be careful in how they define graph neural network architectures between DGL and deepmind graph nets library.
+%
+%We use graph convolutions to train on simulated data, we find hypersensitivity to initial conditions. More importantly, because of the time dependent nature of the system we are unsure of how many lag-variables are necessary to evolve the system.
+%
+%\subsection{Inductive  biases for RL}
+%
+%MDPs with policies which are deterministic or stochastic. Model free which involves sampling at random. Model based which involves sampling the learnt environment.
 
 
 \bibliography{references.bib}

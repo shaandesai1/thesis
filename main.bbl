@@ -1,5 +1,13 @@
 \begin{thebibliography}{10}
 
+\bibitem{atkinson_bayesian_2020}
+S.~Atkinson.
+\newblock Bayesian {Hidden} {Physics} {Models}: {Uncertainty} {Quantification}
+  for {Discovery} of {Nonlinear} {Partial} {Differential} {Operators} from
+  {Data}.
+\newblock {\em arXiv:2006.04228 [cs, stat]}, June 2020.
+\newblock arXiv: 2006.04228.
+
 \bibitem{bapst_unveiling_2020}
 V.~Bapst, T.~Keck, A.~Grabska-Barwińska, C.~Donner, E.~D. Cubuk, S.~S.
   Schoenholz, A.~Obika, A.~W.~R. Nelson, T.~Back, D.~Hassabis, and P.~Kohli.
