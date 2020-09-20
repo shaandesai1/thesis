@@ -57,6 +57,12 @@ M.~D. Cranmer, R.~Xu, P.~Battaglia, and S.~Ho.
 \newblock {\em arXiv:1909.05862 [astro-ph, physics:physics, stat]}, Nov. 2019.
 \newblock arXiv: 1909.05862.
 
+\bibitem{dupont_augmented_2019}
+E.~Dupont, A.~Doucet, and Y.~W. Teh.
+\newblock Augmented {Neural} {ODEs}.
+\newblock {\em arXiv:1904.01681 [cs, stat]}, Oct. 2019.
+\newblock arXiv: 1904.01681.
+
 \bibitem{geist_learning_2020}
 A.~R. Geist and S.~Trimpe.
 \newblock Learning {Constrained} {Dynamics} with {Gauss} {Principle} adhering
@@ -71,6 +77,19 @@ S.~Greydanus, M.~Dzamba, and J.~Yosinski.
   E.~Fox, and R.~Garnett, editors, {\em Advances in {Neural} {Information}
   {Processing} {Systems} 32}, pages 15379--15389. Curran Associates, Inc.,
   2019.
+
+\bibitem{howse_gradient_1996}
+J.~W. Howse, C.~T. Abdallah, and G.~L. Heileman.
+\newblock Gradient and {Hamiltonian} {Dynamics} {Applied} to {Learning} in
+  {Neural} {Networks}.
+\newblock In D.~S. Touretzky, M.~C. Mozer, and M.~E. Hasselmo, editors, {\em
+  Advances in {Neural} {Information} {Processing} {Systems} 8}, pages 274--280.
+  MIT Press, 1996.
+
+\bibitem{lachapelle_gradient-based_2020}
+S.~Lachapelle, P.~Brouillard, T.~Deleu, and S.~Lacoste-Julien.
+\newblock {GRADIENT}-{BASED} {NEURAL} {DAG} {LEARNING}.
+\newblock page~23, 2020.
 
 \bibitem{lamb_graph_2020}
 L.~Lamb, A.~Garcez, M.~Gori, M.~Prates, P.~Avelar, and M.~Vardi.
@@ -89,12 +108,26 @@ J.~E. Marsden and M.~West.
 \newblock Discrete mechanics and variational integrators.
 \newblock {\em Acta Numerica}, 10:357--514, May 2001.
 
+\bibitem{pamfil_dynotears_2020}
+R.~Pamfil, N.~Sriwattanaworachai, S.~Desai, P.~Pilgerstorfer, P.~Beaumont,
+  K.~Georgatzis, and B.~Aragam.
+\newblock {DYNOTEARS}: {Structure} {Learning} from {Time}-{Series} {Data}.
+\newblock {\em arXiv:2002.00498 [cs, stat]}, Apr. 2020.
+\newblock arXiv: 2002.00498.
+
 \bibitem{pukrittayakamee_simultaneous_2009}
 A.~Pukrittayakamee, M.~Malshe, M.~Hagan, L.~M. Raff, R.~Narulkar,
   S.~Bukkapatnum, and R.~Komanduri.
 \newblock Simultaneous fitting of a potential-energy surface and its
   corresponding force fields using feedforward neural networks.
 \newblock {\em The Journal of Chemical Physics}, 130(13):134101, Apr. 2009.
+
+\bibitem{raissi_physics-informed_2019}
+M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
+\newblock Physics-informed neural networks: {A} deep learning framework for
+  solving forward and inverse problems involving nonlinear partial differential
+  equations.
+\newblock {\em Journal of Computational Physics}, 378:686--707, Feb. 2019.
 
 \bibitem{roehrl_modeling_2020}
 M.~A. Roehrl, T.~A. Runkler, V.~Brandtstetter, M.~Tokic, and S.~Obermayer.
@@ -175,6 +208,19 @@ K.~Yao, J.~E. Herr, D.~Toth, R.~Mckintyre, and J.~Parkhill.
 \newblock The {TensorMol}-0.1 model chemistry: a neural network augmented with
   long-range physics.
 \newblock {\em Chemical Science}, 9(8):2261--2269, 2018.
+
+\bibitem{yu_dag-gnn_nodate}
+Y.~Yu, J.~Chen, T.~Gao, and M.~Yu.
+\newblock {DAG}-{GNN}: {DAG} {Structure} {Learning} with {Graph} {Neural}
+  {Networks}.
+\newblock page~10.
+
+\bibitem{zheng_dags_2018}
+X.~Zheng, B.~Aragam, P.~Ravikumar, and E.~P. Xing.
+\newblock {DAGs} with {NO} {TEARS}: {Continuous} {Optimization} for {Structure}
+  {Learning}.
+\newblock {\em arXiv:1803.01422 [cs, stat]}, Nov. 2018.
+\newblock arXiv: 1803.01422.
 
 \bibitem{zhong_symplectic_2019}
 Y.~D. Zhong, B.~Dey, and A.~Chakraborty.
