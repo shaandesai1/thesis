@@ -32,6 +32,13 @@ P.~W. Battaglia, R.~Pascanu, M.~Lai, D.~Rezende, and K.~Kavukcuoglu.
 \newblock {\em arXiv:1612.00222 [cs]}, Dec. 2016.
 \newblock arXiv: 1612.00222.
 
+\bibitem{brunton_discovering_2016}
+S.~L. Brunton, J.~L. Proctor, and J.~N. Kutz.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  113(15):3932--3937, Apr. 2016.
+
 \bibitem{chen_neural_2018}
 R.~T.~Q. Chen, Y.~Rubanova, J.~Bettencourt, and D.~K. Duvenaud.
 \newblock Neural {Ordinary} {Differential} {Equations}.
@@ -85,6 +92,12 @@ J.~W. Howse, C.~T. Abdallah, and G.~L. Heileman.
 \newblock In D.~S. Touretzky, M.~C. Mozer, and M.~E. Hasselmo, editors, {\em
   Advances in {Neural} {Information} {Processing} {Systems} 8}, pages 274--280.
   MIT Press, 1996.
+
+\bibitem{iten_discovering_2020}
+R.~Iten, T.~Metger, H.~Wilming, L.~del Rio, and R.~Renner.
+\newblock Discovering physical concepts with neural networks.
+\newblock {\em Physical Review Letters}, 124(1):010508, Jan. 2020.
+\newblock arXiv: 1807.10300.
 
 \bibitem{lachapelle_gradient-based_2020}
 S.~Lachapelle, P.~Brouillard, T.~Deleu, and S.~Lacoste-Julien.
