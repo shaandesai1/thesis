@@ -7,8 +7,8 @@
 \BOOKMARK [2][-]{subsection.3.4}{Gradient Learning}{section.3}% 7
 \BOOKMARK [2][-]{subsection.3.5}{Physics Informed Neural Networks}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.6}{Energy Conserving Networks}{section.3}% 9
-\BOOKMARK [3][-]{subsubsection.3.6.1}{Deep Lagrangian Network}{subsection.3.6}% 10
-\BOOKMARK [3][-]{subsubsection.3.6.2}{Hamiltonian Neural Networks}{subsection.3.6}% 11
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Hamiltonian Neural Networks}{subsection.3.6}% 10
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Deep Lagrangian Network}{subsection.3.6}% 11
 \BOOKMARK [3][-]{subsubsection.3.6.3}{Variational Integrator Networks}{subsection.3.6}% 12
 \BOOKMARK [3][-]{subsubsection.3.6.4}{Deep Energy Network}{subsection.3.6}% 13
 \BOOKMARK [3][-]{subsubsection.3.6.5}{Unsupervised Learning of Lagrangian Dynamics}{subsection.3.6}% 14
@@ -26,4 +26,7 @@
 \BOOKMARK [3][-]{subsubsection.3.9.1}{Discovering Physical Concepts with Neural Networks}{subsection.3.9}% 26
 \BOOKMARK [3][-]{subsubsection.3.9.2}{Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}{subsection.3.9}% 27
 \BOOKMARK [3][-]{subsubsection.3.9.3}{Symbolic Pregression}{subsection.3.9}% 28
-\BOOKMARK [2][-]{subsection.3.10}{Causality}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.10}{Physics Informed Neural Network Applications}{section.3}% 29
+\BOOKMARK [3][-]{subsubsection.3.10.1}{Chaos}{subsection.3.10}% 30
+\BOOKMARK [3][-]{subsubsection.3.10.2}{Materials}{subsection.3.10}% 31
+\BOOKMARK [2][-]{subsection.3.11}{Causality}{section.3}% 32

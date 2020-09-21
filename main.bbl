@@ -52,6 +52,13 @@ Z.~Chen, J.~Zhang, M.~Arjovsky, and L.~Bottou.
 \newblock {\em arXiv:1909.13334 [cs, stat]}, Apr. 2020.
 \newblock arXiv: 1909.13334.
 
+\bibitem{choudhary_physics_2019}
+A.~Choudhary, J.~F. Lindner, E.~G. Holliday, S.~T. Miller, S.~Sinha, and W.~L.
+  Ditto.
+\newblock Physics enhanced neural networks predict order and chaos.
+\newblock {\em arXiv:1912.01958 [physics]}, Nov. 2019.
+\newblock arXiv: 1912.01958.
+
 \bibitem{cranmer_lagrangian_2020}
 M.~Cranmer, S.~Greydanus, S.~Hoyer, P.~Battaglia, D.~Spergel, and S.~Ho.
 \newblock Lagrangian {Neural} {Networks}.
@@ -98,6 +105,12 @@ R.~Iten, T.~Metger, H.~Wilming, L.~del Rio, and R.~Renner.
 \newblock Discovering physical concepts with neural networks.
 \newblock {\em Physical Review Letters}, 124(1):010508, Jan. 2020.
 \newblock arXiv: 1807.10300.
+
+\bibitem{jin_sympnets_2020}
+P.~Jin, Z.~Zhang, A.~Zhu, Y.~Tang, and G.~E. Karniadakis.
+\newblock {SympNets}: {Intrinsic} structure-preserving symplectic networks for
+  identifying {Hamiltonian} systems.
+\newblock {\em Neural Networks}, 132:166--179, Dec. 2020.
 
 \bibitem{lachapelle_gradient-based_2020}
 S.~Lachapelle, P.~Brouillard, T.~Deleu, and S.~Lacoste-Julien.
@@ -208,6 +221,14 @@ S.-M. Udrescu and M.~Tegmark.
   {Distorted} {Video}.
 \newblock {\em arXiv:2005.11212 [physics, stat]}, May 2020.
 \newblock arXiv: 2005.11212.
+
+\bibitem{wang_machine_2019}
+J.~Wang, S.~Olsson, C.~Wehmeyer, A.~Pérez, N.~E. Charron, G.~de~Fabritiis,
+  F.~Noé, and C.~Clementi.
+\newblock Machine {Learning} of {Coarse}-{Grained} {Molecular} {Dynamics}
+  {Force} {Fields}.
+\newblock {\em ACS Central Science}, 5(5):755--767, May 2019.
+\newblock Publisher: American Chemical Society.
 
 \bibitem{witkoskie_neural_2005}
 J.~B. Witkoskie and D.~J. Doren.
