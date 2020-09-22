@@ -340,33 +340,31 @@ The main breakthrough of using this approach is uncertainty quantification of th
 \subsection{Data Driven Model Discovery}
 
 
-
 \subsubsection{Discovering Physical Concepts with Neural Networks}
 
-Although this review has looked closely at embedding physical laws into neural networks, some approaches such as \cite{iten_discovering_2020} take on a different approach of not assuming any prior. The paper sets the 'scientific process' as the prior. 
-By feeding inputs into an encoder to learn a representation and then querying this representation before decoding, the experimental process of learning laws is designed to become a part of the network.
+Although this review has looked closely at embedding physical laws into neural networks, some approaches such as \cite{iten_discovering_2020} take on a different approach of not assuming any prior. In other words, the paper sets the 'scientific process' as the prior. By feeding inputs into an encoder to learn a representation and then querying this representation before decoding, the experimental process of learning laws is designed to become a part of the network.
 
-The only caveat to this modelling is the use of disentangled VAEs that are designed to produce orthogonal representations. The assumption here being that every new variable added to the representation should be independent and alter the output landscape separately i.e. no linear combinations/the variables should span the output space.
+The only caveat to this modelling is the use of disentangled VAEs that are designed to produce orthogonal representations. The assumption here being that every new variable added to the representation should be independent and alter the output landscape separately i.e. the variables should span the output space.
 
-Results illustrate that such a system can learn accurate latent representations necessary to evolve the time dynamics of a system, including conservation laws. The network also learns how to switch co-ordinate systems and the dimension of underlying quantum systems. 
+Results illustrate that such a system can learn accurate latent representations necessary to evolve the time dynamics of a system, including conservation laws. The network also learns how to switch co-ordinate systems.
 
 This presents an alternative view to learning physical systems. Motivated by this result, one can easily draw a comparison across methods to illustrate how much more data/time is needed to establish the right representation in comparison to methods naturally designed to embed physical laws. 
 
 \subsubsection{Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}
 
- The proposed method in \cite{brunton_discovering_2016} tackles learning the governing equations of a physical system by inspecting the sparsity of a function f that satisfies:
+The proposed method in \cite{brunton_discovering_2016} tackles learning the governing equations of a physical system by inspecting the sparsity of a function f that satisfies:
  
- $$ d x/dt = f(x(t)) $$
+ $$ \frac{dx}{dt} = f(x(t)) $$
  
- For most systems, the paper identifies that only a small group of derivatives are relevant to compute f. 
+For most systems, the paper notes that only a small group of derivatives of $x$ are relevant to compute $f$. 
  
- The method first computes higher order polynomials of the inputs and then uses sparse regression to select the parameters. 
+The method first computes higher order polynomials of the inputs and then uses sparse regression to select the parameters. 
  
- This approach of 'selecting' from a bag of potential functions has been explore extensively in determining governing equations. However, the method relies on having to explicitly build a large matrix of permutations. 
+This approach of 'selecting' from a bag of potential functions has been explored extensively in determining governing equations. However, the method relies on having to explicitly build a large matrix of permutations. 
 
 \subsubsection{Symbolic Pregression}
 
-Fundamental early work aimed at devising unique ways to find regression coefficients using a supervised learning framework. Symbolic pregression combines this approach with that of the hamiltonian neural net to build an unsupervised framework for discovery of differential equations \cite{udrescu_symbolic_2020}. The paper still does not reveal the functional form of the underlying constraint but the results look deeply promising in dealing with visual data.
+Symbolic pregression combines the approach of discovering relevant coefficients with that of Hamiltonian Neural Networks to build an unsupervised framework for discovery of differential equations \cite{udrescu_symbolic_2020}. The paper still does not reveal the functional form of the underlying constraint but the results look deeply promising in dealing with visual data. Indeed they do show that it is possible to learn a number of equations from data, however, they do mention issues linked to identifiability and the need to constrain the learnt representations to ensure convergence.
 
 \subsection{Physics Informed Generative Adversarial Networks}
 
@@ -374,40 +372,29 @@ GANs have been shown to emulate complex physical concepts such as turbulent flow
 
 $$ H[u] \leq 0$$
 
-where H is a differential operator. Then, by adding this constraint to the generator, we get:
+where $H$ is a differential operator on a state $u$. Then, by adding this constraint to the generator, we get:
 
 $$V_C(D,G) = V(D,G) + \lambda C_{phys} $$ where:
 
 $$ C_{phys} = \mathbb{E}_{Z} (Max(H(G(Z)),0))$$
 
-The authors show that such a system can be used to generate samples given specific constraints e.g. generate samples on  circle of radii 3. However, they also show that approximate samples can be drawn for which constraints might be inequalities. 
+$V(D,G)$ is the generator loss in a classical GAN. The authors show that such a system can be used to generate samples given specific constraints e.g. generating samples on  circle of radii 3. However, they also show that approximate samples can be drawn for which constraints might be inequalities. 
 
 Extending this work to build physics informed images might be particularly useful in animation. 
-\subsection{Physics Informed Neural Network Applications}
 
+\subsection{Physics Informed Neural Network Applications}
 
 \subsubsection{Chaos}
 
-Using \nameref{HNN}, \cite{choudhary_physics_2019} shows that it is possible to predict the trajectory of a chaotic heinon-heiles system. In addition, they are able to predict trajectories of billiard balls undergoing complex potential functions. \cite{cranmer_lagrangian_2020} also work to show that the double pendulum system can be learned from data but their approach shows significant practical limitations relating to the complexity of the model used.
+Using \nameref{HNN}, \cite{choudhary_physics_2019} shows that it is possible to predict the trajectory of a chaotic heinon-heiles system. In addition, they are able to predict trajectories of billiard balls under complex potential functions. \cite{cranmer_lagrangian_2020} also show that the double pendulum system can be learned from data but their approach shows significant practical limitations relating to the complexity of the model used.
 
-Our preliminary idea was to see if HNNs can be used to learn the dynamics of a double pendulum. However, our preliminary results show that high energy systems are quite difficult to learn. However, this line of work can establish new ways of developing neural networks that are more sensitive to their inputs. 
+\textbf{Bottom Line}: Our preliminary idea was to see if HNNs can be used to learn the dynamics of a double pendulum. However, our  results show that high energy chaotic systems are quite difficult to learn. However, this line of work can establish new ways of developing neural networks that are more sensitive to their inputs. 
 
 
 \subsubsection{Materials}
 
 In numerous papers, \cite{rupp_fast_2012,witkoskie_neural_2005,pukrittayakamee_simultaneous_2009,smith_ani-1_2017,yao_tensormol-01_2018} the use of physics priors have been used to model materials. Some have taken a more traditional ML approach to predict materials properties such as \cite{rupp_fast_2012}, while others have looked at using deep networks such as \cite{wang_machine_2019} in which convolutional networks are used to extract meaningful Hamiltonian representations of magnetic materials.
 
-
-
-
-
-%\subsubsection{Thermal}
-
-
-%\subsubsection{Quantum based NNs}
-
-
-%\subsubsection{Holonomic constraint}
 
 \subsection{Causality}
 
@@ -419,7 +406,7 @@ In other words:
 
 $$ tr(I-B)^{-1} = d $$
 
-must be satisfied. Embedding this into the learning process is imparting an inductive bias on learning. 
+must be satisfied where B is an adjacency matrix and d is the number of columns/rows in B. Embedding this into the learning process is imparting an inductive bias on learning. 
 
 It was with this in mind that DYNOTEARS \cite{pamfil_dynotears_2020} were able to extend the work into the temporal setting and learn dynamic bayesian networks. In principle, by adding an additional weight matrix to learning and penalizing it in the same way that NOTEARS does.
 
@@ -670,7 +657,7 @@ Furthermore, it has been shown that the NOTEARS constraint can be embedded in gr
 %
 %MDPs with policies which are deterministic or stochastic. Model free which involves sampling at random. Model based which involves sampling the learnt environment.
 
-
+\pagebreak
 \bibliography{references.bib}
 
 
