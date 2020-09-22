@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{amsfonts} 
 %\usepackage{multirow}
 %\usepackage{multicol}
 \title{DPhil: Transfer of Status Literature Review}
@@ -371,6 +372,21 @@ This presents an alternative view to learning physical systems. Motivated by thi
 
 Fundamental early work aimed at devising unique ways to find regression coefficients using a supervised learning framework. Symbolic pregression combines this approach with that of the hamiltonian neural net to build an unsupervised framework for discovery of differential equations \cite{udrescu_symbolic_2020}. The paper still does not reveal the functional form of the underlying constraint but the results look deeply promising in dealing with visual data.
 
+\subsection{Physics Informed Generative Adversarial Networks}
+
+GANs have been shown to emulate complex physical concepts such as turbulent flows. In addition, by embedding physical constraints into the generator, GANs can be used to sample deterministic physical constraints. In \cite{yang_enforcing_2019}, the authors define a general physical constraints s.t.:
+
+$$ H[u] \leq 0$$
+
+where H is a differential operator. Then, by adding this constraint to the generator, we get:
+
+$$V_C(D,G) = V(D,G) + \lambda C_{phys} $$ where:
+
+$$ C_{phys} = \mathbb{E}_{Z} (Max(H(G(Z)),0))$$
+
+The authors show that such a system can be used to generate samples given specific constraints e.g. generate samples on  circle of radii 3. However, they also show that approximate samples can be drawn for which constraints might be inequalities. 
+
+Extending this work to build physics informed images might be particularly useful in animation. 
 \subsection{Physics Informed Neural Network Applications}
 
 
@@ -383,7 +399,7 @@ Our preliminary idea was to see if HNNs can be used to learn the dynamics of a d
 
 \subsubsection{Materials}
 
-In numerous papers, \cite{rupp_fast_2012,witkoskie_neural_2005,pukrittayakamee_simultaneous_2009,smith_ani-1_2017,yao_tensormol-01_2018}the use of physics priors have been used to model materials. Some have taken a more traditional ML approach to predict materials properties such as \cite{rupp_fast_2012}, while others have looked at using deep networks such as \cite{wang_machine_2019} in which convolutional networks are used to extract meaningful Hamiltonian representations of magnetic materials.
+In numerous papers, \cite{rupp_fast_2012,witkoskie_neural_2005,pukrittayakamee_simultaneous_2009,smith_ani-1_2017,yao_tensormol-01_2018} the use of physics priors have been used to model materials. Some have taken a more traditional ML approach to predict materials properties such as \cite{rupp_fast_2012}, while others have looked at using deep networks such as \cite{wang_machine_2019} in which convolutional networks are used to extract meaningful Hamiltonian representations of magnetic materials.
 
 
 

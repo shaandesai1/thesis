@@ -26,7 +26,8 @@
 \contentsline {subsubsection}{\numberline {3.9.1}Discovering Physical Concepts with Neural Networks}{14}{subsubsection.3.9.1}% 
 \contentsline {subsubsection}{\numberline {3.9.2}Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}{15}{subsubsection.3.9.2}% 
 \contentsline {subsubsection}{\numberline {3.9.3}Symbolic Pregression}{15}{subsubsection.3.9.3}% 
-\contentsline {subsection}{\numberline {3.10}Physics Informed Neural Network Applications}{15}{subsection.3.10}% 
-\contentsline {subsubsection}{\numberline {3.10.1}Chaos}{15}{subsubsection.3.10.1}% 
-\contentsline {subsubsection}{\numberline {3.10.2}Materials}{15}{subsubsection.3.10.2}% 
-\contentsline {subsection}{\numberline {3.11}Causality}{16}{subsection.3.11}% 
+\contentsline {subsection}{\numberline {3.10}Physics Informed Generative Adversarial Networks}{15}{subsection.3.10}% 
+\contentsline {subsection}{\numberline {3.11}Physics Informed Neural Network Applications}{16}{subsection.3.11}% 
+\contentsline {subsubsection}{\numberline {3.11.1}Chaos}{16}{subsubsection.3.11.1}% 
+\contentsline {subsubsection}{\numberline {3.11.2}Materials}{16}{subsubsection.3.11.2}% 
+\contentsline {subsection}{\numberline {3.12}Causality}{16}{subsection.3.12}% 

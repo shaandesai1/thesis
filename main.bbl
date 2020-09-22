@@ -237,6 +237,13 @@ J.~B. Witkoskie and D.~J. Doren.
 \newblock {\em Journal of Chemical Theory and Computation}, 1(1):14--23, Jan.
   2005.
 
+\bibitem{yang_enforcing_2019}
+Z.~Yang, J.-L. Wu, and H.~Xiao.
+\newblock Enforcing {Deterministic} {Constraints} on {Generative} {Adversarial}
+  {Networks} for {Emulating} {Physical} {Systems}.
+\newblock {\em arXiv:1911.06671 [physics, stat]}, Nov. 2019.
+\newblock arXiv: 1911.06671 version: 1.
+
 \bibitem{yao_tensormol-01_2018}
 K.~Yao, J.~E. Herr, D.~Toth, R.~Mckintyre, and J.~Parkhill.
 \newblock The {TensorMol}-0.1 model chemistry: a neural network augmented with

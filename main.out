@@ -26,7 +26,8 @@
 \BOOKMARK [3][-]{subsubsection.3.9.1}{Discovering Physical Concepts with Neural Networks}{subsection.3.9}% 26
 \BOOKMARK [3][-]{subsubsection.3.9.2}{Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}{subsection.3.9}% 27
 \BOOKMARK [3][-]{subsubsection.3.9.3}{Symbolic Pregression}{subsection.3.9}% 28
-\BOOKMARK [2][-]{subsection.3.10}{Physics Informed Neural Network Applications}{section.3}% 29
-\BOOKMARK [3][-]{subsubsection.3.10.1}{Chaos}{subsection.3.10}% 30
-\BOOKMARK [3][-]{subsubsection.3.10.2}{Materials}{subsection.3.10}% 31
-\BOOKMARK [2][-]{subsection.3.11}{Causality}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.10}{Physics Informed Generative Adversarial Networks}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.11}{Physics Informed Neural Network Applications}{section.3}% 30
+\BOOKMARK [3][-]{subsubsection.3.11.1}{Chaos}{subsection.3.11}% 31
+\BOOKMARK [3][-]{subsubsection.3.11.2}{Materials}{subsection.3.11}% 32
+\BOOKMARK [2][-]{subsection.3.12}{Causality}{section.3}% 33
