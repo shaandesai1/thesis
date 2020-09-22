@@ -16,22 +16,20 @@
 % Title page is created here
 \maketitle
 \bibliographystyle{abbrv}
-
+\pagebreak
 \tableofcontents
+\pagebreak
 \section{Introduction}
 
-The past decade has seen an immense dedication to research in Artificial Intelligence, most notably in Deep Neural Networks (DNNs). DNNs have been used across a whole host of domains including image classification, machine translation and time-series forecasting. Despite these grand successes, DNNs have numerous limitations. In particular, DNNs are black boxes meaning they aren't interpretable, they require many datapoints ($>5000$ points) to learn and are highly sensitive to hyperparameter tuning. Given such limitations, the physics community has been apprehensive about its adoption. However, over the past 2 years, significant research on inductive biases has paved a new road to embed knowledge from physics into DNNs. This prior knowledge has been shown to make DNNs more data efficient and more interpretable. In this review, we look at state-of-the-art methods at the intersection of deep networks and physics. For every method, we summarize the key tricks that drive performance and also mention possible pain points worth investigating further.
+Humans have long tried to understand how the mind works. From a biological perspective, connectomics has paved a pathway to understanding how we think \cite{cowan_neural_1990}. Inspired by these ideas and the advent of computers and increased processing power, many researchers in the 50's began to ask whether the human mind can be replicated using a computer. Early work by Walter and Warren was one of the first to point out a means to build neural logic in computers that loosely resembles neurons in the brain \cite{cowan_neural_1990}. Their seminal work opened up a new door to AI research and was later proven to hold universal function approximation properties \cite{hornik_multilayer_1989}. Given neural networks are inspired by brain activity and consist of mathematical guarantees, AI researchers have focused intensely on developing them further. Arguably, they have been the most used method in the past decade having shown remarkable performance across a whole host of domains including image classification \cite{he_mask_2018}, machine translation \cite{devlin_bert_2019} and robotic manipulation \cite{toussaint_differentiable_2018}. Despite these grand successes, neural networks have numerous limitations. Firstly, they are considered 'black box' models meaning they aren't readily interpretable. Secondly, they require a significant number of data points ($>5000$ points) to learn and thirdly, they are highly sensitive to hyper-parameter tuning. Given such limitations, the physics community has been apprehensive about their adoption. However, over the past two years, significant research in \textit{scientific machine learning} has created a new road to tackle the limitations of neural networks by embedding knowledge from physics into them. This prior knowledge has been shown to make neural networks more data efficient, interpretable and stable. In this review, we canvas state-of-the-art methods that incorporate physics into deep neural networks. For each method, we summarize the key insights that drive performance and also mention possible pain points worth investigating further.
 
 
-\section{Artificial Intelligence}
-
-Humans have long tried to understand how the mind works. From a biological perspective it is clear that connectomics paves a pathway to understanding how we think. With the advent of computers and 'large' processing power, many researchers began to ask whether the human mind can be replicated using a computer. Early work by walter and warren was the first to point out a means to build neural network logic. There has been a slew of advents in neural processing, convnets, rnns, graphs, tensor nets, deep RL. All seeking to solve more tasks/increase generalizability. To date, there has been no general purpose solution for a vast array of tasks e.g. a human can learn to create art, sit math exams, play sports, yet a robot so far can only do one of these tasks well. Numerous limitations in terms of processing power and memory access still exist. Despite these limitations, neural networks have brought about significant advancements to society. In what follows, we outline some of the major advances, those which have been fundamental pillars to research conducted during this phd. We follow no particular order.
 
 \section{Inductive Biases}
 
-An inductive bias in machine learning is prior information used to guide model building. In simple linear regression, for example, we assume the distribution of the noise in our data follows a Gaussian. This is a natural inductive bias because prior to seeing any data, we have assumed our noise model follows this form. In neural networks, architectures with variable depth, form and activations for example, serve as inductive biases. In essence, we encode initial assumptions about the complexity of data via inductive biases. 
+An inductive bias in machine learning is prior information used to guide model building. In simple linear regression, for example, we may assume the distribution of the noise in our data follows a Gaussian. This is a natural inductive bias because it imparts prior knowledge on the noise model of our data. In neural networks, architectures with variable depth, form and activations for example, serve as inductive biases. In essence, inductive biases allow us to encode initial assumptions about the complexity of our data.
 
-A feedforward deep neural network naturally encodes 'nonlinearity' as a prior and arguably makes the least assumptions about the underlying data. Convolutional Neural Networks assume spatial representations can be captured. Recurrent Neural Networks assume temporal data as inputs. 
+A feedforward deep neural network naturally encodes non-linearity as a prior and arguably makes the least assumptions about the underlying data. Convolutional Neural Networks assume spatial representations can be captured. Recurrent Neural Networks assume temporal data as inputs \cite{battaglia_relational_2018}.
 
 In what follows, we highlight some of the recent advances in inductive biases, particularly as they relate to solving problems in physics.
 
@@ -43,19 +41,17 @@ In what follows, we highlight some of the recent advances in inductive biases, p
 \caption{Graph attribute updates as presented in \cite{battaglia_relational_2018}. GNNs carry out a sequence of computations and aggregations at an attribute level to determine the next set of values.}
 \label{fig:gnn}
 \end{figure}
-The state of a physical system can be represented by a graph $G = (u,V,E)$ \cite{battaglia_relational_2018}. For example, a node ($V$) can be used to represent a particle in an N-body problem. These nodes can be used to represent the core features of the particle e.g. position, momentum, mass and particle constants. Edges ($E$) can represent forces between the particles and `Globals' ($u$) can represent constants such as air density, the gravitational constant etc. We note that graphs can be fully connected or sparse, depending on the specific use case. In representing physical systems this way, we impart structure on our data which forms an important inductive bias when learning physics \cite{battaglia_interaction_2016, battaglia_relational_2018, sanchez-gonzalez_graph_2018,seo_differentiable_2019,cranmer_learning_2019, seo_physics-aware_2020, sanchez-gonzalez_learning_2020,lamb_graph_2020,cranmer_lagrangian_2020}. Representations of this form allow us to carry out learning in multiple complex domains because such graphs can be input to Graph Neural Networks which can be used to update the graph attributes. In addition, graphs allow for increased interpretability \cite{battaglia_relational_2018}.
+The state of a dynamic physical system can be represented by a graph $G$ consisting of vertices $V$, edges $E$ and global parameters $u$ often denoted as $G = (u,V,E)$ \cite{battaglia_relational_2018}. For example, a node ($V$) can be used to represent a particle in an N-body problem. These nodes can be used to contain the core features of the particle e.g. position, momentum, mass and particle constants. Edges ($E$) can represent forces between the particles and `Globals' ($u$) can represent constants such as air density, the gravitational constant etc. We note that graphs can be fully connected or sparse, depending on the specific use case. In representing physical systems this way, we impart structure on our data which forms an important inductive bias when learning physics \cite{battaglia_interaction_2016, battaglia_relational_2018, sanchez-gonzalez_graph_2018,seo_differentiable_2019,cranmer_learning_2019, seo_physics-aware_2020, sanchez-gonzalez_learning_2020,lamb_graph_2020,cranmer_lagrangian_2020}. Representations of this form allow us to carry out learning in multiple complex domains because such graphs impart a strong relational bias on the data. Graph Neural Networks are designed to translate graphs from one state to another. They work by computing sequential updates to node, edge and global parameters and aggregating them to define a new output graph. Graph Neural Networks are considered to impart a relational inductive bias, as convolutional networks are considered to impart a spatial bias and recurrent networks to impart a temporal bias. 
 
-Some major applications include:
+Some major applications of GNNs include:
 \begin{itemize}
-\item Interaction-physics based problems naturally benefit from graphs \cite{battaglia_relational_2018}. 
-\item We see that graph networks trained to learn Hamiltonians achieve great results in rolling out trajectories of N-body systems \cite{sanchez-gonzalez_hamiltonian_2019}. 
-\item Graphs have shown significant promise in explaining the phase transition of glassy materials \cite{bapst_unveiling_2020}. 
-\item They're even shown to model complex fluid like systems from visual data \cite{sanchez-gonzalez_learning_2020}. 
+\item Interaction-physics based problems naturally benefit from GNNs \cite{battaglia_relational_2018}. 
+\item GNNs trained to learn Hamiltonians achieve impressive results in rolling out trajectories of large N-body systems \cite{sanchez-gonzalez_hamiltonian_2019}. 
+\item GNNs have shown significant promise in explaining the phase transitions of glassy materials \cite{bapst_unveiling_2020}. 
+\item GNNs can learn complex fluid like systems from visual data \cite{sanchez-gonzalez_learning_2020}. 
 \end{itemize}
 
-Graph Neural Networks are considered to impart a relational inductive bias, as convolutional networks are considered to impart a spatial bias and recurrent networks to impart a temporal bias. 
-
-Inspired by this work we see two major steps in moving this research forward. Firstly, their use in physics opens up a tried-and-tested pathway to solve more complex problems particularly in accounting for material interactions. As such, we see good scope to use graph networks for large interacting systems as has been shown in \cite{sanchez-gonzalez_learning_2020}. Secondly, most systems to date have looked at graphs for classical physics but literature from 2004 suggests graphs, inherent in their relational structure, can also capture Ising-like hamiltonian structure. In addition, although Hamiltonian Graph Networks show strong performance, not much work has been done to uncover the learned relations and whether they are consistent with ground truth interactions.
+\textbf{Bottom Line}: Inspired by this work we see two major steps in moving this research forward. Firstly, their use in physics opens up a tried-and-tested pathway to solve more complex problems particularly in accounting for material interactions. As such, we see good scope to use graph networks for large interacting systems as has been shown in \cite{sanchez-gonzalez_learning_2020}. Secondly, most systems to date have looked at graphs for classical physics, but literature from 2004 suggests graphs, inherent in their relational structure, can also capture Ising-like Hamiltonian structure \cite{rezek_operator_nodate}. In addition, although Hamiltonian Graph Networks show strong performance \cite{battaglia_relational_2018}, not much work has been done to uncover the learned relations and whether they are consistent with ground truth interactions.
 
 
 \subsection{Integrative Biases}
@@ -66,81 +62,63 @@ Inspired by this work we see two major steps in moving this research forward. Fi
 \caption{ ODE Networks \cite{chen_neural_2018} show that in the continuous time limit, residual networks look like integrated neural networks.}
 \label{fig.odenet}
 \end{figure}
-In 2018, NeuralODE brought to light a meaningful connection between residual networks and integrative steps. For example, if we use a neural network to learn a function $F$ then use a residual block to add this function multiple times, in the continuous limit, this approximates a differential equation.
+NeuralODE brought to light a meaningful connection between residual networks and integrative steps \cite{chang_reversible_2017,chen_neural_2018}. Residual networks are able to model complex functions by sequentially transforming a hidden state. Mathematically, this might look as follows:
 
-Residual networks consist of a discrete set of steps:
 \begin{equation}
-h_{t+1} = h_t + f(h_t,\theta_t)
+h_{t+1} = h_t + f_{\theta}(h_t)
+\label{eqn.odedisc}
 \end{equation}
 
-which take on the form a discrete euler equation. In the continuous limit, this becomes:
+where $h_t$ is a hidden layer of the network and $f_{\theta}(h_t)$ is a neural network parametrized by $\theta$ that operates on a hidden layer. By combining these discrete transformations over $t$, one can obtain more complex, non-linear functions that may be needed for downstream tasks \cite{he_deep_2015}.
+
+If more steps are taken at shorter time intervals, in the continuous limit, equation \ref{eqn.odedisc} becomes:
 \begin{equation}
 \frac{dh(t)}{dt} = f(h(t),t,\theta)
 \end{equation}
 
-We can therefore parametrize any differential equation as a neural network and integrate it as long as we know its initial condition and final time step evaluation. However, one of the challenges of passing a neural network output to an integrator is the fact that the integrator induces additional operations on the weights. Neural ODEs via the adjoint method allow us to integrate this neural network with constant memory cost \cite{chen_neural_2018}.
+Using this logic, we can parametrize any differential equation as a neural network and integrate it as long as we know its initial condition and final time step evaluation. However, one of the challenges of passing a neural network output to an integrator is the fact that the integrator induces additional operations on the weights i.e. this process becomes a continuous depth neural network if the final time evaluation is large in comparison to the discrete time steps between layers. Neural ODEs via the adjoint method allow us to integrate this neural network with constant memory cost \cite{chen_neural_2018} using an ODESolver.
 
-The integrative bias here is used in numerous systems aimed at learning continuous time dynamics. In many settings a one-step integration is applied. For this, we do not need to use any complex ODESolver. Instead, a simple 'manual' integration is used. There are indeed settings where a multi-step integration is used, such as in \cite{zhong_symplectic_2019} and in \cite{saemundsson_variational_2019}.
+NeuralODE is used in numerous systems aimed at learning continuous time dynamics. In many settings a one-step integration is applied. For this, a complex ODESolver is replaced in favour of a simple explicit integrator e.g. Runge-Kutta 4. There are indeed settings where a multi-step integration is used, such as in \cite{zhong_symplectic_2019} and in \cite{saemundsson_variational_2019} for which continuous depth networks cause severe memory issues if NeuralODE is not used.
 
-\cite{dupont_augmented_2019} identifies the instability of using the adjoint method to compute continuous depth networks and proposes a method to resolve this issue. 
+Despite their success, the work in \cite{dupont_augmented_2019} identifies the instability of using the adjoint method to compute continuous depth networks and propose a method to resolve this issue. 
 
-Extensions of this work have been adopted across numerous methods we are about to discuss. Some challenges involve identifying the right integrator of choice e.g. symplectic integrators for symplectic flows. Some additional methods have proposed a separate integrator built on neural networks to avoid the continuous depth neural networks.
+\textbf{Bottom Line}: Extensions of this work have been adopted across numerous methods we are about to discuss. Future work in this direction should look at identifying the right integrator of choice and establishing whether neural integrators can circumvent the need for an ODESolver.
 
 \subsection{Physics priors}
 
-Broadly, the intersection of physics and AI falls into one of two domains, physics for AI or AI for physics. The former uses techniques from physics to develop and improve learning algorithms in general. The latter uses existing learning approaches (with adaptations) to predict physics, for example ML for materials. In this review, we focus our attention on the latter.
+Broadly, the intersection of physics and AI falls into one of two domains, physics for AI or AI for physics. The former uses techniques from physics to develop and improve learning algorithms in general. The latter uses existing learning approaches (with adaptations) to performance inference over physical systems, for example ML for materials \cite{rupp_fast_2012,smith_ani-1_2017}. In this review, we focus our attention on the latter.
 
-Physicists have long been interested in using learning tools to predict physics based systems. Some of these include predicting magnetic properties of 2-D materials, predicting the time evolution of N-body systems and even using AI to understand phase transitions. However, numerous challenges still remain in terms of data-efficient learning, reducing computational cost, improving predictive accuracy and learning better representations of the underlying physical process. Researchers have identified methods to address these challenges, but arguably the most promising hinges on physics-informed priors embedded in learning. It has been shown that models enriched with physically-informed priors i.e. models which consist of some knowledge about the physical system apriori, significantly outperform traditional methods in terms of data-efficiency and predictive accuracy. This has sparked a sharp interest in building both task-specific and general physics priors to improve learning. In this section, we summarize some of the core developments over time in physics informed inductive biases. 
+Physicists have long been interested in using learning tools to predict physics based systems. Some of these include predicting magnetic properties of 2-D materials \cite{rhone_data-driven_2018}, predicting the time evolution of N-body systems \cite{battaglia_relational_2018} and even using AI to understand phase transitions \cite{bapst_unveiling_2020}. However, numerous challenges still remain in terms of 1. data-efficient learning, 2. reducing computational cost, 3. improving predictive accuracy and 4. learning better representations of the underlying physical process. Researchers have identified methods to address these challenges, but arguably the most promising hinges on physics-informed priors embedded in learning. It has been shown that models enriched with physically-informed priors i.e. models which consist of some knowledge about the physical system apriori, significantly outperform traditional methods in terms of data-efficiency and predictive accuracy. This has sparked a sharp interest in building both task-specific and general physics priors to improve learning. In this section, we summarize some of the core developments over time in physics informed inductive biases. 
 
 \subsection{Gradient Learning}
 
-Although most modern methods cite gradient learning by Witkoskie \cite{witkoskie_neural_2005} as one of the earliest efforts designed to improve learning of physics in neural networks, we actually find that more sophisticated approaches were developed prior to this effort.
+Although most modern methods cite gradient learning by Witkoskie \cite{witkoskie_neural_2005} as one of the earliest efforts designed to improve learning of physics in neural networks, we actually find that a more sophisticate approach was developed prior to this effort.
 
-In 1996 James Howse \cite{howse_gradient_1996} presented a paper which highlights a few things on identifying dynamical systems. The paper introduces a model inspired by defining a generalized functional form for dynamical systems. Using a potential $V(x)$ we can partition an n-dimensional phase space in which the first space is normal to a level surface $V(x)=k$, and the second is tangent to $V(x)=k$. Systems which always move downhill are gradient like systems: $ \dot{x} = - P(x)\nabla_{x} V(x) $. Systems which remain at constant potential are Hamiltonian like: $\dot{x} = Q(x)\nabla_x V(x)$. The combination of the two can  be used to get total dynamics.
+In 1996, James Howse \cite{howse_gradient_1996} presented a paper that highlights an approach to identify dynamical systems. The paper introduces a model inspired by defining a generalized functional form for dynamical systems. Using a potential $V(x)$ the authors show that we can partition an n-dimensional phase space into two components. The first space is normal to a level surface $V(x)=k$, and the second is tangent to $V(x)=k$. Systems that always move downhill are gradient like systems: $ \dot{x} = - P(x)\nabla_{x} V(x) $. Systems that remain at constant potential are Hamiltonian like: $\dot{x} = Q(x)\nabla_x V(x)$. The paper shows that by casting a dynamic problem into these two components, one can learn the coefficients of the dynamical system. 
 
-The entire framework is a parameter fitting one because we have a sense for the prior functional form of the dynamics.
+In addition, the notion of embedding physically-informed inductive biases in neural networks can be found in numerous early work aimed at modelling materials \cite{witkoskie_neural_2005, pukrittayakamee_simultaneous_2009, smith_ani-1_2017, rupp_fast_2012, yao_tensormol-01_2018}. For example, early efforts by Witkoskie and Doren \cite{witkoskie_neural_2005} demonstrate that in contrast to directly learning a potential energy surface, the inclusion of gradient learning can drive a network to accurately model the forces. By gradient learning we mean that instead of a state vector being defined as $x$ over which we want to optimize, our state vector becomes $[x,\dot{x}]$. This addition means that we can supplement the learning process with additional information and hence improve the learnt potential surface. The fundamental idea being that if we have access to supplemental data such as the gradients, but fewer data points, we might actually learn a surface with higher accuracy than if we had many data points with no gradient information. 
 
-In addition, the notion of embedding physically-informed inductive biases in neural networks can be found in numerous early work aimed at modelling materials \cite{witkoskie_neural_2005, pukrittayakamee_simultaneous_2009, smith_ani-1_2017, rupp_fast_2012, yao_tensormol-01_2018}. For example, early efforts by Witkoskie and Doren \cite{witkoskie_neural_2005} demonstrate that in contrast to directly learning a potential energy surface, the inclusion of gradient learning can drive a network to accurately model the forces. 
+\textbf{Bottom Line}: This result inspires us to look more closely at combining inductive biases. Namely, by adding well known priors together, we may make learning data-efficient and more accurate. In addition, we might want to look more closely at the results in \cite{howse_gradient_1996} to see if we can develop a more generalizable approach to learning dynamics.
 
-Therefore, the loss function takes the form:
-$$
-\Bigg\|
-\begin{bmatrix}
-\hat{y} \\
-\hat{\dot{y}}
-\end{bmatrix}
--
-\begin{bmatrix}
-y \\
-\dot{y}
-\end{bmatrix}
-\Bigg\|_2^2
-$$
+\subsection{PINNs: Physics Informed Neural Networks}
 
-This addition means that we can supplement the learning process with additional information and hence improve the learnt potential surface. The fundamental idea being that if we have access to supplemental data such as the gradients, but fewer data points, we might actually learn a surface with higher accuracy than if we had many data points with no gradient information. 
+PINNs is one of the first methods to use the backpropagation technique from neural networks to actually compute the gradients of a function with respect to the inputs of that given function. The core idea in PINNs is to solve the following equation:
 
-This result inspires us to look more closely at combining inductive biases. Namely, by adding well known priors together, we may make learning data-efficient and more accurate.
+\begin{equation}
+ u_t + \mathcal{N}[u] = f = 0
+\end{equation}
 
-\subsection{Physics Informed Neural Networks}
+where $u(t,x)$ is a function that depends on time $t$ and state-vector $x$ and where $\mathcal{N}$ is a non-linear differential operator. $u(t,x)$ denotes the latent hidden solution. To solve this equation, when only the initial conditions of $u$ and specific collocation points are provided, PINNs compute u(t,x) with a neural network. Using backpropagation, they then compute partial derivatives with respect to the input variables $t,x$. The final results can thus be stored in $f$. A simple L2 loss to minimize the predicted $u_{pred}$ vs. the ground truth $u_{gt}$ (for initial and boundary conditions) coupled with a penalization of the function $f$ (since it should be zero) at specific collocation points results in PINNs.
 
-PINNs is one of the first methods to use the backpropagation technique from neural networks to actually compute the gradients of a function with respect to the inputs of that given function. For example, given t and x, PINNs compute $u(t,x)$ through which they can compute gradients of u w.r.t. t and x. A concrete example is this differential equation:
+PINNs are used for both data-driven solutions and data-driven discovery. In other words, PINNs can be used to identify a system's governing equations, or given a set of equations, be used to continuously solve the system given an initial condition and points of evaluation.
 
+One limitation to this approach is the need to know the functional form of $\mathcal{N}$. However, the authors of PINNs also developed deep hidden physics models \cite{raissi_physics-informed_2019} that are designed to learn the functional form without any prior knowledge of the function $\mathcal{N}$. The idea behind these deep hidden physics models is to compute $u$ and then compute up to the  k-th order derivatives of $u$. Using a regressive search, one can then identify the components that make up the underlying equation. 
 
-$$ u_t + N[u] = 0$$
-
-where N is a nonlinear differential operator and $u(t,x)$ denotes the latent hidden solution.
-
-Using the equation we can define:
-
-$$ f = u_t +N[u] $$
-
-then we can, for any set (t,x), compute u(t,x) with a neural network. Using backpropagation, we can then compute partial derivatives w.r.t the input variables. The final results can thus be stored in f. A simple L2 loss to minimize the predicted u vs the ground truth u (for initial and boundary conditions) coupled with a penalization of the function f (since it should be zero) at specific collocation points results in PINNs.
-
-PINNs are used for both data-drive solution and data-driven discovery. In other words, PINNs can be used to identify a systems governing equations or given a set of equations, be used to continuously solve the system given an initial condition and points of evaluation.
-
-One limitation to this approach is having to know the functional form of the equation. However, the authors of this paper also developed deep hidden physics models \cite{raissi_physics-informed_2019} that are designed to learn the functional form without any prior knowledge of the function. 
+\textbf{Bottom Line}: PINNs are a versatile method that use backpropagation to compute both the loss term and the gradients of the function $u$ w.r.t its inputs. 
 
 \subsection{Energy Conserving Networks}
+
+As the section title suggest, energy conserving networks aim at conserving the energy of a given trajectory. The section looks carefully at methods that attempt to learn the Hamiltonian or Langrangian of a system.
 
 \subsubsection{Hamiltonian Neural Networks}
 \label{HNN}
@@ -156,7 +134,7 @@ One limitation to this approach is having to know the functional form of the equ
 \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = -\frac{\partial \mathcal{H}}{\partial \mathbf{q}}
 \label{eqn.hamiltonian}
 \end{equation}
-As a consequence, it is noted in \cite{greydanus_hamiltonian_2019} that by accurately learning a Hamiltonian, the system's dynamics can be naturally extracted through backpropagation. This information allows us to build two 1st-order differential equations which can be used to update the state space, $(\mathbf{q},\mathbf{p})$. Equation \ref{eqn.action_int} shows this integral, in which we define the symplectic gradient $\mathbf{S}  = \left [ \frac{\partial \mathcal{H}}{\partial \mathbf{p}},-\frac{\partial \mathcal{H}}{\partial \mathbf{q}} \right ] $:
+As a consequence, it is noted in \cite{greydanus_hamiltonian_2019} that by accurately learning a Hamiltonian, the system's dynamics can be naturally extracted through backpropagation, similar to \cite{raissi_physics-informed_2019}. This information allows us to build two 1st-order differential equations which can be used to update the state space, $(\mathbf{q},\mathbf{p})$. Equation \ref{eqn.action_int} shows this integral, in which we define the symplectic gradient $\mathbf{S}  = \left [ \frac{\partial \mathcal{H}}{\partial \mathbf{p}},-\frac{\partial \mathcal{H}}{\partial \mathbf{q}} \right ] $:
 \begin{equation}
 (\mathbf{q},\mathbf{p})_{t+1} = (\mathbf{q},\mathbf{p})_t + \int_t^{t+1} \mathbf{S}(\mathbf{q},\mathbf{p}) \mathrm{d}t
 \label{eqn.action_int}
@@ -166,39 +144,7 @@ It can be shown that the Hamiltonian in many systems also represents the total e
 
 As we will discuss later, HNNs are great at learning in low-dimensional settings for a few integration steps. However, scaling this network to more challenging problems proves difficult. Fortunately, many alternatives have been proposed. 
 
-One limitation we hope to investigate further in this domain is embedding the energy term. HNNs appear to learn a scaled/transformed energy value. From preliminary experiments we find that penalizing the loss function with an energy term actually hurts the learning process indicating instability issues with the approach.
-
-\subsubsection{Deep Lagrangian Network}
-
-DeLAN net is the first network to use a Lagrangian embedded in a neural network to learn the dynamics of a system. 
-
-In the paper they define:
-\begin{equation} 
-L = T - V
-\end{equation}
-and
-
-\begin{equation}
-\frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = \tau
-\end{equation}
-
-where $\tau$ represents generalized forces.
-
-If we are dealing with a rigid body then: $ T = \dot{q}^T M(q) \dot{q} $ where M is the inertia matrix. Replacing this equation in euler-lagrange results in:
-
-\begin{equation}
- \frac{d}{dt} (M(q)\dot{q}) - \frac{\partial V}{\partial q} = 0; 
-~~~
-M(q)\ddot{q} = \dot{M(q)} \dot{q} + \frac{\partial V}{\partial q} 
-\end{equation}
-
-To get $\ddot{q}$ all we need is M and its time derivative. 
-
-\begin{equation}
- p = M(q) \dot{q}
-\end{equation}
-
-As a result of this framing, DeLAN net uses multiple network heads to compute individual components of the equation before combining them. 
+\textbf{Bottom Line}: One limitation we hope to investigate further in this domain is adding an energy penalization term between the predicted and ground truth energies to make learning more data-efficient. Our preliminary experiments find that penalizing the loss function with an energy term actually hurts the learning process indicating instability issues linked to HNNs. 
 
 \subsubsection{Variational Integrator Networks}
 
@@ -218,60 +164,95 @@ Although complex in form, the action integral and the Euler-Lagrange equations c
 \end{equation}
 Furthermore, Variational Integrators are symplectic and momentum conserving \cite{lew_overview_nodate}.
 
-The paper introduces the importance of symplectic integrators but does not discuss how to improve accuracy and scale up to higher dimensions. It is with this in mind that VIGNs was borne.
+\textbf{Bottom Line}: The paper introduces the importance of symplectic integrators but does not discuss how to improve accuracy and scale up to higher dimensions. It is with this in mind that VIGNs was borne.
 
+\subsubsection{Deep Lagrangian Network}
 
-\subsubsection{Deep Energy Network}
+DeLAN net is the first network to use a Lagrangian embedded in a neural network to learn the dynamics of a system \cite{lutter_deep_2019}. 
 
-A new method is introduced to tackle the challenge of learning energy conserving physics more broadly. The method claims to be more general as it can learn from PDEs as well as ODEs, and it avoids discretisation errors that arise from using RK integrators. The method does this by a) introducing a general formalism which highlights how the rate of change of states can be cast into a matrix G times the gradient of a Hamiltonian and b) by discretising the gradient of the hamiltonian with a frechet derivative. 
-\begin{equation}
- \dot{u} = G\nabla H
+The paper defines the Langrangian $\mathcal{L} (q,\dot{q})$ and Euler-Lagrange equations to be:
+\begin{equation} 
+\mathcal{L} = T - V
 \end{equation}
- 
-The main benefit is that it can solve a broader class of problems compared to current solutions in the field by modelling an additional G matrix e.g.
-Friction systems (ODE and PDE)
-Discrete PDEs (PDE)
-Maintains energy and mass conservation via discretisation which preserves the geometric structure (a.k.a volume preservation)
-Good form for discrete auto differentiation
-Great PDE dataset motivations
-Can extend research to identify discrete PDEs
+and
+
+\begin{equation}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = \tau
+\end{equation}
+
+where $\tau$ represents generalized forces, $T$ is kinetic energy and $V$ is potential energy.
+
+If we are dealing with a rigid body then: $ T = \dot{q}^T M(q) \dot{q} $ where M is the inertia matrix. Replacing this equation in the Euler-Lagrange equation results in:
+
+\begin{equation}
+ \frac{d}{dt} (M(q)\dot{q}) - \frac{\partial V}{\partial q} = 0; 
+~~~
+M(q)\ddot{q} = \dot{M(q)} \dot{q} + \frac{\partial V}{\partial q} 
+\end{equation}
+
+To obtain $\ddot{q}$, the method proposes computing $M$, $\dot{M}$ and $\frac{\partial V}{\partial q}$ separately and then combining them.  
+
+\textbf{Bottom Line}: As a result of this framing, DeLAN net uses multiple network heads to compute individual components of the equation before combining them. \cite{cranmer_lagrangian_2020} show that it is indeed possible to circumvent this problem. The important result here is that DeLAN can learn individual representations. If the non-conservative forces can be distinguished e.g. damping vs forcing, then DeLAN could be used to learn individual damping/driving forces from data which could be used on other systems. 
+
+
+
+%\subsubsection{Deep Energy Network}
+%
+%A new method is introduced to tackle the challenge of learning energy conserving physics more broadly. The method claims to be more general as it can learn from PDEs as well as ODEs, and it avoids discretisation errors that arise from using Runge-Kutta integrators. The method does this by a) introducing a general formalism which highlights how the rate of change of states can be cast into a matrix $G$ times the gradient of a Hamiltonian $\nabla H$ and b) by discretising the gradient of the Hamiltonian with a frechet derivative. 
+%\begin{equation}
+% \dot{u} = G\nabla H
+%\end{equation}
+% 
+%The main benefit is that it can solve a broader class of problems compared to current solutions in the field e.g.
+%\begin{itemize}
+%\item{Friction systems (ODE and PDE)}
+%\item{Discrete PDEs (PDE)}
+%\item{Maintains energy and mass conservation via discretisation which preserves the geometric structure (a.k.a volume preservation)}
+%\end{itemize}
+%
+%The main results of the paper indicate Good form for discrete auto differentiation
+%Great PDE dataset motivations
+%Can extend research to identify discrete PDEs
+
 
 \subsubsection{Unsupervised Learning of Lagrangian Dynamics}
 
-In \cite{zhong_unsupervised_2020}, the authors show that the full Lagrangian dynamics can be learned from visual data. The paper introduces a co-ordinate aware VAE to encode the latent space and then computes the derivatives of the state. The introduction of co-ordinate awareness is to ensure a bijective function. The paper shows that the motion of a pendulum can be learnt from visual data. More importantly, via energy shaping, the pendulum can be constrained into a configuration $q*$ of choice.
+In \cite{zhong_unsupervised_2020}, the authors show that the full Lagrangian dynamics can be learned from visual data. The paper introduces a co-ordinate aware VAE to encode the latent space. Using the encoded latent space, a Lagrangian is learnt so that the time derivatives of the latent space can be extracted and used to integrate the latent space. The paper shows that the motion of a pendulum can be learnt from visual data. More importantly, via energy shaping, the pendulum can be constrained into a state-space $q*$ of choice.
+
+\textbf{Bottom Line}: This result is quite powerful because it empirically proves that a controlled Lagrangian system can be learned from visual data. This inspires us to ask the question of whether a chaotic system such as heinon-heiles or the double-pendulum can be learned from visual data.
 
 \subsubsection{Lagrangian Neural Networks}
 
-The main premise of LNNs \cite{cranmer_lagrangian_2020} is to tackle the problem of dealing with coordinate spaces. Many datasets do not usually consist of  canonical position and momentum, rather they use generalized coordinates. As such, LNNs aim to tackle learning from generalized coordinates. In addition, they provide a more general framework than DeLaNs which were designed to work well with continuous control applications. The unique trick that LNNs introduce over other methods is that they do not assume any form for the lagrangian. 
-
-In vectorized form, euler lagrange is:
+The main premise of LNNs \cite{cranmer_lagrangian_2020} is to tackle the problem of dealing with canonical coordinate spaces. Many datasets do not usually consist of canonical position and momentum, rather they use generalized coordinates. As such, LNNs aim to address learning from generalized coordinates. In addition, they provide a more general framework than DeLANs which were designed to work well with continuous control applications. The unique innovation that LNNs introduce over other methods is that they do not assume any form for the Lagrangian. As such, they vectorized the Euler-Lagrange:
 
 \begin{equation}
 \frac{d}{dt} \nabla_{\dot{q}} \mathcal{L} = \nabla_q \mathcal{L}
 \label{eqn.lnn1}
 \end{equation}
 
-Using chain rule to expand the time derivative e.g. allow $\nabla_{\dot{q}}\mathcal{L}$ to be a function of $q$ and $\dot{q}$ then:
+Then, using the chain rule to expand the time derivative by allowing $\nabla_{\dot{q}}\mathcal{L}$ to be a function of $q$ and $\dot{q}$ they obtain:
 
 \begin{equation}
 (\nabla_{\dot{q}}\nabla_{\dot{q}}^T \mathcal{L}) \ddot{q} + (\nabla_q \nabla_{\dot{q}}^T \mathcal{L})\dot{q} = \nabla_q \mathcal{L}
 \end{equation}
 
-Then, with matrix inversion, one can obtain $\ddot{q}$. 
+Using matrix inversion, one can obtain $\ddot{q}$. 
 
-Using this term, one can minimize the loss on the state vector $[q,\dot{q},\ddot{q}]$. The paper shows promising results on the double pendulum, relativistic particle in a uniform potential and on the wave equation. Upon inspection of the training scheme for the highly sensitive double pendulum, we do find that training times and data points are quite large, creating a space to find a more optimal learning scheme.
+\textbf{Bottom Line}: The paper shows promising results on the double pendulum, relativistic particle in a uniform potential and on the wave equation. Upon inspection of the training scheme for the highly sensitive double pendulum, we do find that training times and data points are quite large, creating a space to find a more optimal learning scheme.
 
 \subsubsection{Modeling System Dynamics with PINNs on Lagrangian Mechanics}
 
-Unlike LNNs, this paper introduces a functional form for the Lagrangian. The Lagrangian in this paper \cite{roehrl_modeling_2020} is assumed to be $L = T -V$. In addition, they introduce non conservative forces and the final form is:
+Unlike LNNs, this paper introduces a functional form for the Lagrangian. The Lagrangian in this paper \cite{roehrl_modeling_2020} is assumed to be $L = T -V$. In addition, they introduce non-conservative forces and the final form is:
 
 $$ M(q) \ddot{q} + C(q,\dot{q})\dot{q} + G(q) = Q^{ncons} $$
 
-The approach taken by this paper is to feed in the respective components e.g. q,$\dot{q}$ into separate neural network heads designed to predict one of M, C and G. Using this technique, $\ddot{q}$ is backed out and then fed to an RK-4 integrator.
+The approach taken by this paper is to feed in the respective components e.g. q,$\dot{q}$ into separate neural network heads designed to predict one of M, C and G. Using this technique, $\ddot{q}$ is backed out and then fed to an RK-4 integrator. In other words, the approach is a simplified version of DeLANs.
 
-The approach is tethered to a more traditional way of using NNs for predictions and is one of the reasons why model performance is not as good as it can be if backpropagation was used to compute the second derivative of q. In addition, the wrong choice of integrator is a bottleneck for long range predictions in this setting.
+\textbf{Bottom Line}: The approach is tethered to a more traditional way of using NNs for predictions and is one of the reasons why model performance is not as good as it can be if backpropagation was used to compute the second derivative of q. In addition, the wrong choice of integrator is a bottleneck for long range predictions in this setting.
 
 \subsection{Symplectic Networks}
+
+Many researchers have identified that embedding integrators into the learning process of dynamic systems alleviates the need for the derivatives $[\dot{q},\dot{p}]$ of the state vector $[q,p]$. That is, with an integrator embedded, the state-vector is enough to compute the dynamics. However, as \cite{zhu_deep_2020} and a number of other researchers highlight, the choice of integrator can play a significant role in long range predictions. In principle, integrators that preserve symplecticity show significantly better long range results because they enforce phase-space volume conservation.
 
 \begin{figure}
 \centering
@@ -281,9 +262,9 @@ The approach is tethered to a more traditional way of using NNs for predictions 
 
 \subsubsection{Symplectic ODE Net}
 
-Symp-ODEN \cite{zhong_symplectic_2019} extends hamiltonian neural networks into the control domain. If external control is affine and influences the change in generalized momenta then:
+Symp-ODEN \cite{zhong_symplectic_2019} extends HNNs into the control domain. If external control is affine and influences the change in generalized momenta then the state-space derivatives can be written as:
 
-$$ 
+\begin{equation}
 \begin{bmatrix}
 \dot{q} \\
 \dot{p}
@@ -298,13 +279,15 @@ $$
 0 \\
 g(q)
 \end{bmatrix} u
-$$
+\end{equation}
 
-If rank(g(q)) is rank(q) the system is fully actuated. For such systems, a controller $u = \beta(q) +v(p) $ can be designed to change the potential energy landscape so as to force a system toward a specific configuration.
+where $g(q)u$ represents a control variable. If rank(g(q)) is rank(q) the system is fully actuated. For such systems, a controller $u = \beta(q) +v(p) $ can be designed to change the potential energy landscape so as to force a system toward a specific configuration.
 
-If the hamiltonian is a newtonian then - $$ \beta(q) = g^T (gg^T)^{-1} (\partial V/\partial q - \partial V_d/\partial q) $$
+%If the Hamiltonian is a Newtonian then the authors show:
+%
+%$$ \beta(q) = g^T (gg^T)^{-1} (\partial V/\partial q - \partial V_d/\partial q) $$
 
-Arguably the first paper to think extensively about the bottlenecks presented in HNNs. The paper brings to light the need for symplecticity, control inputs and a proper use of NeuralODE. 
+Arguably this is the first paper to think extensively about the bottlenecks presented in HNNs including control, energy shaping and symplecticity. 
 
 
 
@@ -314,28 +297,39 @@ Symplectic RNN \cite{chen_symplectic_2020} makes two major contributions to the 
 
 \subsubsection{Deep Hamiltonian Networks based on symplectic integrators}
 
-This paper \cite{zhu_deep_2020} reviews the integrator of choice for hamiltonian neural networks. One of its primary objectives is to establish the difference in performance between using a symplectic vs non-symplectic integrator from a theoretical perspective. Quite evidently, using a symplectic integrator allows us to conserve the phase-space volume of the system - a crucial component in preserving energy. Their results reiterate the need for symplectic integrators when dealing with hamiltonian-like systems.
+This paper \cite{zhu_deep_2020} reviews the integrator of choice for HNNs. One of its primary objectives is to establish the difference in performance between using a symplectic vs non-symplectic integrator from a theoretical perspective. Quite evidently, using a symplectic integrator allows us to conserve the phase-space volume of the system - a crucial component in preserving energy. Their results reiterate the need for symplectic integrators when dealing with Hamiltonian-like systems.
 
 \subsubsection{SympNets}
 
-A brand new class of methods is proposed in \cite{jin_sympnets_2020}. It avoids the need for a separable Hamiltonian and more importantly, is designed to eliminate the need for backpropagating the Hamiltonian with respect to the input. In this framework, a sequence of symplectic maps are used to transform the input into the output. The symplectic map can be split into an upper triangular matrix and lower triangular matrix with diagonals set to 1. Non-diagonal terms are parametrized by a NN and by stacking a range of symplectic maps together, one can learn dynamics better. In fact, the results show that by doing this, the learned trajectory is significantly more accurate than HNNs with symplectic integrators!
+A brand new class of methods is proposed in \cite{jin_sympnets_2020}. It avoids the need for a separable Hamiltonian and more importantly, is designed to eliminate the need for backpropagating the Hamiltonian with respect to the input. In this framework, a sequence of symplectic maps are used to transform the input into the output. The symplectic map can be split into an upper triangular matrix and lower triangular matrix with diagonals set to 1. Non-diagonal terms are parametrized by a neural network and by stacking a range of symplectic maps together, one can learn dynamics better. In fact, the results show that by doing this, the learned trajectory is significantly more accurate than HNNs with symplectic integrators.
+
+\textbf{Bottom Line}: The introduction of SympNets takes us in a direction tangential to the concept of backpropagating a function with respect to its input. This might be more flexible in the long run since it avoids complicating backpropagations. 
 
 \subsection{Gaussian-Based Physics Networks}
 \subsubsection{Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}
 
-The paper \cite{geist_learning_2020} introduces GP model that utilises mechanical constraints as prior knowledge for learning dynamics of systems. The GP is constrained to satisfy Gauss Principle. 
+\cite{geist_learning_2020} introduces a GP model that utilises mechanical constraints as prior knowledge for learning dynamics of systems. The GP is constrained to satisfy Gauss' Principle. Using Udwadia Kalaba Equation, the acceleration of a particle can be disentangled into an unconstrained acceleration, an ideal constraint and a non-ideal constraint. Using this knowledge, one can feed this structural form into the mean of a gaussian process regression. The process can be used to set priors on unknown parameters linked to the constraints.
 
-Using UKE, the acceleration of a particle can be disentangled into unconstrained acceleration, ideal part of constraint and non-ideal part of constraint.  Using this knowledge, one can feed this structural form into the mean of a GPR. The process can be used to set priors on unknown parameters. The learned model appears to capture dynamics much better than standards GPs without the underlying equation needed to be satisfied in the mean of the GP.
+The proposal is important because it tackles constraint optimisation of physics based networks using GPs which can give us explicit uncertainty bounds on our learned trajectories.
+
 
 \subsubsection{Bayesian Hidden Physics Models}
 
-In \cite{atkinson_bayesian_2020}, the author presents a novel approach to tackle learning from noisy data. The paper is arguably the first method to combine gaussian processes with physics informed neural networks in a unified manner.
+In \cite{atkinson_bayesian_2020}, the author presents a novel approach to tackle learning from noisy data. The paper is arguably the first method to combine Gaussian Processes with physics informed neural networks in a unified manner.
 
-Simply put, the learning takes place in 3 stages. The first is, given inputs x and t, compute $u(x,t)$ using a neural network. The log likelihood is defined as:
+\textit{Problem Statement}
+
+Given, $x$, $t$ and some initial conditions, learn the governing equation $\mathcal{N}$ of a dynamic system that obeys:
+
+$$ u_t + \mathcal{N}[u] = 0 $$
+
+The learning takes place in 3 stages. The first is, given inputs $x$ and $t$, compute $u(x,t)$ using a neural network. The loss of this predicted term is computed using a log likelihood s.t.:
 
 $$ L_i^u = log p(D_i^u|\theta_i^u) = \sum_{j=1}^{n_{st}} log p(\hat{u}_j^{i} | u(x_j,t_j;\theta_i) $$
 
-Then, using the computed u, define a prior over the derivatives of u. The purpose of doing this is for data-driven discovery. In other words, rather than computing k partial derivatives of u w.r.t the input x, we place a gaussian process prior on the k partial derivatives. 
+where $D$ is the dataset, $\theta$ are the network parameters and $\hat{u}$ is the ground truth function.
+
+Then, using the computed $u$, define a prior over the derivatives of $u$ e.g. $u_t,u_x,u_xx$. The purpose of doing this is for data-driven discovery. In other words, rather than computing k partial derivatives of u w.r.t the input x, we place a GP prior on the k partial derivatives. The prior is assumed to be Gaussian and is of the form:
 
 $$ L^f = p(\hat{u_t}|V) = \mathcal{N} (\hat{u}_t|\mu(V),K_f +\sigma_f^2 I) $$
 
@@ -344,6 +338,8 @@ As such, one can obtain the posterior using variational inference since we do no
 The main breakthrough of using this approach is uncertainty quantification of the learned operators as well as the convergence in v-space the method illustrates. 
 
 \subsection{Data Driven Model Discovery}
+
+
 
 \subsubsection{Discovering Physical Concepts with Neural Networks}
 

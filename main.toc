@@ -1,33 +1,31 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}% 
-\contentsline {section}{\numberline {2}Artificial Intelligence}{2}{section.2}% 
-\contentsline {section}{\numberline {3}Inductive Biases}{3}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Graph Neural Networks}{3}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Integrative Biases}{4}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Physics priors}{5}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Gradient Learning}{6}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}Physics Informed Neural Networks}{7}{subsection.3.5}% 
-\contentsline {subsection}{\numberline {3.6}Energy Conserving Networks}{7}{subsection.3.6}% 
-\contentsline {subsubsection}{\numberline {3.6.1}Hamiltonian Neural Networks}{7}{subsubsection.3.6.1}% 
-\contentsline {subsubsection}{\numberline {3.6.2}Deep Lagrangian Network}{9}{subsubsection.3.6.2}% 
-\contentsline {subsubsection}{\numberline {3.6.3}Variational Integrator Networks}{9}{subsubsection.3.6.3}% 
-\contentsline {subsubsection}{\numberline {3.6.4}Deep Energy Network}{10}{subsubsection.3.6.4}% 
-\contentsline {subsubsection}{\numberline {3.6.5}Unsupervised Learning of Lagrangian Dynamics}{10}{subsubsection.3.6.5}% 
-\contentsline {subsubsection}{\numberline {3.6.6}Lagrangian Neural Networks}{11}{subsubsection.3.6.6}% 
-\contentsline {subsubsection}{\numberline {3.6.7}Modeling System Dynamics with PINNs on Lagrangian Mechanics}{11}{subsubsection.3.6.7}% 
-\contentsline {subsection}{\numberline {3.7}Symplectic Networks}{12}{subsection.3.7}% 
-\contentsline {subsubsection}{\numberline {3.7.1}Symplectic ODE Net}{12}{subsubsection.3.7.1}% 
-\contentsline {subsubsection}{\numberline {3.7.2}Symplectic Recurrent Neural Network}{12}{subsubsection.3.7.2}% 
-\contentsline {subsubsection}{\numberline {3.7.3}Deep Hamiltonian Networks based on symplectic integrators}{13}{subsubsection.3.7.3}% 
-\contentsline {subsubsection}{\numberline {3.7.4}SympNets}{13}{subsubsection.3.7.4}% 
-\contentsline {subsection}{\numberline {3.8}Gaussian-Based Physics Networks}{13}{subsection.3.8}% 
-\contentsline {subsubsection}{\numberline {3.8.1}Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}{13}{subsubsection.3.8.1}% 
-\contentsline {subsubsection}{\numberline {3.8.2}Bayesian Hidden Physics Models}{13}{subsubsection.3.8.2}% 
-\contentsline {subsection}{\numberline {3.9}Data Driven Model Discovery}{14}{subsection.3.9}% 
-\contentsline {subsubsection}{\numberline {3.9.1}Discovering Physical Concepts with Neural Networks}{14}{subsubsection.3.9.1}% 
-\contentsline {subsubsection}{\numberline {3.9.2}Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}{15}{subsubsection.3.9.2}% 
-\contentsline {subsubsection}{\numberline {3.9.3}Symbolic Pregression}{15}{subsubsection.3.9.3}% 
-\contentsline {subsection}{\numberline {3.10}Physics Informed Generative Adversarial Networks}{15}{subsection.3.10}% 
-\contentsline {subsection}{\numberline {3.11}Physics Informed Neural Network Applications}{16}{subsection.3.11}% 
-\contentsline {subsubsection}{\numberline {3.11.1}Chaos}{16}{subsubsection.3.11.1}% 
-\contentsline {subsubsection}{\numberline {3.11.2}Materials}{16}{subsubsection.3.11.2}% 
-\contentsline {subsection}{\numberline {3.12}Causality}{16}{subsection.3.12}% 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Inductive Biases}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Graph Neural Networks}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Integrative Biases}{5}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Physics priors}{6}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Gradient Learning}{7}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}PINNs: Physics Informed Neural Networks}{7}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}Energy Conserving Networks}{8}{subsection.2.6}% 
+\contentsline {subsubsection}{\numberline {2.6.1}Hamiltonian Neural Networks}{8}{subsubsection.2.6.1}% 
+\contentsline {subsubsection}{\numberline {2.6.2}Variational Integrator Networks}{10}{subsubsection.2.6.2}% 
+\contentsline {subsubsection}{\numberline {2.6.3}Deep Lagrangian Network}{10}{subsubsection.2.6.3}% 
+\contentsline {subsubsection}{\numberline {2.6.4}Unsupervised Learning of Lagrangian Dynamics}{11}{subsubsection.2.6.4}% 
+\contentsline {subsubsection}{\numberline {2.6.5}Lagrangian Neural Networks}{11}{subsubsection.2.6.5}% 
+\contentsline {subsubsection}{\numberline {2.6.6}Modeling System Dynamics with PINNs on Lagrangian Mechanics}{12}{subsubsection.2.6.6}% 
+\contentsline {subsection}{\numberline {2.7}Symplectic Networks}{12}{subsection.2.7}% 
+\contentsline {subsubsection}{\numberline {2.7.1}Symplectic ODE Net}{13}{subsubsection.2.7.1}% 
+\contentsline {subsubsection}{\numberline {2.7.2}Symplectic Recurrent Neural Network}{13}{subsubsection.2.7.2}% 
+\contentsline {subsubsection}{\numberline {2.7.3}Deep Hamiltonian Networks based on symplectic integrators}{14}{subsubsection.2.7.3}% 
+\contentsline {subsubsection}{\numberline {2.7.4}SympNets}{14}{subsubsection.2.7.4}% 
+\contentsline {subsection}{\numberline {2.8}Gaussian-Based Physics Networks}{14}{subsection.2.8}% 
+\contentsline {subsubsection}{\numberline {2.8.1}Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}{14}{subsubsection.2.8.1}% 
+\contentsline {subsubsection}{\numberline {2.8.2}Bayesian Hidden Physics Models}{15}{subsubsection.2.8.2}% 
+\contentsline {subsection}{\numberline {2.9}Data Driven Model Discovery}{15}{subsection.2.9}% 
+\contentsline {subsubsection}{\numberline {2.9.1}Discovering Physical Concepts with Neural Networks}{15}{subsubsection.2.9.1}% 
+\contentsline {subsubsection}{\numberline {2.9.2}Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}{16}{subsubsection.2.9.2}% 
+\contentsline {subsubsection}{\numberline {2.9.3}Symbolic Pregression}{16}{subsubsection.2.9.3}% 
+\contentsline {subsection}{\numberline {2.10}Physics Informed Generative Adversarial Networks}{17}{subsection.2.10}% 
+\contentsline {subsection}{\numberline {2.11}Physics Informed Neural Network Applications}{17}{subsection.2.11}% 
+\contentsline {subsubsection}{\numberline {2.11.1}Chaos}{17}{subsubsection.2.11.1}% 
+\contentsline {subsubsection}{\numberline {2.11.2}Materials}{17}{subsubsection.2.11.2}% 
+\contentsline {subsection}{\numberline {2.12}Causality}{18}{subsection.2.12}% 

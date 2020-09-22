@@ -5,48 +5,50 @@ The style file: abbrv.bst
 Database file #1: references.bib
 Warning--empty journal in lachapelle_gradient-based_2020
 Warning--empty year in lew_overview_nodate
+Warning--empty journal in rezek_operator_nodate
+Warning--empty year in rezek_operator_nodate
 Warning--empty journal in seo_physics-aware_2020
 Warning--empty journal in yu_dag-gnn_nodate
 Warning--empty year in yu_dag-gnn_nodate
-You've used 42 entries,
+You've used 52 entries,
             2118 wiz_defined-function locations,
-            732 strings with 13714 characters,
-and the built_in function-call counts, 16338 in all, are:
-= -- 1510
-> -- 1171
-< -- 7
-+ -- 456
-- -- 413
-* -- 1321
-:= -- 2904
-add.period$ -- 156
-call.type$ -- 42
-change.case$ -- 325
+            784 strings with 15595 characters,
+and the built_in function-call counts, 19735 in all, are:
+= -- 1831
+> -- 1384
+< -- 9
++ -- 540
+- -- 486
+* -- 1566
+:= -- 3504
+add.period$ -- 194
+call.type$ -- 52
+change.case$ -- 391
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 504
-empty$ -- 937
-format.name$ -- 413
-if$ -- 3210
+cite$ -- 59
+duplicate$ -- 627
+empty$ -- 1157
+format.name$ -- 486
+if$ -- 3894
 int.to.chr$ -- 0
-int.to.str$ -- 42
-missing$ -- 42
-newline$ -- 240
-num.names$ -- 90
-pop$ -- 297
+int.to.str$ -- 52
+missing$ -- 52
+newline$ -- 296
+num.names$ -- 112
+pop$ -- 366
 preamble$ -- 1
-purify$ -- 283
+purify$ -- 339
 quote$ -- 0
-skip$ -- 359
+skip$ -- 441
 stack$ -- 0
-substring$ -- 638
-swap$ -- 92
-text.length$ -- 7
+substring$ -- 748
+swap$ -- 114
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 168
-warning$ -- 5
-while$ -- 121
-width$ -- 44
-write$ -- 493
-(There were 5 warnings)
+type$ -- 208
+warning$ -- 7
+while$ -- 148
+width$ -- 54
+write$ -- 608
+(There were 7 warnings)
