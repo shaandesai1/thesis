@@ -270,6 +270,12 @@ J.~S. Smith, O.~Isayev, and A.~E. Roitberg.
   at force field computational cost.
 \newblock {\em Chemical Science}, 8(4):3192--3203, 2017.
 
+\bibitem{toth_hamiltonian_2019}
+P.~Toth, D.~J. Rezende, A.~Jaegle, S.~Racanière, A.~Botev, and I.~Higgins.
+\newblock Hamiltonian {Generative} {Networks}.
+\newblock {\em arXiv:1909.13789 [cs, stat]}, Sept. 2019.
+\newblock arXiv: 1909.13789.
+
 \bibitem{toussaint_differentiable_2018}
 M.~Toussaint, K.~Allen, K.~Smith, and J.~Tenenbaum.
 \newblock Differentiable {Physics} and {Stable} {Modes} for {Tool}-{Use} and

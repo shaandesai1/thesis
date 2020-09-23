@@ -416,34 +416,93 @@ Furthermore, it has been shown that the NOTEARS constraint can be embedded in gr
 \pagebreak
 \section{Research Proposal}
 
-\textit{Title}: Embedding physically-informed inductive biases in neural networks
+\subsection*{Title}
 
-\textit{Rationale}: Over the past decade, neural networks have shown resounding success across a whole host of domains. Despite this wide-spread adoption, many neural networks still struggle to learn physical systems accurately. However, from our critical evaluation of the literature in which we explore state-of-the-art deep networks designed to learn physical systems from data, we find that neural networks significantly benefit from physics priors embedded into the learning process. While some methods focus on energy conservation \cite{greydanus_hamiltonian_2019,toth_hamiltonian_2019}, others look to discover the underlying equations of motion \cite{udrescu_symbolic_2020,iten_discovering_2020,brunton_discovering_2016}. Although each approach embeds a different prior, what is common is the consistent use of physically informed inductive biases. In spite of these advances, we have identified numerous pathways to expand the existing literature, with emphasis on the need for better applications, improved generalizability from visual data and a focus on quantifying uncertainty. 
+Embedding physically-informed inductive biases in deep neural networks
 
-As the field is rapidly under flux, we identify and explore 3 major areas of interest.
+\subsection*{Rationale}
+Over the past decade, neural networks have shown resounding success across a whole host of domains. Despite their wide-spread adoption, many neural networks still struggle to learn simple physical systems accurately. However, recent research efforts aimed at embedding physics priors into the learning process have shown impressive results. While some of these methods focus on guiding networks to conserve energy \cite{greydanus_hamiltonian_2019,toth_hamiltonian_2019}, others look to discover the underlying equations of motion \cite{udrescu_symbolic_2020,iten_discovering_2020,brunton_discovering_2016}.  In spite of these advances, we identify numerous limitations present in the existing literature. Firstly, we find that a majority of the proposed methods look at simple, low-dimensional simulated physical systems. Secondly, we find that poorly selected priors do not allow networks to generalize to harder problems. Thirdly, we see only a handful of papers discussing the statistical uncertainties associated with such methods. By addressing these three bottlenecks, it will become possible to use physics inspired neural networks to solve complex problems in high dimensions. 
 
+\subsection*{Research Questions}
 
-\textit{Project 1}: 
+We are motivated by numerous questions that have come up during our literature review as well as in our experimentation.
 
-\textit{Aim} In our paper Variational Integrator Graph Networks (VIGNs) (attached), we seek to tackle the challenge of data-efficient learning of high-dimensional interacting systems. 
+\textit{Q1}: Can Hamiltonian/Lagrangian constraints on graph neural networks be used to model large interacting systems, such as a material under stress, efficiently?
 
-\textit{Hypothesis} Our experiments indicate that the combination of a variational integrator and efficient use of data significantly improve learning over Hamiltonian Graph Networks \cite{sanchez-gonzalez_hamiltonian_2019}. Despite this success, we believe there is more work to be done on this paper for a strong publication:
+\textit{Q2}: Does the combination of multiple inductive biases lead to a significant improvement in model performance? More importantly, how should they be combined to achieve better results?
+
+\textit{Q3}: Can Hamiltonian Neural Networks learn chaotic trajectories, such as the double pendulum, from visual data?
+
+\textit{Q4}: What statistical guarantees do physically-informed neural networks provide in terms of data-efficiency and generalizability?
+
+\subsection*{Methodology}
+
+To tackle these questions, we propose a set of projects that investigate  ways to expand on the existing literature. We also include a timeline to indicate expected completion dates in Fig.\ref{fig.timeline}.
+
+\begin{figure}[ht]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=0.3\textwidth,height=0.8\textheight,angle=-90]
+{figures/timeline.png}}
+\caption{Research Project Timeline}
+\label{fig.timeline}
+\end{figure}
+
+\subsubsection*{Project 1}
+
+\textit{Aim}: We seek to tackle the challenge of data-efficient learning of high-dimensional interacting systems, common in materials and astronomy applications. 
+
+\textit{Hypothesis}: Our experiments with Variational Integrator Graph Networks (VIGNs) indicate that the combination of a variational integrator and a graph network can significantly improve learning over Hamiltonian Graph Networks \cite{sanchez-gonzalez_hamiltonian_2019} on large interacting particle systems. Despite this success, we believe there is more work to be done on this paper for a strong publication:
 
 \begin{itemize}
 \item{The need for an extensive ablation study illustrating the benefits of VIGN over other methods:}
 \begin{itemize}
-\item{Comparing graph vs. non-graph methods}
-\item{Comparing symplectic vs. non-symplectic methods}
+\item{Comparing graph vs. non-graph methods.}
+\item{Comparing symplectic vs. non-symplectic methods.}
 \end{itemize}
 \item{Making VIGNs more generalizable}:
 \begin{itemize}
-\item{defining the mass term as a learnable function, as in \cite{lutter_deep_2019}}
-\item{incorporating control, as in \cite{zhong_symplectic_2019}}
-\item{learning representations from visual data, as in \cite{greydanus_hamiltonian_2019}}
+\item{defining the mass term as a learnable function, as in \cite{lutter_deep_2019}.}
+\item{incorporating control, as in \cite{zhong_symplectic_2019}.}
+\item{learning representations from visual data, as in \cite{greydanus_hamiltonian_2019}.}
 \end{itemize}
-\item{The need to motivate VIGNs scalability on a large (N>500) problem relevant to materials science}
+\item{The need to motivate VIGNs scalability on a large (N>500) problem relevant to materials science.}
 \end{itemize}
 
+\textit{Process}: Leveraging recent advances in the space, we strongly believe it will be possible to address some of the key points listed above. In fact, work presented in \cite{zhong_symplectic_2019} and \cite{lutter_deep_2019} provides crucial components to generalize the method further. 
+
+\subsubsection*{Project 2}
+
+\textit{Aim}: Establish if Hamiltonian/Lagrangian based networks can learn the \textit{precise} dynamics of chaotic systems.
+
+\textit{Hypothesis}: In \cite{choudhary_physics_2019}, the authors show that it is possible to learn the dynamics of the heinon-heiles system using Hamiltonian Neural Networks. However, a close inspection of their phase plots indicates imprecise learning. Furthermore, using the same technique on data from the double-pendulum yields good trajectories for low energy systems, but suffers in predicting high energy systems. We believe that the success of \cite{choudhary_physics_2019} does indicate the potential to learn from chaotic systems, but we hope to explore this further. Some core ideas we hope to explore in this investigation include:
+
+\begin{itemize}
+\item{Test symplectic integrators on the experiments in \cite{choudhary_physics_2019} to see if they improve precision of prediction trajectories. In addition, assess the role, if any, data generated by symplectic integrators have on learning.}
+\item{Use coordinate-aware networks \cite{zhong_unsupervised_2020} to improve learning in the double-pendulum setting for high energy systems.}
+\item{Develop a network to handle highly sensitive data inputs.}
+\item{Use visual data of trajectories to establish if chaos can be inferred from the data.}
+
+\end{itemize}
+
+\textit{Process}: The main objective will be to solve the chaotic dynamics of a number of systems. However, it appears that a network designed to handle sensitive inputs will be crucial to this study. Although our objective is task-specific, we believe the outcome can generalize to other systems in which the output space is highly sensitive to the input. 
+
+\subsubsection*{Project 3}
+
+\textit{Aim}: Uncertainty quantification in physics informed neural networks.
+
+\textit{Hypothesis}: Although physics informed neural networks show great performance at learning in numerous domains, there has been little to no discussion of how to effectively learn in noisy data settings. Our investigation will include:
+
+\begin{itemize}
+\item{A rigorous theoretical study on loss functions that reflect uncertainty in measurements}
+\item{A close look at how and why distributional assumptions of the predicted Lagrangian/Hamiltonian influence data-efficiency}
+\end{itemize}
+
+\textit{Process}: To establish a statistical analysis of physics informed neural networks and investigate their limitations in learning. 
+
+
+\subsection*{Risk Factors} 
+
+Indeed numerous risk factors relating to this line of work exist. The first is the rapid rate of innovation in the space. While HNNs have shown remarkable performance, a slew of novel methods in the past months has challenged how we think about the method. In addition, lack of access to sufficient real-world data makes driving some of the applications in the space quite difficult. To tackle this, we hope to begin conversations with numerous material scientists to gain access to data. Unfortunately, as most ML practitioners know, training models can be painstakingly difficult particularly when a number of parameters need to be optimized. During the development of VIGNs we found that a parameter sweep of the learning rate for values less than $10^{-3}$ yielded no meaningful change but then saw dramatic performance variance for higher learning rates. Undoubtedly addressing this in the work flow will involve tapping in to those with experience or using bayesian approaches to select hyperparameters. Being able to set hard deadlines will be crucial to avoid spending excess time on parameter tuning - in other words, we plan to adopt a fail fast approach.
 
 
 

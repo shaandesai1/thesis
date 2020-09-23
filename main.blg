@@ -10,45 +10,45 @@ Warning--empty year in rezek_operator_nodate
 Warning--empty journal in seo_physics-aware_2020
 Warning--empty journal in yu_dag-gnn_nodate
 Warning--empty year in yu_dag-gnn_nodate
-You've used 52 entries,
+You've used 53 entries,
             2118 wiz_defined-function locations,
-            784 strings with 15595 characters,
-and the built_in function-call counts, 19735 in all, are:
-= -- 1831
-> -- 1384
+            789 strings with 15821 characters,
+and the built_in function-call counts, 20110 in all, are:
+= -- 1864
+> -- 1417
 < -- 9
-+ -- 540
-- -- 486
-* -- 1566
-:= -- 3504
-add.period$ -- 194
-call.type$ -- 52
-change.case$ -- 391
++ -- 553
+- -- 498
+* -- 1597
+:= -- 3575
+add.period$ -- 198
+call.type$ -- 53
+change.case$ -- 400
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 627
-empty$ -- 1157
-format.name$ -- 486
-if$ -- 3894
+cite$ -- 60
+duplicate$ -- 637
+empty$ -- 1174
+format.name$ -- 498
+if$ -- 3964
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 52
-newline$ -- 296
-num.names$ -- 112
-pop$ -- 366
+int.to.str$ -- 53
+missing$ -- 53
+newline$ -- 302
+num.names$ -- 114
+pop$ -- 374
 preamble$ -- 1
-purify$ -- 339
+purify$ -- 347
 quote$ -- 0
-skip$ -- 441
+skip$ -- 448
 stack$ -- 0
-substring$ -- 748
-swap$ -- 114
+substring$ -- 753
+swap$ -- 115
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
+type$ -- 212
 warning$ -- 7
-while$ -- 148
-width$ -- 54
-write$ -- 608
+while$ -- 150
+width$ -- 55
+write$ -- 620
 (There were 7 warnings)
