@@ -413,10 +413,40 @@ It was with this in mind that DYNOTEARS \cite{pamfil_dynotears_2020} were able t
 
 Furthermore, it has been shown that the NOTEARS constraint can be embedded in graph neural networks \cite{lachapelle_gradient-based_2020,yu_dag-gnn_nodate}.
 
+\pagebreak
+\section{Research Proposal}
 
-\section{Conclusion}
+\textit{Title}: Embedding physically-informed inductive biases in neural networks
 
-This literature review has explored state-of-the-art deep networks designed to learn physical systems from data. While some methods focus on energy conservation, others look to discover the underlying equations of motion. In all these settings, the use of physically informed inductive biases plays a crucial role in the learning process. With this in mind, we see numerous pathways to extending the existing literature, with emphasis on the need for better applications, improved generalizability from visual data and a focus on quantifying uncertainty. Needless to say, we are excited by the advances made in the field and see scope to extend inductive biases from other domains into neural networks.
+\textit{Rationale}: Over the past decade, neural networks have shown resounding success across a whole host of domains. Despite this wide-spread adoption, many neural networks still struggle to learn physical systems accurately. However, from our critical evaluation of the literature in which we explore state-of-the-art deep networks designed to learn physical systems from data, we find that neural networks significantly benefit from physics priors embedded into the learning process. While some methods focus on energy conservation \cite{greydanus_hamiltonian_2019,toth_hamiltonian_2019}, others look to discover the underlying equations of motion \cite{udrescu_symbolic_2020,iten_discovering_2020,brunton_discovering_2016}. Although each approach embeds a different prior, what is common is the consistent use of physically informed inductive biases. In spite of these advances, we have identified numerous pathways to expand the existing literature, with emphasis on the need for better applications, improved generalizability from visual data and a focus on quantifying uncertainty. 
+
+As the field is rapidly under flux, we identify and explore 3 major areas of interest.
+
+
+\textit{Project 1}: 
+
+\textit{Aim} In our paper Variational Integrator Graph Networks (VIGNs) (attached), we seek to tackle the challenge of data-efficient learning of high-dimensional interacting systems. 
+
+\textit{Hypothesis} Our experiments indicate that the combination of a variational integrator and efficient use of data significantly improve learning over Hamiltonian Graph Networks \cite{sanchez-gonzalez_hamiltonian_2019}. Despite this success, we believe there is more work to be done on this paper for a strong publication:
+
+\begin{itemize}
+\item{The need for an extensive ablation study illustrating the benefits of VIGN over other methods:}
+\begin{itemize}
+\item{Comparing graph vs. non-graph methods}
+\item{Comparing symplectic vs. non-symplectic methods}
+\end{itemize}
+\item{Making VIGNs more generalizable}:
+\begin{itemize}
+\item{defining the mass term as a learnable function, as in \cite{lutter_deep_2019}}
+\item{incorporating control, as in \cite{zhong_symplectic_2019}}
+\item{learning representations from visual data, as in \cite{greydanus_hamiltonian_2019}}
+\end{itemize}
+\item{The need to motivate VIGNs scalability on a large (N>500) problem relevant to materials science}
+\end{itemize}
+
+
+
+
 
 %\section{Notes}
 %
