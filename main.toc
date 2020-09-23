@@ -27,5 +27,6 @@
 \contentsline {subsection}{\numberline {2.10}Physics Informed Generative Adversarial Networks}{17}{subsection.2.10}% 
 \contentsline {subsection}{\numberline {2.11}Physics Informed Neural Network Applications}{17}{subsection.2.11}% 
 \contentsline {subsubsection}{\numberline {2.11.1}Chaos}{17}{subsubsection.2.11.1}% 
-\contentsline {subsubsection}{\numberline {2.11.2}Materials}{17}{subsubsection.2.11.2}% 
+\contentsline {subsubsection}{\numberline {2.11.2}Materials}{18}{subsubsection.2.11.2}% 
 \contentsline {subsection}{\numberline {2.12}Causality}{18}{subsection.2.12}% 
+\contentsline {section}{\numberline {3}Conclusion}{18}{section.3}% 

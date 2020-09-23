@@ -102,13 +102,13 @@ In addition, the notion of embedding physically-informed inductive biases in neu
 
 \subsection{PINNs: Physics Informed Neural Networks}
 
-PINNs is one of the first methods to use the backpropagation technique from neural networks to actually compute the gradients of a function with respect to the inputs of that given function. The core idea in PINNs is to solve the following equation:
+PINNs are one of the first methods to use the backpropagation technique from neural networks to actually compute the gradients of a function with respect to the inputs of that given function. The core idea in PINNs is to solve the following equation:
 
 \begin{equation}
  u_t + \mathcal{N}[u] = f = 0
 \end{equation}
 
-where $u(t,x)$ is a function that depends on time $t$ and state-vector $x$ and where $\mathcal{N}$ is a non-linear differential operator. $u(t,x)$ denotes the latent hidden solution. To solve this equation, when only the initial conditions of $u$ and specific collocation points are provided, PINNs compute u(t,x) with a neural network. Using backpropagation, they then compute partial derivatives with respect to the input variables $t,x$. The final results can thus be stored in $f$. A simple L2 loss to minimize the predicted $u_{pred}$ vs. the ground truth $u_{gt}$ (for initial and boundary conditions) coupled with a penalization of the function $f$ (since it should be zero) at specific collocation points results in PINNs.
+where $u(t,x)$ is a function that depends on time $t$ and state-vector $x$ and where $\mathcal{N}$ is a non-linear differential operator. $u(t,x)$ denotes the latent hidden solution. To solve this equation, when only the initial conditions of $u$ and specific collocation points are provided, PINNs compute $u(t,x)$ with a neural network. Using backpropagation, they then compute partial derivatives with respect to the input variables $t,x$. The final results can thus be stored in $f$. A simple L2 loss to minimize the predicted $u_{pred}$ vs. the ground truth $u_{gt}$ (for initial and boundary conditions) coupled with a penalization of the function $f$ (since it should be zero) at specific collocation points results in PINNs.
 
 PINNs are used for both data-driven solutions and data-driven discovery. In other words, PINNs can be used to identify a system's governing equations, or given a set of equations, be used to continuously solve the system given an initial condition and points of evaluation.
 
@@ -128,7 +128,7 @@ As the section title suggest, energy conserving networks aim at conserving the e
 \caption{Trajectories of a 2-body system as predicted in \cite{greydanus_hamiltonian_2019}.}
 \end{figure}
 
-\cite{greydanus_hamiltonian_2019} demonstrate that dynamic predictions through time can be improved using Hamiltonian Neural Networks (HNNs) which endow models with a Hamiltonian constraint. The Hamiltonian is an important representation of a dynamical system because it is one of two approaches that generalizes classical mechanics. The Hamiltonian $\mathcal{H}$ is a scalar function of position $\mathbf{q} = (q_1,q_2,....,q_M)$ and momentum $\mathbf{p} = (p_1,p_2,....,p_M)$. In representing physical systems with a Hamiltonian, one can simply extract the time derivatives of the inputs by differentiating the Hamiltonian with respect to its inputs (see Eqn. \ref{eqn.hamiltonian}.)
+The work in \cite{greydanus_hamiltonian_2019} demonstrates that dynamic predictions through time can be improved using Hamiltonian Neural Networks (HNNs), which endow models with a Hamiltonian constraint. The Hamiltonian is an important representation of a dynamical system because it is one of two approaches that generalizes classical mechanics. The Hamiltonian $\mathcal{H}$ is a scalar function of position $\mathbf{q} = (q_1,q_2,....,q_M)$ and momentum $\mathbf{p} = (p_1,p_2,....,p_M)$. In representing physical systems with a Hamiltonian, one can simply extract the time derivatives of the inputs by differentiating the Hamiltonian with respect to its inputs (see Eqn. \ref{eqn.hamiltonian}.)
 \begin{equation}
 \frac{\mathrm{d}\mathbf{q}}{\mathrm{d}t} = \frac{\partial \mathcal{H}}{\partial \mathbf{p}}, ~~~
 \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = -\frac{\partial \mathcal{H}}{\partial \mathbf{q}}
@@ -182,7 +182,7 @@ and
 
 where $\tau$ represents generalized forces, $T$ is kinetic energy and $V$ is potential energy.
 
-If we are dealing with a rigid body then: $ T = \dot{q}^T M(q) \dot{q} $ where M is the inertia matrix. Replacing this equation in the Euler-Lagrange equation results in:
+If we are dealing with a rigid body then: $ T = \dot{q}^{\mathrm{T}} M(q) \dot{q} $ where M is the inertia matrix. Replacing this equation in the Euler-Lagrange equation results in:
 
 \begin{equation}
  \frac{d}{dt} (M(q)\dot{q}) - \frac{\partial V}{\partial q} = 0; 
@@ -223,14 +223,14 @@ In \cite{zhong_unsupervised_2020}, the authors show that the full Lagrangian dyn
 
 \subsubsection{Lagrangian Neural Networks}
 
-The main premise of LNNs \cite{cranmer_lagrangian_2020} is to tackle the problem of dealing with canonical coordinate spaces. Many datasets do not usually consist of canonical position and momentum, rather they use generalized coordinates. As such, LNNs aim to address learning from generalized coordinates. In addition, they provide a more general framework than DeLANs which were designed to work well with continuous control applications. The unique innovation that LNNs introduce over other methods is that they do not assume any form for the Lagrangian. As such, they vectorized the Euler-Lagrange:
+The main premise of LNNs \cite{cranmer_lagrangian_2020} is to tackle the problem of dealing with canonical coordinate spaces. Many datasets do not usually consist of canonical position and momentum, rather they use generalized coordinates. As such, LNNs aim to address learning from generalized coordinates. In addition, they provide a more general framework than DeLANs which were designed to work well with continuous control applications. The unique innovation that LNNs introduce over other methods is that they do not assume any form for the Lagrangian. As such, they vectorized the Euler-Lagrange equation:
 
 \begin{equation}
 \frac{d}{dt} \nabla_{\dot{q}} \mathcal{L} = \nabla_q \mathcal{L}
 \label{eqn.lnn1}
 \end{equation}
 
-Then, using the chain rule to expand the time derivative by allowing $\nabla_{\dot{q}}\mathcal{L}$ to be a function of $q$ and $\dot{q}$ they obtain:
+Then, using the chain rule to expand the time derivative by allowing $\nabla_{\dot{q}}\mathcal{L}$ to be a function of $q$ and $\dot{q}$, they obtain:
 
 \begin{equation}
 (\nabla_{\dot{q}}\nabla_{\dot{q}}^T \mathcal{L}) \ddot{q} + (\nabla_q \nabla_{\dot{q}}^T \mathcal{L})\dot{q} = \nabla_q \mathcal{L}
@@ -242,11 +242,11 @@ Using matrix inversion, one can obtain $\ddot{q}$.
 
 \subsubsection{Modeling System Dynamics with PINNs on Lagrangian Mechanics}
 
-Unlike LNNs, this paper introduces a functional form for the Lagrangian. The Lagrangian in this paper \cite{roehrl_modeling_2020} is assumed to be $L = T -V$. In addition, they introduce non-conservative forces and the final form is:
+Unlike LNNs, this paper introduces a functional form for the Lagrangian. The Lagrangian in this paper \cite{roehrl_modeling_2020} is assumed to be $L = T -V$. In addition, the authors introduce non-conservative forces and the final form is:
 
 $$ M(q) \ddot{q} + C(q,\dot{q})\dot{q} + G(q) = Q^{ncons} $$
 
-The approach taken by this paper is to feed in the respective components e.g. q,$\dot{q}$ into separate neural network heads designed to predict one of M, C and G. Using this technique, $\ddot{q}$ is backed out and then fed to an RK-4 integrator. In other words, the approach is a simplified version of DeLANs.
+The approach taken by this paper is to feed in the respective components e.g. $q$,$\dot{q}$ into separate neural network heads designed to predict one of $M$, $C$ and $G$. Using this technique, $\ddot{q}$ is backed out and then fed to a RK-4 integrator. In other words, the approach is a simplified version of DeLANs.
 
 \textbf{Bottom Line}: The approach is tethered to a more traditional way of using NNs for predictions and is one of the reasons why model performance is not as good as it can be if backpropagation was used to compute the second derivative of q. In addition, the wrong choice of integrator is a bottleneck for long range predictions in this setting.
 
@@ -257,7 +257,7 @@ Many researchers have identified that embedding integrators into the learning pr
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/4sympnet.png}
-\caption{Symplectic Integrators from \cite{zhong_symplectic_2019} show that their capacity at predicting long range trajectories preserve phase-space volume}
+\caption{Symplectic Integrators from \cite{zhong_symplectic_2019} illustrate their improved capacity over non-symplectic integrators at predicting long range trajectories that preserve phase-space volume.}
 \end{figure}
 
 \subsubsection{Symplectic ODE Net}
@@ -281,7 +281,7 @@ g(q)
 \end{bmatrix} u
 \end{equation}
 
-where $g(q)u$ represents a control variable. If rank(g(q)) is rank(q) the system is fully actuated. For such systems, a controller $u = \beta(q) +v(p) $ can be designed to change the potential energy landscape so as to force a system toward a specific configuration.
+where $g(q)u$ represents a control variable. If rank($g(q$)) is rank($q$) the system is fully actuated \cite{zhong_symplectic_2019}. For such systems, a controller $u = \beta(q) +v(p) $ can be designed to change the potential energy landscape so as to force a system toward a specific configuration.
 
 %If the Hamiltonian is a Newtonian then the authors show:
 %
@@ -308,7 +308,7 @@ A brand new class of methods is proposed in \cite{jin_sympnets_2020}. It avoids 
 \subsection{Gaussian-Based Physics Networks}
 \subsubsection{Learning Constrained Dynamics with Gauss' Principle adhering Gaussian Processes}
 
-\cite{geist_learning_2020} introduces a GP model that utilises mechanical constraints as prior knowledge for learning dynamics of systems. The GP is constrained to satisfy Gauss' Principle. Using Udwadia Kalaba Equation, the acceleration of a particle can be disentangled into an unconstrained acceleration, an ideal constraint and a non-ideal constraint. Using this knowledge, one can feed this structural form into the mean of a gaussian process regression. The process can be used to set priors on unknown parameters linked to the constraints.
+The work of \cite{geist_learning_2020} introduces a Gaussian Process (GP) model that utilises mechanical constraints as prior knowledge for learning system dynamics. The GP is constrained to satisfy Gauss' Principle. Using the Udwadia Kalaba equation, the acceleration of a particle can be disentangled into an unconstrained acceleration, an ideal constraint and a non-ideal constraint. Using this knowledge, one can feed this structural form into the mean of a Gaussian Process regression. The process can be used to set priors on unknown parameters linked to the constraints.
 
 The proposal is important because it tackles constraint optimisation of physics based networks using GPs which can give us explicit uncertainty bounds on our learned trajectories.
 
@@ -325,24 +325,25 @@ $$ u_t + \mathcal{N}[u] = 0 $$
 
 The learning takes place in 3 stages. The first is, given inputs $x$ and $t$, compute $u(x,t)$ using a neural network. The loss of this predicted term is computed using a log likelihood s.t.:
 
-$$ L_i^u = log p(D_i^u|\theta_i^u) = \sum_{j=1}^{n_{st}} log p(\hat{u}_j^{i} | u(x_j,t_j;\theta_i) $$
+$$ L_i^u = \log p(D_i^u|\theta_i^u) = \sum_{j=1}^{n_{st}} \log p(\hat{u}_j^{i} | u(x_j,t_j;\theta_i) $$
 
-where $D$ is the dataset, $\theta$ are the network parameters and $\hat{u}$ is the ground truth function.
+where $D$ is the dataset, $\theta_i$ are the network parameters and $\hat{u}$ is the ground truth function. $i = 1,...,N$ for separate parameters $\theta_i$. $n_{st}$ is the number of samples we have e.g. $ D_i = {x_j,t_j,\hat{u}_j}_{j=1}^{n_{st}} $.
 
-Then, using the computed $u$, define a prior over the derivatives of $u$ e.g. $u_t,u_x,u_xx$. The purpose of doing this is for data-driven discovery. In other words, rather than computing k partial derivatives of u w.r.t the input x, we place a GP prior on the k partial derivatives. The prior is assumed to be Gaussian and is of the form:
+Then, using the computed $u$, define a non-linear function $f(v)$ of the derivatives of $u$ where $v = (u_t,u_x,u_xx,...)$. The purpose of doing this is for data-driven discovery. By placing a prior on $f(v)$, we can figure out the right combination of partial derivatives needed to satisfy $\frac{\partial u}{\partial t} = f(v) $. The prior on this function is assumed to be Gaussian and is of the form:
 
 $$ L^f = p(\hat{u_t}|V) = \mathcal{N} (\hat{u}_t|\mu(V),K_f +\sigma_f^2 I) $$
 
-As such, one can obtain the posterior using variational inference since we do not know the distribution of $L^f$.
+where $K_f$ is an exponential quadratic function and $\sigma_f^2$ is the variance of the Gaussian likelihood.
+The paper opts to use a variational approximation to $f$ since there is a large amount of data that passes through the root.
 
-The main breakthrough of using this approach is uncertainty quantification of the learned operators as well as the convergence in v-space the method illustrates. 
+The main breakthrough of using this approach is uncertainty quantification of the learned operators and function $f(v)$ that describes the differential equation as well as the ability to inspect convergence in v-space that illustrates data coverage and our uncertainties as we move away from these training points.
 
 \subsection{Data Driven Model Discovery}
 
 
 \subsubsection{Discovering Physical Concepts with Neural Networks}
 
-Although this review has looked closely at embedding physical laws into neural networks, some approaches such as \cite{iten_discovering_2020} take on a different approach of not assuming any prior. In other words, the paper sets the 'scientific process' as the prior. By feeding inputs into an encoder to learn a representation and then querying this representation before decoding, the experimental process of learning laws is designed to become a part of the network.
+Although this review has looked closely at embedding physical laws into neural networks, some approaches such as \cite{iten_discovering_2020} take on a different approach of not assuming any prior. In other words, the paper sets the \textit{scientific process} as the prior. By feeding inputs into an encoder to learn a representation and then querying this representation before decoding, the experimental process of learning laws is designed to become a part of the network.
 
 The only caveat to this modelling is the use of disentangled VAEs that are designed to produce orthogonal representations. The assumption here being that every new variable added to the representation should be independent and alter the output landscape separately i.e. the variables should span the output space.
 
@@ -352,7 +353,7 @@ This presents an alternative view to learning physical systems. Motivated by thi
 
 \subsubsection{Discovering Governing equations from data by sparse identification of nonlinear dynamical systems}
 
-The proposed method in \cite{brunton_discovering_2016} tackles learning the governing equations of a physical system by inspecting the sparsity of a function f that satisfies:
+The proposed method in \cite{brunton_discovering_2016} tackles learning the governing equations of a physical system by inspecting the sparsity of a function $f$ that satisfies:
  
  $$ \frac{dx}{dt} = f(x(t)) $$
  
@@ -360,7 +361,7 @@ For most systems, the paper notes that only a small group of derivatives of $x$ 
  
 The method first computes higher order polynomials of the inputs and then uses sparse regression to select the parameters. 
  
-This approach of 'selecting' from a bag of potential functions has been explored extensively in determining governing equations. However, the method relies on having to explicitly build a large matrix of permutations. 
+This approach of `selecting' from a bag of potential functions has been explored extensively in determining governing equations. However, the method relies on having to explicitly build a large matrix of permutations. 
 
 \subsubsection{Symbolic Pregression}
 
@@ -368,7 +369,7 @@ Symbolic pregression combines the approach of discovering relevant coefficients 
 
 \subsection{Physics Informed Generative Adversarial Networks}
 
-GANs have been shown to emulate complex physical concepts such as turbulent flows. In addition, by embedding physical constraints into the generator, GANs can be used to sample deterministic physical constraints. In \cite{yang_enforcing_2019}, the authors define a general physical constraints s.t.:
+Generative Adversarial Networks (GANs) have been shown to emulate complex physical concepts such as turbulent flows. In addition, by embedding physical constraints into the generator, GANs can be used to sample deterministic physical constraints. In \cite{yang_enforcing_2019}, the authors define a general physical constraints s.t.:
 
 $$ H[u] \leq 0$$
 
@@ -376,44 +377,46 @@ where $H$ is a differential operator on a state $u$. Then, by adding this constr
 
 $$V_C(D,G) = V(D,G) + \lambda C_{phys} $$ where:
 
-$$ C_{phys} = \mathbb{E}_{Z} (Max(H(G(Z)),0))$$
+$$ C_{phys} = \mathbb{E}_{Z} (\max(H(G(Z)),0))$$
 
-$V(D,G)$ is the generator loss in a classical GAN. The authors show that such a system can be used to generate samples given specific constraints e.g. generating samples on  circle of radii 3. However, they also show that approximate samples can be drawn for which constraints might be inequalities. 
+where $V(D,G)$ is the generator loss in a classical GAN. The authors show that such a system can be used to generate samples given specific deterministic constraints e.g. generating samples of  circles given a specific radii. However, they also show that approximate samples can be drawn for which constraints might be inequalities. 
 
-Extending this work to build physics informed images might be particularly useful in animation. 
+Extending this work to build physics informed images might be particularly useful in animation and in physical system modelling.
 
 \subsection{Physics Informed Neural Network Applications}
 
 \subsubsection{Chaos}
 
-Using \nameref{HNN}, \cite{choudhary_physics_2019} shows that it is possible to predict the trajectory of a chaotic heinon-heiles system. In addition, they are able to predict trajectories of billiard balls under complex potential functions. \cite{cranmer_lagrangian_2020} also show that the double pendulum system can be learned from data but their approach shows significant practical limitations relating to the complexity of the model used.
+Using \nameref{HNN}, \cite{choudhary_physics_2019} shows that it is possible to predict the trajectory of a chaotic heinon-heiles system. In addition, they are able to predict trajectories of billiard balls under complex potential functions. The authors of \cite{cranmer_lagrangian_2020} also show that the double pendulum system can be learned from data but their approach shows significant practical limitations relating to the complexity of the model used.
 
 \textbf{Bottom Line}: Our preliminary idea was to see if HNNs can be used to learn the dynamics of a double pendulum. However, our  results show that high energy chaotic systems are quite difficult to learn. However, this line of work can establish new ways of developing neural networks that are more sensitive to their inputs. 
 
 
 \subsubsection{Materials}
 
-In numerous papers, \cite{rupp_fast_2012,witkoskie_neural_2005,pukrittayakamee_simultaneous_2009,smith_ani-1_2017,yao_tensormol-01_2018} the use of physics priors have been used to model materials. Some have taken a more traditional ML approach to predict materials properties such as \cite{rupp_fast_2012}, while others have looked at using deep networks such as \cite{wang_machine_2019} in which convolutional networks are used to extract meaningful Hamiltonian representations of magnetic materials.
+In numerous papers, \cite{rupp_fast_2012,witkoskie_neural_2005,pukrittayakamee_simultaneous_2009,smith_ani-1_2017,yao_tensormol-01_2018} the use of physics priors has been used to model materials. Some have taken a more traditional ML approach to predict materials properties such as \cite{rupp_fast_2012}, while others have looked at using deep networks such as \cite{wang_machine_2019} in which convolutional networks are used to extract meaningful Hamiltonian representations of magnetic materials.
 
 
 \subsection{Causality}
 
-Bayesian networks are probabilistic graphical models that can represent conditional dependencies using a Directed Acyclic Graph. The main logic behind these methods is that a probabilistic approach to determining a marginal distribution can be linked to a graph structure if certain conditional dependencies are met. 
+Bayesian networks are probabilistic graphical models that can represent conditional dependencies using a Directed Acyclic Graph (DAG). The main logic behind these methods is that a probabilistic approach to determining a marginal distribution can be linked to a graph structure if certain conditional dependencies are met. 
 
-Learning DAGs from data is an NP-hard problem, but the NOTEARS algorithm \cite{zheng_dags_2018} presents a way to tackle this combinatorial search by converting the problem into a continuous optimization problem. The main contribution of the paper is a penalization of the weight matrix so that it is acyclic. From studies of graphs we know that the n'th power of an adjacency matrix gives us the lengths of walk k between two nodes. As such, all we need to do is enforce that all the diagonals of the powers of the adjacency matrices are set to zero. 
+Learning DAGs from data is an NP-hard problem, but the NOTEARS algorithm \cite{zheng_dags_2018} presents a way to tackle this combinatorial search by converting the problem into a continuous optimization problem. The main contribution of the paper is a penalization of the weight matrix so that it is acyclic. From studies of graphs we know that the n'th power of an adjacency matrix gives us the lengths of walk $k$ between two nodes. As such, all we need to do is enforce that all the diagonals of the powers of the adjacency matrices are set to zero. 
 
 In other words:
 
 $$ tr(I-B)^{-1} = d $$
 
-must be satisfied where B is an adjacency matrix and d is the number of columns/rows in B. Embedding this into the learning process is imparting an inductive bias on learning. 
+must be satisfied where $B$ is an adjacency matrix and d is the number of columns/rows in $B$. Embedding this into the learning process is imparting an inductive bias on learning. 
 
 It was with this in mind that DYNOTEARS \cite{pamfil_dynotears_2020} were able to extend the work into the temporal setting and learn dynamic bayesian networks. In principle, by adding an additional weight matrix to learning and penalizing it in the same way that NOTEARS does.
 
 Furthermore, it has been shown that the NOTEARS constraint can be embedded in graph neural networks \cite{lachapelle_gradient-based_2020,yu_dag-gnn_nodate}.
 
 
+\section{Conclusion}
 
+This literature review has explored state-of-the-art deep networks designed to learn physical systems from data. While some methods focus on energy conservation, others look to discover the underlying equations of motion. In all these settings, the use of physically informed inductive biases plays a crucial role in the learning process. With this in mind, we see numerous pathways to extending the existing literature, with emphasis on the need for better applications, improved generalizability from visual data and a focus on quantifying uncertainty. Needless to say, we are excited by the advances made in the field and see scope to extend inductive biases from other domains into neural networks.
 
 %\section{Notes}
 %
